@@ -1,0 +1,4 @@
+esiea_platform:
+    resource: "@ESIEAPlatformBundle/Resources/config/routing.yml"
+    prefix:   /
+
