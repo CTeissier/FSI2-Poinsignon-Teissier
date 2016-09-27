@@ -100,9 +100,25 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // hello_the_world
-        if ($pathinfo === '/hello-world') {
-            return array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\AdvertController::indexAction',  '_route' => 'hello_the_world',);
+        if (0 === strpos($pathinfo, '/platform')) {
+            // esiea_platform_home
+            if ($pathinfo === '/platform') {
+                return array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\AdvertController::indexAction',  '_route' => 'esiea_platform_home',);
+            }
+
+            if (0 === strpos($pathinfo, '/platform/ad')) {
+                // esiea_platform_view
+                if (0 === strpos($pathinfo, '/platform/advert') && preg_match('#^/platform/advert/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'esiea_platform_view')), array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\AdvertController::viewAction',));
+                }
+
+                // esiea_platform_add
+                if ($pathinfo === '/platform/add') {
+                    return array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\AdvertController::addAction',  '_route' => 'esiea_platform_add',);
+                }
+
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

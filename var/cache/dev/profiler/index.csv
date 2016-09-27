@@ -1,0 +1,11 @@
+6c7cdd,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/advert/5,1475006162,642567,200
+642567,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/advert/5,1475006163,,404
+cd02d2,::1,GET,http://localhost/Symfony/web/app_dev.php/platform,1475006207,8f43c4,200
+8f43c4,::1,GET,http://localhost/Symfony/web/app_dev.php/platform,1475006207,,404
+1e250a,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/,1475006215,55c19a,200
+55c19a,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/,1475006215,,404
+e3eb49,::1,GET,http://localhost/Symfony/web/app_dev.php/platform,1475006479,571cc6,200
+571cc6,::1,GET,http://localhost/Symfony/web/app_dev.php/platform,1475006479,,500
+127850,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/advert/5,1475006564,,200
+6a697e,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/advert/5,1475007041,,200
+1ada8d,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/advert/10,1475007529,,200

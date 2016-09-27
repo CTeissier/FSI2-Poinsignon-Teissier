@@ -1,8 +1,35 @@
 # src/ESIEA/PlatformBundle/Resources/config/routing.yml
 
 
-hello_the_world:
 
-    path:     /hello-world
 
-    defaults: { _controller: ESIEAPlatformBundle:Advert:index }
+esiea_platform_home:
+
+    path:      /platform
+
+    defaults:
+
+        _controller: ESIEAPlatformBundle:Advert:index
+
+    
+
+esiea_platform_view:
+
+    path:      /platform/advert/{id}
+
+    defaults:
+
+        _controller: ESIEAPlatformBundle:Advert:view
+
+    
+
+esiea_platform_add:
+
+    path:      /platform/add
+
+    defaults:
+
+        _controller: ESIEAPlatformBundle:Advert:add
+
+
+
