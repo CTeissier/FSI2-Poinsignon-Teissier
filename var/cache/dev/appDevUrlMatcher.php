@@ -102,7 +102,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         if (0 === strpos($pathinfo, '/platform')) {
             // esiea_platform_home
-            if ($pathinfo === '/platform') {
+            if ($pathinfo === '/platform/platform') {
                 return array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\AdvertController::indexAction',  '_route' => 'esiea_platform_home',);
             }
 
@@ -117,6 +117,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\AdvertController::addAction',  '_route' => 'esiea_platform_add',);
                 }
 
+            }
+
+            // esiea_platform_view_slug
+            if (preg_match('#^/platform/(?P<year>\\d{4})/(?P<slug>[^/\\.]++)(?:\\.(?P<format>html|xml))?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'esiea_platform_view_slug')), array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\AdvertController::viewSlugAction',  'format' => 'html',));
             }
 
         }
