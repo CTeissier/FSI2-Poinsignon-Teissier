@@ -1,46 +1,131 @@
 <?php
 
-// # src/ESIEA/PlatformBundle/Resources/config/AdvertController.php
+
+// src/ESIEA/PlatformBundle/Controller/AdvertController.php
 
 namespace ESIEA\PlatformBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
-
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-#Génération d'un URL absolu
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
 class AdvertController extends Controller
+
 {
 
-/*public function viewAction($id)
+  public function indexAction($page)
 
   {
-    return new Response("Affichage de l'annonce d'id : ".$id);
-  }*/
 
+    // On ne sait pas combien de pages il y a
 
- /*public function viewSlugAction($slug, $year, $format)
+    // Mais on sait qu'une page doit être supérieure ou égale à 1
 
-    {
-        return new Response(
-            "On pourrait afficher l'annonce correspondant au
+    if ($page < 1) {
 
-            slug '".$slug."', créée en ".$year." et au format ".$format."."
-        );  
-	}*/
+      // On déclenche une exception NotFoundHttpException, cela va afficher
 
-	 public function viewAction()
-    {
-        // On veut avoir l'URL de l'annonce d'id 5.
-        $url = $this->get('router')->generate(
-            'esiea_platform_view', // 1er argument : le nom de la route
-            array('id' => 5), UrlGeneratorInterface::ABSOLUTE_URL    // 2e argument : les valeurs des paramètres
-            #Génération d'un URL absolue
-        );
-        // $url vaut « /platform/advert/5 »
-        
-        return new Response("L'URL de l'annonce d'id 5 est : ".$url);
+      // une page d'erreur 404 (qu'on pourra personnaliser plus tard d'ailleurs)
+
+      throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
+
     }
+
+
+    // Ici, on récupérera la liste des annonces, puis on la passera au template
+
+
+    // Mais pour l'instant, on ne fait qu'appeler le template
+
+    return $this->render('ESIEAPlatformBundle:Advert:index.html.twig');
+
+  }
+
+
+  public function viewAction($id)
+
+  {
+
+    // Ici, on récupérera l'annonce correspondante à l'id $id
+
+
+    return $this->render('ESIEAPlatformBundle:Advert:view.html.twig', array(
+
+      'id' => $id
+
+    ));
+
+  }
+
+
+  public function addAction(Request $request)
+
+  {
+
+    // La gestion d'un formulaire est particulière, mais l'idée est la suivante :
+
+
+    // Si la requête est en POST, c'est que le visiteur a soumis le formulaire
+
+    if ($request->isMethod('POST')) {
+
+      // Ici, on s'esieacupera de la création et de la gestion du formulaire
+
+
+      $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+
+
+      // Puis on redirige vers la page de visualisation de cettte annonce
+
+      return $this->redirectToRoute('esiea_platform_view', array('id' => 5));
+
+    }
+
+
+    // Si on n'est pas en POST, alors on affiche le formulaire
+
+    return $this->render('ESIEAPlatformBundle:Advert:add.html.twig');
+
+  }
+
+
+  public function editAction($id, Request $request)
+
+  {
+
+    // Ici, on récupérera l'annonce correspondante à $id
+
+
+    // Même mécanisme que pour l'ajout
+
+    if ($request->isMethod('POST')) {
+
+      $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
+
+
+      return $this->redirectToRoute('esiea_platform_view', array('id' => 5));
+
+    }
+
+
+    return $this->render('ESIEAPlatformBundle:Advert:edit.html.twig');
+
+  }
+
+
+  public function deleteAction($id)
+
+  {
+
+    // Ici, on récupérera l'annonce correspondant à $id
+
+
+    // Ici, on gérera la suppression de l'annonce en question
+
+
+    return $this->render('ESIEAPlatformBundle:Advert:delete.html.twig');
+
+  }
+
 }

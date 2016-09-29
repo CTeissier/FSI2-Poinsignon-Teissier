@@ -1,39 +1,21 @@
 {# src/ESIEA/PlatformBundle/Resources/views/Advert/index.html.twig #}
 
-
 <!DOCTYPE html>
-
 <html>
-
-<a href="{{ path('esiea_platform_view', { 'id': advert_id }) }}">
-
-    Lien vers l'annonce d'id {{ advert_id }}
-
-</a>
-
   <head>
-
     <title>Bienvenue sur ma première page avec OpenClassrooms !</title>
-
   </head>
-
   <body>
-
-    <h1>Hello World {{ nom }} !</h1>
-
+    <h1>Hello {{ nom }} !</h1>
 
     <p>
-
       Le Hello World est un grand classique en programmation.
-
       Il signifie énormément, car cela veut dire que vous avez
-
       réussi à exécuter le programme pour accomplir une tâche simple :
-
       afficher ce hello world !
-
     </p>
-
+    <p>
+      Lien vers l'annonce d'id 5 : <a href="{{ path('esiea_platform_view', {'id': 5}) }}">ici</a>
+    </p>
   </body>
-
 </html>

@@ -1,56 +1,19 @@
 # src/ESIEA/PlatformBundle/Resources/config/routing.yml
 
-
-
-
 esiea_platform_home:
-
-    path:      /platform
-
+    path:      /{page}
     defaults:
-
         _controller: ESIEAPlatformBundle:Advert:index
-
+        page:        1
+    requirements:
+        page: \d*
     
-
 esiea_platform_view:
-
     path:      /advert/{id}
-
     defaults:
-
         _controller: ESIEAPlatformBundle:Advert:view
     requirements:
-        id: \d+ #Récupération des annonces
-
-
-
-
-esiea_platform_view_slug:
-
-    path:      /{year}/{slug}.{format}
-
-    defaults:
-        _controller: ESIEAPlatformBundle:Advert:viewSlug
-        format: html
-    requirements:
-        year: \d{4}
-        format: html|xml
-
-#Routage des pages
-esiea_platform_home: 
-
-    path:      /{page}
-
-    defaults:
-
-        _controller: ESIEAPlatformBundle:Advert:index
-
-        page:        1
-
-    requirements:
-
-        page: \d*
+        id: \d+
 
 esiea_platform_add:
     path:      /add
@@ -70,4 +33,3 @@ esiea_platform_delete:
         _controller: ESIEAPlatformBundle:Advert:delete
     requirements:
         id: \d+
-
