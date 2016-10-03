@@ -15,6 +15,8 @@ class ComposerStaticInitcb84976f06208737c5906295d4741c1c
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
         '32dcc8afd4335739640db7d200c1971d' => __DIR__ . '/..' . '/symfony/polyfill-apcu/bootstrap.php',
+        'c64810ed4fdc029d2b52d6fb0ed30175' => __DIR__ . '/../..' . '/app/AppKernel.php',
+        '453afa5bb158a8d75a6d77265748a844' => __DIR__ . '/../..' . '/app/AppCache.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -60,6 +62,7 @@ class ComposerStaticInitcb84976f06208737c5906295d4741c1c
             'Doctrine\\Instantiator\\' => 22,
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\' => 16,
+            'Doctrine\\Bundle\\FixturesBundle\\' => 31,
             'Doctrine\\Bundle\\DoctrineCacheBundle\\' => 36,
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
         ),
@@ -166,6 +169,10 @@ class ComposerStaticInitcb84976f06208737c5906295d4741c1c
         array (
             0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
         ),
+        'Doctrine\\Bundle\\FixturesBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/doctrine-fixtures-bundle',
+        ),
         'Doctrine\\Bundle\\DoctrineCacheBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/doctrine-cache-bundle',
@@ -213,6 +220,10 @@ class ComposerStaticInitcb84976f06208737c5906295d4741c1c
             array (
                 0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
             ),
+            'Doctrine\\Common\\DataFixtures' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/data-fixtures/lib',
+            ),
             'Doctrine\\Common\\Collections\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/collections/lib',
@@ -225,8 +236,6 @@ class ComposerStaticInitcb84976f06208737c5906295d4741c1c
     );
 
     public static $classMap = array (
-        'AppCache' => __DIR__ . '/../..' . '/app/AppCache.php',
-        'AppKernel' => __DIR__ . '/../..' . '/app/AppKernel.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'Collator' => __DIR__ . '/..' . '/symfony/symfony/src/Symfony/Component/Intl/Resources/stubs/Collator.php',
