@@ -10,6 +10,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AdvertController extends Controller
 {
+
+
+
+
+
   public function indexAction($page)
   {
     if ($page < 1) {
@@ -66,6 +71,15 @@ class AdvertController extends Controller
 
       // Puis on redirige vers la page de visualisation de cettte annonce
       return $this->redirectToRoute('ESIEA_platform_view', array('id' => 5));
+    }
+
+
+     $antispam = $this->container->get('esiea_platform.antispam');
+
+    // Je pars du principe que $text contient le texte d'un message quelconque
+    $text = '...';
+    if ($antispam->isSpam($text)) {
+      throw new \Exception('Votre message a été détecté comme spam !');
     }
 
     // Si on n'est pas en POST, alors on affiche le formulaire

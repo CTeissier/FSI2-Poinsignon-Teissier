@@ -131,6 +131,20 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // esiea_core_home
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'esiea_core_home');
+            }
+
+            return array (  '_controller' => 'ESIEA\\CoreBundle\\Controller\\CoreController::indexAction',  '_route' => 'esiea_core_home',);
+        }
+
+        // esiea_core_contact
+        if ($pathinfo === '/contact') {
+            return array (  '_controller' => 'ESIEA\\CoreBundle\\Controller\\CoreController::contactAction',  '_route' => 'esiea_core_contact',);
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

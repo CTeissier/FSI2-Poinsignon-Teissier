@@ -14,4 +14,6 @@ return array(
     '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => $vendorDir . '/symfony/polyfill-mbstring/bootstrap.php',
     '6a47392539ca2329373e0d33e1dba053' => $vendorDir . '/symfony/polyfill-intl-icu/bootstrap.php',
     '32dcc8afd4335739640db7d200c1971d' => $vendorDir . '/symfony/polyfill-apcu/bootstrap.php',
+    'c64810ed4fdc029d2b52d6fb0ed30175' => $baseDir . '/app/AppKernel.php',
+    '453afa5bb158a8d75a6d77265748a844' => $baseDir . '/app/AppCache.php',
 );

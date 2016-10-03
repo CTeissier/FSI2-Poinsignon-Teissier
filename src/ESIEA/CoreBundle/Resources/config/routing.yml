@@ -1,0 +1,11 @@
+# src/ESIEA/CoreBundle/Resources/config/routing.yml
+
+esiea_core_home:
+    path: /
+    defaults:
+        _controller: ESIEACoreBundle:Core:index
+
+esiea_core_contact:
+    path: /contact
+    defaults:
+        _controller: ESIEACoreBundle:Core:contact
