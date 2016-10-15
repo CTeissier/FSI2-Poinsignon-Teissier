@@ -2013,7 +2013,7 @@ array_unshift($paths, $currentPath);
 $paths = array_unique($paths);
 $filepaths = array();
 foreach ($paths as $path) {
-if (file_exists($file = $path.DIRECTORY_SEPARATOR.$name)) {
+if (@file_exists($file = $path.DIRECTORY_SEPARATOR.$name)) {
 if (true === $first) {
 return $file;
 }
@@ -2416,9 +2416,11 @@ use Symfony\Component\HttpFoundation\Request;
 class ControllerResolver implements ArgumentResolverInterface, ControllerResolverInterface
 {
 private $logger;
+private $supportsVariadic;
 public function __construct(LoggerInterface $logger = null)
 {
 $this->logger = $logger;
+$this->supportsVariadic = method_exists('ReflectionParameter','isVariadic');
 }
 public function getController(Request $request)
 {
@@ -2470,7 +2472,7 @@ $attributes = $request->attributes->all();
 $arguments = array();
 foreach ($parameters as $param) {
 if (array_key_exists($param->name, $attributes)) {
-if (PHP_VERSION_ID >= 50600 && $param->isVariadic() && is_array($attributes[$param->name])) {
+if ($this->supportsVariadic && $param->isVariadic() && is_array($attributes[$param->name])) {
 $arguments = array_merge($arguments, array_values($attributes[$param->name]));
 } else {
 $arguments[] = $attributes[$param->name];
@@ -2479,6 +2481,8 @@ $arguments[] = $attributes[$param->name];
 $arguments[] = $request;
 } elseif ($param->isDefaultValueAvailable()) {
 $arguments[] = $param->getDefaultValue();
+} elseif ($param->allowsNull()) {
+$arguments[] = null;
 } else {
 if (is_array($controller)) {
 $repr = sprintf('%s::%s()', get_class($controller[0]), $controller[1]);
@@ -2599,7 +2603,7 @@ $representative = sprintf('%s::%s()', get_class($representative[0]), $representa
 } elseif (is_object($representative)) {
 $representative = get_class($representative);
 }
-throw new \RuntimeException(sprintf('Controller "%s" requires that you provide a value for the "$%s" argument (because there is no default value or because there is a non optional argument after this one).', $representative, $metadata->getName()));
+throw new \RuntimeException(sprintf('Controller "%s" requires that you provide a value for the "$%s" argument. Either the argument is nullable and no null value has been provided, no default value has been provided or because there is a non optional argument after this one.', $representative, $metadata->getName()));
 }
 return $arguments;
 }
@@ -2614,13 +2618,15 @@ private $type;
 private $isVariadic;
 private $hasDefaultValue;
 private $defaultValue;
-public function __construct($name, $type, $isVariadic, $hasDefaultValue, $defaultValue)
+private $isNullable;
+public function __construct($name, $type, $isVariadic, $hasDefaultValue, $defaultValue, $isNullable = false)
 {
 $this->name = $name;
 $this->type = $type;
 $this->isVariadic = $isVariadic;
 $this->hasDefaultValue = $hasDefaultValue;
 $this->defaultValue = $defaultValue;
+$this->isNullable = (bool) $isNullable;
 }
 public function getName()
 {
@@ -2637,6 +2643,10 @@ return $this->isVariadic;
 public function hasDefaultValue()
 {
 return $this->hasDefaultValue;
+}
+public function isNullable()
+{
+return $this->isNullable;
 }
 public function getDefaultValue()
 {
@@ -2658,6 +2668,13 @@ namespace Symfony\Component\HttpKernel\ControllerMetadata
 {
 final class ArgumentMetadataFactory implements ArgumentMetadataFactoryInterface
 {
+private $supportsVariadic;
+private $supportsParameterType;
+public function __construct()
+{
+$this->supportsVariadic = method_exists('ReflectionParameter','isVariadic');
+$this->supportsParameterType = method_exists('ReflectionParameter','getType');
+}
 public function createArgumentMetadata($controller)
 {
 $arguments = array();
@@ -2669,17 +2686,24 @@ $reflection = (new \ReflectionObject($controller))->getMethod('__invoke');
 $reflection = new \ReflectionFunction($controller);
 }
 foreach ($reflection->getParameters() as $param) {
-$arguments[] = new ArgumentMetadata($param->getName(), $this->getType($param), $this->isVariadic($param), $this->hasDefaultValue($param), $this->getDefaultValue($param));
+$arguments[] = new ArgumentMetadata($param->getName(), $this->getType($param), $this->isVariadic($param), $this->hasDefaultValue($param), $this->getDefaultValue($param), $this->isNullable($param));
 }
 return $arguments;
 }
 private function isVariadic(\ReflectionParameter $parameter)
 {
-return PHP_VERSION_ID >= 50600 && $parameter->isVariadic();
+return $this->supportsVariadic && $parameter->isVariadic();
 }
 private function hasDefaultValue(\ReflectionParameter $parameter)
 {
 return $parameter->isDefaultValueAvailable();
+}
+private function isNullable(\ReflectionParameter $parameter)
+{
+if ($this->supportsParameterType) {
+return null !== ($type = $parameter->getType()) && $type->allowsNull();
+}
+return $this->hasDefaultValue($parameter) && null === $this->getDefaultValue($parameter);
 }
 private function getDefaultValue(\ReflectionParameter $parameter)
 {
@@ -2687,7 +2711,7 @@ return $this->hasDefaultValue($parameter) ? $parameter->getDefaultValue() : null
 }
 private function getType(\ReflectionParameter $parameter)
 {
-if (PHP_VERSION_ID >= 70000) {
+if ($this->supportsParameterType) {
 return $parameter->hasType() ? (string) $parameter->getType() : null;
 }
 if ($parameter->isArray()) {
@@ -3484,7 +3508,7 @@ namespace
 {
 class Twig_Environment
 {
-const VERSION ='1.26.0';
+const VERSION ='1.26.1';
 protected $charset;
 protected $loader;
 protected $debug;
@@ -5243,7 +5267,10 @@ public function __construct(Twig_Environment $env)
 $this->env = $env;
 }
 abstract public function getTemplateName();
-abstract public function getDebugInfo();
+public function getDebugInfo()
+{
+return array();
+}
 public function getSource()
 {
 return'';
