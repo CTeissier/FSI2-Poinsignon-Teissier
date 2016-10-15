@@ -33,15 +33,20 @@
         "symfony/polyfill-apcu": "^1.0",
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
-          "doctrine/doctrine-fixtures-bundle": "~2.3",
-        "incenteev/composer-parameter-handler": "^2.0"
+        "doctrine/doctrine-fixtures-bundle": "~2.3",
+        "incenteev/composer-parameter-handler": "^2.0",
+        "symfony/assetic-bundle": "^2.7.1",
+        "leafo/scssphp": "~0.6",
+        "patchwork/jsqueeze": "~1.0"
+
+
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0"
     },
-    "scripts": {
-        "symfony-scripts": [
+ "scripts": {
+        "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
@@ -49,13 +54,15 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
-        "post-install-cmd": [
-            "@symfony-scripts"
-        ],
         "post-update-cmd": [
-            "@symfony-scripts"
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ]
-    },
+},
     "extra": {
         "symfony-app-dir": "app",
         "symfony-bin-dir": "bin",

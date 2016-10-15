@@ -1207,6 +1207,11 @@ public function __construct(Twig_Environment $env)
 $this->env = $env;
 }
 abstract public function getTemplateName();
+abstract public function getDebugInfo();
+public function getSource()
+{
+return'';
+}
 public function getEnvironment()
 {
 @trigger_error('The '.__METHOD__.' method is deprecated since version 1.20 and will be removed in 2.0.', E_USER_DEPRECATED);
@@ -1251,7 +1256,7 @@ $this->traits[$name][0]->displayBlock($name, $context, $blocks, false);
 } elseif (false !== $parent = $this->getParent($context)) {
 $parent->displayBlock($name, $context, $blocks, false);
 } else {
-throw new Twig_Error_Runtime(sprintf('The template has no parent and no traits defining the "%s" block', $name), -1, $this->getTemplateName());
+throw new Twig_Error_Runtime(sprintf('The template has no parent and no traits defining the "%s" block.', $name), -1, $this->getTemplateName());
 }
 }
 public function displayBlock($name, array $context, array $blocks = array(), $useBlocks = true)
@@ -1338,23 +1343,6 @@ public function getBlocks()
 {
 return $this->blocks;
 }
-public function getSource()
-{
-$reflector = new ReflectionClass($this);
-$file = $reflector->getFileName();
-if (!file_exists($file)) {
-return;
-}
-$source = file($file, FILE_IGNORE_NEW_LINES);
-array_splice($source, 0, $reflector->getEndLine());
-$i = 0;
-while (isset($source[$i]) &&'/* */'=== substr_replace($source[$i],'', 3, -2)) {
-$source[$i] = str_replace('*//* ','*/', substr($source[$i], 3, -2));
-++$i;
-}
-array_splice($source, $i);
-return implode("\n", $source);
-}
 public function display(array $context, array $blocks = array())
 {
 $this->displayWithErrorHandling($this->env->mergeGlobals($context), array_merge($this->blocks, $blocks));
@@ -1402,7 +1390,7 @@ if (!array_key_exists($item, $context)) {
 if ($ignoreStrictCheck || !$this->env->isStrictVariables()) {
 return;
 }
-throw new Twig_Error_Runtime(sprintf('Variable "%s" does not exist', $item), -1, $this->getTemplateName());
+throw new Twig_Error_Runtime(sprintf('Variable "%s" does not exist.', $item), -1, $this->getTemplateName());
 }
 return $context[$item];
 }
@@ -1426,25 +1414,25 @@ if ($ignoreStrictCheck || !$this->env->isStrictVariables()) {
 return;
 }
 if ($object instanceof ArrayAccess) {
-$message = sprintf('Key "%s" in object with ArrayAccess of class "%s" does not exist', $arrayItem, get_class($object));
+$message = sprintf('Key "%s" in object with ArrayAccess of class "%s" does not exist.', $arrayItem, get_class($object));
 } elseif (is_object($object)) {
-$message = sprintf('Impossible to access a key "%s" on an object of class "%s" that does not implement ArrayAccess interface', $item, get_class($object));
+$message = sprintf('Impossible to access a key "%s" on an object of class "%s" that does not implement ArrayAccess interface.', $item, get_class($object));
 } elseif (is_array($object)) {
 if (empty($object)) {
-$message = sprintf('Key "%s" does not exist as the array is empty', $arrayItem);
+$message = sprintf('Key "%s" does not exist as the array is empty.', $arrayItem);
 } else {
-$message = sprintf('Key "%s" for array with keys "%s" does not exist', $arrayItem, implode(', ', array_keys($object)));
+$message = sprintf('Key "%s" for array with keys "%s" does not exist.', $arrayItem, implode(', ', array_keys($object)));
 }
 } elseif (self::ARRAY_CALL === $type) {
 if (null === $object) {
-$message = sprintf('Impossible to access a key ("%s") on a null variable', $item);
+$message = sprintf('Impossible to access a key ("%s") on a null variable.', $item);
 } else {
-$message = sprintf('Impossible to access a key ("%s") on a %s variable ("%s")', $item, gettype($object), $object);
+$message = sprintf('Impossible to access a key ("%s") on a %s variable ("%s").', $item, gettype($object), $object);
 }
 } elseif (null === $object) {
-$message = sprintf('Impossible to access an attribute ("%s") on a null variable', $item);
+$message = sprintf('Impossible to access an attribute ("%s") on a null variable.', $item);
 } else {
-$message = sprintf('Impossible to access an attribute ("%s") on a %s variable ("%s")', $item, gettype($object), $object);
+$message = sprintf('Impossible to access an attribute ("%s") on a %s variable ("%s").', $item, gettype($object), $object);
 }
 throw new Twig_Error_Runtime($message, -1, $this->getTemplateName());
 }
@@ -1457,9 +1445,9 @@ if ($ignoreStrictCheck || !$this->env->isStrictVariables()) {
 return;
 }
 if (null === $object) {
-$message = sprintf('Impossible to invoke a method ("%s") on a null variable', $item);
+$message = sprintf('Impossible to invoke a method ("%s") on a null variable.', $item);
 } else {
-$message = sprintf('Impossible to invoke a method ("%s") on a %s variable ("%s")', $item, gettype($object), $object);
+$message = sprintf('Impossible to invoke a method ("%s") on a %s variable ("%s").', $item, gettype($object), $object);
 }
 throw new Twig_Error_Runtime($message, -1, $this->getTemplateName());
 }
@@ -1467,8 +1455,8 @@ if (self::METHOD_CALL !== $type && !$object instanceof self) { if (isset($object
 if ($isDefinedTest) {
 return true;
 }
-if ($this->env->hasExtension('sandbox')) {
-$this->env->getExtension('sandbox')->checkPropertyAllowed($object, $item);
+if ($this->env->hasExtension('Twig_Extension_Sandbox')) {
+$this->env->getExtension('Twig_Extension_Sandbox')->checkPropertyAllowed($object, $item);
 }
 return $object->$item;
 }
@@ -1507,13 +1495,13 @@ return false;
 if ($ignoreStrictCheck || !$this->env->isStrictVariables()) {
 return;
 }
-throw new Twig_Error_Runtime(sprintf('Neither the property "%1$s" nor one of the methods "%1$s()", "get%1$s()"/"is%1$s()" or "__call()" exist and have public access in class "%2$s"', $item, get_class($object)), -1, $this->getTemplateName());
+throw new Twig_Error_Runtime(sprintf('Neither the property "%1$s" nor one of the methods "%1$s()", "get%1$s()"/"is%1$s()" or "__call()" exist and have public access in class "%2$s".', $item, get_class($object)), -1, $this->getTemplateName());
 }
 if ($isDefinedTest) {
 return true;
 }
-if ($this->env->hasExtension('sandbox')) {
-$this->env->getExtension('sandbox')->checkMethodAllowed($object, $method);
+if ($this->env->hasExtension('Twig_Extension_Sandbox')) {
+$this->env->getExtension('Twig_Extension_Sandbox')->checkMethodAllowed($object, $method);
 }
 try {
 $ret = call_user_func_array(array($object, $method), $arguments);
@@ -1999,193 +1987,6 @@ return $cnt;
 }
 }
 }
-namespace Doctrine\Common\Lexer
-{
-abstract class AbstractLexer
-{
-private $input;
-private $tokens = array();
-private $position = 0;
-private $peek = 0;
-public $lookahead;
-public $token;
-public function setInput($input)
-{
-$this->input = $input;
-$this->tokens = array();
-$this->reset();
-$this->scan($input);
-}
-public function reset()
-{
-$this->lookahead = null;
-$this->token = null;
-$this->peek = 0;
-$this->position = 0;
-}
-public function resetPeek()
-{
-$this->peek = 0;
-}
-public function resetPosition($position = 0)
-{
-$this->position = $position;
-}
-public function getInputUntilPosition($position)
-{
-return substr($this->input, 0, $position);
-}
-public function isNextToken($token)
-{
-return null !== $this->lookahead && $this->lookahead['type'] === $token;
-}
-public function isNextTokenAny(array $tokens)
-{
-return null !== $this->lookahead && in_array($this->lookahead['type'], $tokens, true);
-}
-public function moveNext()
-{
-$this->peek = 0;
-$this->token = $this->lookahead;
-$this->lookahead = (isset($this->tokens[$this->position]))
-? $this->tokens[$this->position++] : null;
-return $this->lookahead !== null;
-}
-public function skipUntil($type)
-{
-while ($this->lookahead !== null && $this->lookahead['type'] !== $type) {
-$this->moveNext();
-}
-}
-public function isA($value, $token)
-{
-return $this->getType($value) === $token;
-}
-public function peek()
-{
-if (isset($this->tokens[$this->position + $this->peek])) {
-return $this->tokens[$this->position + $this->peek++];
-} else {
-return null;
-}
-}
-public function glimpse()
-{
-$peek = $this->peek();
-$this->peek = 0;
-return $peek;
-}
-protected function scan($input)
-{
-static $regex;
-if ( ! isset($regex)) {
-$regex = sprintf('/(%s)|%s/%s',
-implode(')|(', $this->getCatchablePatterns()),
-implode('|', $this->getNonCatchablePatterns()),
-$this->getModifiers()
-);
-}
-$flags = PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_OFFSET_CAPTURE;
-$matches = preg_split($regex, $input, -1, $flags);
-foreach ($matches as $match) {
-$type = $this->getType($match[0]);
-$this->tokens[] = array('value'=> $match[0],'type'=> $type,'position'=> $match[1],
-);
-}
-}
-public function getLiteral($token)
-{
-$className = get_class($this);
-$reflClass = new \ReflectionClass($className);
-$constants = $reflClass->getConstants();
-foreach ($constants as $name => $value) {
-if ($value === $token) {
-return $className .'::'. $name;
-}
-}
-return $token;
-}
-protected function getModifiers()
-{
-return'i';
-}
-abstract protected function getCatchablePatterns();
-abstract protected function getNonCatchablePatterns();
-abstract protected function getType(&$value);
-}
-}
-namespace Doctrine\Common\Annotations
-{
-use Doctrine\Common\Lexer\AbstractLexer;
-final class DocLexer extends AbstractLexer
-{
-const T_NONE = 1;
-const T_INTEGER = 2;
-const T_STRING = 3;
-const T_FLOAT = 4;
-const T_IDENTIFIER = 100;
-const T_AT = 101;
-const T_CLOSE_CURLY_BRACES = 102;
-const T_CLOSE_PARENTHESIS = 103;
-const T_COMMA = 104;
-const T_EQUALS = 105;
-const T_FALSE = 106;
-const T_NAMESPACE_SEPARATOR = 107;
-const T_OPEN_CURLY_BRACES = 108;
-const T_OPEN_PARENTHESIS = 109;
-const T_TRUE = 110;
-const T_NULL = 111;
-const T_COLON = 112;
-protected $noCase = array('@'=> self::T_AT,','=> self::T_COMMA,'('=> self::T_OPEN_PARENTHESIS,')'=> self::T_CLOSE_PARENTHESIS,'{'=> self::T_OPEN_CURLY_BRACES,'}'=> self::T_CLOSE_CURLY_BRACES,'='=> self::T_EQUALS,':'=> self::T_COLON,'\\'=> self::T_NAMESPACE_SEPARATOR
-);
-protected $withCase = array('true'=> self::T_TRUE,'false'=> self::T_FALSE,'null'=> self::T_NULL
-);
-protected function getCatchablePatterns()
-{
-return array('[a-z_\\\][a-z0-9_\:\\\]*[a-z_][a-z0-9_]*','(?:[+-]?[0-9]+(?:[\.][0-9]+)*)(?:[eE][+-]?[0-9]+)?','"(?:""|[^"])*+"',
-);
-}
-protected function getNonCatchablePatterns()
-{
-return array('\s+','\*+','(.)');
-}
-protected function getType(&$value)
-{
-$type = self::T_NONE;
-if ($value[0] ==='"') {
-$value = str_replace('""','"', substr($value, 1, strlen($value) - 2));
-return self::T_STRING;
-}
-if (isset($this->noCase[$value])) {
-return $this->noCase[$value];
-}
-if ($value[0] ==='_'|| $value[0] ==='\\'|| ctype_alpha($value[0])) {
-return self::T_IDENTIFIER;
-}
-$lowerValue = strtolower($value);
-if (isset($this->withCase[$lowerValue])) {
-return $this->withCase[$lowerValue];
-}
-if (is_numeric($value)) {
-return (strpos($value,'.') !== false || stripos($value,'e') !== false)
-? self::T_FLOAT : self::T_INTEGER;
-}
-return $type;
-}
-}
-}
-namespace Doctrine\Common\Annotations
-{
-interface Reader
-{
-function getClassAnnotations(\ReflectionClass $class);
-function getClassAnnotation(\ReflectionClass $class, $annotationName);
-function getMethodAnnotations(\ReflectionMethod $method);
-function getMethodAnnotation(\ReflectionMethod $method, $annotationName);
-function getPropertyAnnotations(\ReflectionProperty $property);
-function getPropertyAnnotation(\ReflectionProperty $property, $annotationName);
-}
-}
 namespace Doctrine\Common\Annotations
 {
 class FileCacheReader implements Reader
@@ -2343,96 +2144,11 @@ $this->loadedAnnotations = array();
 }
 }
 }
-namespace Doctrine\Common\Annotations
-{
-use SplFileObject;
-final class PhpParser
-{
-public function parseClass(\ReflectionClass $class)
-{
-if (method_exists($class,'getUseStatements')) {
-return $class->getUseStatements();
-}
-if (false === $filename = $class->getFilename()) {
-return array();
-}
-$content = $this->getFileContent($filename, $class->getStartLine());
-if (null === $content) {
-return array();
-}
-$namespace = preg_quote($class->getNamespaceName());
-$content = preg_replace('/^.*?(\bnamespace\s+'. $namespace .'\s*[;{].*)$/s','\\1', $content);
-$tokenizer = new TokenParser('<?php '. $content);
-$statements = $tokenizer->parseUseStatements($class->getNamespaceName());
-return $statements;
-}
-private function getFileContent($filename, $lineNumber)
-{
-if ( ! is_file($filename)) {
-return null;
-}
-$content ='';
-$lineCnt = 0;
-$file = new SplFileObject($filename);
-while (!$file->eof()) {
-if ($lineCnt++ == $lineNumber) {
-break;
-}
-$content .= $file->fgets();
-}
-return $content;
-}
-}
-}
 namespace Doctrine\Common
 {
 use Doctrine\Common\Lexer\AbstractLexer;
 abstract class Lexer extends AbstractLexer
 {
-}
-}
-namespace Doctrine\Common\Persistence
-{
-interface Proxy
-{
-const MARKER ='__CG__';
-const MARKER_LENGTH = 6;
-public function __load();
-public function __isInitialized();
-}
-}
-namespace Doctrine\Common\Util
-{
-use Doctrine\Common\Persistence\Proxy;
-class ClassUtils
-{
-public static function getRealClass($class)
-{
-if (false === $pos = strrpos($class,'\\'.Proxy::MARKER.'\\')) {
-return $class;
-}
-return substr($class, $pos + Proxy::MARKER_LENGTH + 2);
-}
-public static function getClass($object)
-{
-return self::getRealClass(get_class($object));
-}
-public static function getParentClass($className)
-{
-return get_parent_class( self::getRealClass( $className ) );
-}
-public static function newReflectionClass($class)
-{
-return new \ReflectionClass( self::getRealClass( $class ) );
-}
-public static function newReflectionObject($object)
-{
-return self::newReflectionClass( self::getClass( $object ) );
-}
-public static function generateProxyClassName($className, $proxyNamespace)
-{
-return rtrim($proxyNamespace,'\\') .'\\'.Proxy::MARKER.'\\'. ltrim($className,'\\');
-}
 }
 }
 namespace Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter
