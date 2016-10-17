@@ -81,7 +81,8 @@ assetic:
     debug:          '%kernel.debug%'
     use_controller: '%kernel.debug%'
     filters:
-    cssrewrite: ~
-    jsqueeze:   ~
-    scssphp:
-    formatter: 'Leafo\ScssPhp\Formatter\Compressed'
+       cssrewrite: ~
+       jsqueeze:   ~
+       scssphp:
+         formatter: 'Leafo\ScssPhp\Formatter\Compressed'
+   

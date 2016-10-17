@@ -32,6 +32,12 @@ class appProdProjectContainer extends Container
         $this->services = array();
         $this->methodMap = array(
             'annotation_reader' => 'getAnnotationReaderService',
+            'assetic.asset_factory' => 'getAssetic_AssetFactoryService',
+            'assetic.asset_manager' => 'getAssetic_AssetManagerService',
+            'assetic.filter.cssrewrite' => 'getAssetic_Filter_CssrewriteService',
+            'assetic.filter.jsqueeze' => 'getAssetic_Filter_JsqueezeService',
+            'assetic.filter.scssphp' => 'getAssetic_Filter_ScssphpService',
+            'assetic.filter_manager' => 'getAssetic_FilterManagerService',
             'assets.context' => 'getAssets_ContextService',
             'assets.packages' => 'getAssets_PackagesService',
             'cache.app' => 'getCache_AppService',
@@ -119,6 +125,7 @@ class appProdProjectContainer extends Container
             'monolog.handler.console' => 'getMonolog_Handler_ConsoleService',
             'monolog.handler.main' => 'getMonolog_Handler_MainService',
             'monolog.handler.nested' => 'getMonolog_Handler_NestedService',
+            'monolog.logger.assetic' => 'getMonolog_Logger_AsseticService',
             'monolog.logger.cache' => 'getMonolog_Logger_CacheService',
             'monolog.logger.doctrine' => 'getMonolog_Logger_DoctrineService',
             'monolog.logger.php' => 'getMonolog_Logger_PhpService',
@@ -271,6 +278,100 @@ class appProdProjectContainer extends Container
     }
 
     /*
+     * Gets the 'assetic.asset_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Assetic\Factory\LazyAssetManager A Assetic\Factory\LazyAssetManager instance
+     */
+    protected function getAssetic_AssetManagerService()
+    {
+        $a = $this->get('templating.loader');
+
+        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig'), $this->get('monolog.logger.assetic', ContainerInterface::NULL_ON_INVALID_REFERENCE)), new \Assetic\Cache\ConfigCache((__DIR__.'/assetic/config')), false)));
+
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FrameworkBundle', ($this->targetDirs[3].'\\app/Resources/FrameworkBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FrameworkBundle', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SecurityBundle', ($this->targetDirs[3].'\\app/Resources/SecurityBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SecurityBundle', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'TwigBundle', ($this->targetDirs[3].'\\app/Resources/TwigBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'TwigBundle', ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'MonologBundle', ($this->targetDirs[3].'\\app/Resources/MonologBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'MonologBundle', ($this->targetDirs[3].'\\vendor\\symfony\\monolog-bundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SwiftmailerBundle', ($this->targetDirs[3].'\\app/Resources/SwiftmailerBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SwiftmailerBundle', ($this->targetDirs[3].'\\vendor\\symfony\\swiftmailer-bundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineBundle', ($this->targetDirs[3].'\\app/Resources/DoctrineBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineBundle', ($this->targetDirs[3].'\\vendor\\doctrine\\doctrine-bundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SensioFrameworkExtraBundle', ($this->targetDirs[3].'\\app/Resources/SensioFrameworkExtraBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SensioFrameworkExtraBundle', ($this->targetDirs[3].'\\vendor\\sensio\\framework-extra-bundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AsseticBundle', ($this->targetDirs[3].'\\app/Resources/AsseticBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AsseticBundle', ($this->targetDirs[3].'\\vendor\\symfony\\assetic-bundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'ESIEAPlatformBundle', ($this->targetDirs[3].'\\app/Resources/ESIEAPlatformBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'ESIEAPlatformBundle', ($this->targetDirs[3].'\\src\\ESIEA\\PlatformBundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'ESIEACoreBundle', ($this->targetDirs[3].'\\app/Resources/ESIEACoreBundle/views'), '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'ESIEACoreBundle', ($this->targetDirs[3].'\\src\\ESIEA\\CoreBundle/Resources/views'), '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, '', ($this->targetDirs[3].'\\app/Resources/views'), '/\\.[^.]+\\.twig$/'), 'twig');
+
+        return $instance;
+    }
+
+    /*
+     * Gets the 'assetic.filter.cssrewrite' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Assetic\Filter\CssRewriteFilter A Assetic\Filter\CssRewriteFilter instance
+     */
+    protected function getAssetic_Filter_CssrewriteService()
+    {
+        return $this->services['assetic.filter.cssrewrite'] = new \Assetic\Filter\CssRewriteFilter();
+    }
+
+    /*
+     * Gets the 'assetic.filter.jsqueeze' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Assetic\Filter\JSqueezeFilter A Assetic\Filter\JSqueezeFilter instance
+     */
+    protected function getAssetic_Filter_JsqueezeService()
+    {
+        $this->services['assetic.filter.jsqueeze'] = $instance = new \Assetic\Filter\JSqueezeFilter();
+
+        $instance->setSingleLine(true);
+        $instance->keepImportantComments(true);
+        $instance->setSpecialVarRx(false);
+
+        return $instance;
+    }
+
+    /*
+     * Gets the 'assetic.filter.scssphp' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Assetic\Filter\ScssphpFilter A Assetic\Filter\ScssphpFilter instance
+     */
+    protected function getAssetic_Filter_ScssphpService()
+    {
+        $this->services['assetic.filter.scssphp'] = $instance = new \Assetic\Filter\ScssphpFilter();
+
+        $instance->enableCompass(false);
+        $instance->setImportPaths(array());
+        $instance->setVariables(array());
+        $instance->setFormatter('Leafo\\ScssPhp\\Formatter\\Compressed');
+
+        return $instance;
+    }
+
+    /*
+     * Gets the 'assetic.filter_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Symfony\Bundle\AsseticBundle\FilterManager A Symfony\Bundle\AsseticBundle\FilterManager instance
+     */
+    protected function getAssetic_FilterManagerService()
+    {
+        return $this->services['assetic.filter_manager'] = new \Symfony\Bundle\AsseticBundle\FilterManager($this, array('cssrewrite' => 'assetic.filter.cssrewrite', 'jsqueeze' => 'assetic.filter.jsqueeze', 'scssphp' => 'assetic.filter.scssphp'));
+    }
+
+    /*
      * Gets the 'assets.context' service.
      *
      * This service is shared.
@@ -338,7 +439,7 @@ class appProdProjectContainer extends Container
      */
     protected function getCache_SystemService()
     {
-        return $this->services['cache.system'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('b53nQUvbMu', 0, '5lsrfyyg2KW-TP0Iyn92eQ', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['cache.system'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('b53nQUvbMu', 0, 'Krm6dGBQkR1DQCdTdL7KSQ', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /*
@@ -355,7 +456,7 @@ class appProdProjectContainer extends Container
         $a->addPool($this->get('cache.app'));
         $a->addPool($this->get('cache.system'));
         $a->addPool($this->get('cache.validator'));
-        $a->addPool(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('gyjQFdXGJH', 0, '5lsrfyyg2KW-TP0Iyn92eQ', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
+        $a->addPool(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('gyjQFdXGJH', 0, 'Krm6dGBQkR1DQCdTdL7KSQ', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
 
         return $this->services['cache_clearer'] = new \Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer(array(0 => $a));
     }
@@ -375,7 +476,7 @@ class appProdProjectContainer extends Container
 
         $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, ($this->targetDirs[3].'\\app/Resources'));
 
-        return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => $this->get('kernel.class_cache.cache_warmer'), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer($this->get('translator')), 3 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 4 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c, array()), 5 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer($this->get('twig'), new \Symfony\Bundle\TwigBundle\TemplateIterator($a, ($this->targetDirs[3].'\\app'), array())), 6 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine'))));
+        return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => new \Symfony\Bundle\AsseticBundle\CacheWarmer\AssetManagerCacheWarmer($this), 2 => $this->get('kernel.class_cache.cache_warmer'), 3 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer($this->get('translator')), 4 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 5 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c, array()), 6 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer($this->get('twig'), new \Symfony\Bundle\TwigBundle\TemplateIterator($a, ($this->targetDirs[3].'\\app'), array())), 7 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine'))));
     }
 
     /*
@@ -495,7 +596,7 @@ class appProdProjectContainer extends Container
         $b->setMetadataDriverImpl($a);
         $b->setProxyDir((__DIR__.'/doctrine/orm/Proxies'));
         $b->setProxyNamespace('Proxies');
-        $b->setAutoGenerateProxyClasses(false);
+        $b->setAutoGenerateProxyClasses(true);
         $b->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
         $b->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
         $b->setNamingStrategy(new \Doctrine\ORM\Mapping\UnderscoreNamingStrategy());
@@ -635,7 +736,7 @@ class appProdProjectContainer extends Container
      */
     protected function getEsieaPlatform_AntispamService()
     {
-        return $this->services['esiea_platform.antispam'] = new \ESIEA\PlatformBundle\Antispam\ESIEAAntispam($this->get('swiftmailer.mailer.default'), 'en', 50);
+        return $this->services['esiea_platform.antispam'] = new \ESIEA\PlatformBundle\Antispam\ESIEAAntispam($this->get('swiftmailer.mailer.default'), 'fr', 50);
     }
 
     /*
@@ -1526,7 +1627,7 @@ class appProdProjectContainer extends Container
      */
     protected function getLocaleListenerService()
     {
-        return $this->services['locale_listener'] = new \Symfony\Component\HttpKernel\EventListener\LocaleListener($this->get('request_stack'), 'en', $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['locale_listener'] = new \Symfony\Component\HttpKernel\EventListener\LocaleListener($this->get('request_stack'), 'fr', $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /*
@@ -1585,6 +1686,24 @@ class appProdProjectContainer extends Container
     protected function getMonolog_Handler_NestedService()
     {
         return $this->services['monolog.handler.nested'] = new \Monolog\Handler\StreamHandler(($this->targetDirs[2].'\\logs/prod.log'), 100, true, NULL);
+    }
+
+    /*
+     * Gets the 'monolog.logger.assetic' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Symfony\Bridge\Monolog\Logger A Symfony\Bridge\Monolog\Logger instance
+     */
+    protected function getMonolog_Logger_AsseticService()
+    {
+        $this->services['monolog.logger.assetic'] = $instance = new \Symfony\Bridge\Monolog\Logger('assetic');
+
+        $instance->pushHandler($this->get('monolog.handler.console'));
+        $instance->pushHandler($this->get('monolog.handler.main'));
+
+        return $instance;
     }
 
     /*
@@ -1919,7 +2038,7 @@ class appProdProjectContainer extends Container
 
         $f = new \Symfony\Component\Security\Http\AccessMap();
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($f, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => new \Symfony\Component\Security\Core\User\InMemoryUserProvider()), 'main', $a, $this->get('event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE), $c), 2 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '57ffba0b52b9f3.70457543', $a, $d), 3 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $f, $d)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $c, new \Symfony\Component\Security\Http\HttpUtils($e, $e), 'main', NULL, NULL, NULL, $a, false));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($f, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => new \Symfony\Component\Security\Core\User\InMemoryUserProvider()), 'main', $a, $this->get('event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE), $c), 2 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '58053c2f2c5802.45465935', $a, $d), 3 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $f, $d)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $c, new \Symfony\Component\Security\Http\HttpUtils($e, $e), 'main', NULL, NULL, NULL, $a, false));
     }
 
     /*
@@ -2822,6 +2941,7 @@ class appProdProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\HttpFoundationExtension($a, $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension(new \Symfony\Bridge\Twig\Form\TwigRenderer(new \Symfony\Bridge\Twig\Form\TwigRendererEngine(array(0 => 'form_div_layout.html.twig', 1 => 'bootstrap_3_layout.html.twig')), $this->get('security.csrf.token_manager', ContainerInterface::NULL_ON_INVALID_REFERENCE))));
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
+        $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), false, array(), array(0 => 'FrameworkBundle', 1 => 'SecurityBundle', 2 => 'TwigBundle', 3 => 'MonologBundle', 4 => 'SwiftmailerBundle', 5 => 'DoctrineBundle', 6 => 'SensioFrameworkExtraBundle', 7 => 'AsseticBundle', 8 => 'ESIEAPlatformBundle', 9 => 'ESIEACoreBundle'), new \Symfony\Bundle\AsseticBundle\DefaultValueSupplier($this)));
         $instance->addGlobal('app', $b);
         (new \Symfony\Bundle\TwigBundle\DependencyInjection\Configurator\EnvironmentConfigurator('F j, Y H:i', '%d days', NULL, 0, '.', ','))->configure($instance);
 
@@ -2881,6 +3001,7 @@ class appProdProjectContainer extends Container
 
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views'), 'Framework');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle/Resources/views'), 'Security');
+        $instance->addPath(($this->targetDirs[3].'\\app/Resources/TwigBundle/views'), 'Twig');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views'), 'Twig');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\swiftmailer-bundle/Resources/views'), 'Swiftmailer');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\doctrine\\doctrine-bundle/Resources/views'), 'Doctrine');
@@ -3008,6 +3129,23 @@ class appProdProjectContainer extends Container
     }
 
     /*
+     * Gets the 'assetic.asset_factory' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return \Symfony\Bundle\AsseticBundle\Factory\AssetFactory A Symfony\Bundle\AsseticBundle\Factory\AssetFactory instance
+     */
+    protected function getAssetic_AssetFactoryService()
+    {
+        return $this->services['assetic.asset_factory'] = new \Symfony\Bundle\AsseticBundle\Factory\AssetFactory($this->get('kernel'), $this, $this->getParameterBag(), ($this->targetDirs[3].'\\app/../web'), false);
+    }
+
+    /*
      * Gets the 'cache.validator' service.
      *
      * This service is shared.
@@ -3021,7 +3159,7 @@ class appProdProjectContainer extends Container
      */
     protected function getCache_ValidatorService()
     {
-        return $this->services['cache.validator'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('ijYErEQ5kX', 0, '5lsrfyyg2KW-TP0Iyn92eQ', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['cache.validator'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('ijYErEQ5kX', 0, 'Krm6dGBQkR1DQCdTdL7KSQ', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /*
@@ -3112,7 +3250,7 @@ class appProdProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('57ffba0b52b9f3.70457543')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('58053c2f2c5802.45465935')), true);
 
         $instance->setEventDispatcher($this->get('event_dispatcher'));
 
@@ -3304,6 +3442,7 @@ class appProdProjectContainer extends Container
                 'SwiftmailerBundle' => 'Symfony\\Bundle\\SwiftmailerBundle\\SwiftmailerBundle',
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
+                'AsseticBundle' => 'Symfony\\Bundle\\AsseticBundle\\AsseticBundle',
                 'ESIEAPlatformBundle' => 'ESIEA\\PlatformBundle\\ESIEAPlatformBundle',
                 'ESIEACoreBundle' => 'ESIEA\\CoreBundle\\ESIEACoreBundle',
             ),
@@ -3319,7 +3458,7 @@ class appProdProjectContainer extends Container
             'mailer_user' => NULL,
             'mailer_password' => NULL,
             'secret' => '53973eea5a96b7ef97d82957b1782bb8cce4756f',
-            'locale' => 'en',
+            'locale' => 'fr',
             'fragment.renderer.hinclude.global_template' => NULL,
             'fragment.path' => '/_fragment',
             'kernel.secret' => '53973eea5a96b7ef97d82957b1782bb8cce4756f',
@@ -3330,7 +3469,7 @@ class appProdProjectContainer extends Container
             'kernel.trusted_proxies' => array(
 
             ),
-            'kernel.default_locale' => 'en',
+            'kernel.default_locale' => 'fr',
             'session.metadata.storage_key' => '_sf2_meta',
             'session.storage.options' => array(
                 'cookie_httponly' => true,
@@ -3574,7 +3713,7 @@ class appProdProjectContainer extends Container
             'doctrine.orm.second_level_cache.logger_statistics.class' => 'Doctrine\\ORM\\Cache\\Logging\\StatisticsCacheLogger',
             'doctrine.orm.second_level_cache.cache_configuration.class' => 'Doctrine\\ORM\\Cache\\CacheConfiguration',
             'doctrine.orm.second_level_cache.regions_configuration.class' => 'Doctrine\\ORM\\Cache\\RegionsConfiguration',
-            'doctrine.orm.auto_generate_proxy_classes' => false,
+            'doctrine.orm.auto_generate_proxy_classes' => true,
             'doctrine.orm.proxy_dir' => (__DIR__.'/doctrine/orm/Proxies'),
             'doctrine.orm.proxy_namespace' => 'Proxies',
             'sensio_framework_extra.view.guesser.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Templating\\TemplateGuesser',
@@ -3587,6 +3726,69 @@ class appProdProjectContainer extends Container
             'sensio_framework_extra.converter.doctrine.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DoctrineParamConverter',
             'sensio_framework_extra.converter.datetime.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DateTimeParamConverter',
             'sensio_framework_extra.view.listener.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\TemplateListener',
+            'assetic.asset_factory.class' => 'Symfony\\Bundle\\AsseticBundle\\Factory\\AssetFactory',
+            'assetic.asset_manager.class' => 'Assetic\\Factory\\LazyAssetManager',
+            'assetic.asset_manager_cache_warmer.class' => 'Symfony\\Bundle\\AsseticBundle\\CacheWarmer\\AssetManagerCacheWarmer',
+            'assetic.cached_formula_loader.class' => 'Assetic\\Factory\\Loader\\CachedFormulaLoader',
+            'assetic.config_cache.class' => 'Assetic\\Cache\\ConfigCache',
+            'assetic.config_loader.class' => 'Symfony\\Bundle\\AsseticBundle\\Factory\\Loader\\ConfigurationLoader',
+            'assetic.config_resource.class' => 'Symfony\\Bundle\\AsseticBundle\\Factory\\Resource\\ConfigurationResource',
+            'assetic.coalescing_directory_resource.class' => 'Symfony\\Bundle\\AsseticBundle\\Factory\\Resource\\CoalescingDirectoryResource',
+            'assetic.directory_resource.class' => 'Symfony\\Bundle\\AsseticBundle\\Factory\\Resource\\DirectoryResource',
+            'assetic.filter_manager.class' => 'Symfony\\Bundle\\AsseticBundle\\FilterManager',
+            'assetic.worker.ensure_filter.class' => 'Assetic\\Factory\\Worker\\EnsureFilterWorker',
+            'assetic.worker.cache_busting.class' => 'Assetic\\Factory\\Worker\\CacheBustingWorker',
+            'assetic.value_supplier.class' => 'Symfony\\Bundle\\AsseticBundle\\DefaultValueSupplier',
+            'assetic.node.paths' => array(
+
+            ),
+            'assetic.cache_dir' => (__DIR__.'/assetic'),
+            'assetic.bundles' => array(
+                0 => 'FrameworkBundle',
+                1 => 'SecurityBundle',
+                2 => 'TwigBundle',
+                3 => 'MonologBundle',
+                4 => 'SwiftmailerBundle',
+                5 => 'DoctrineBundle',
+                6 => 'SensioFrameworkExtraBundle',
+                7 => 'AsseticBundle',
+                8 => 'ESIEAPlatformBundle',
+                9 => 'ESIEACoreBundle',
+            ),
+            'assetic.twig_extension.class' => 'Symfony\\Bundle\\AsseticBundle\\Twig\\AsseticExtension',
+            'assetic.twig_formula_loader.class' => 'Assetic\\Extension\\Twig\\TwigFormulaLoader',
+            'assetic.helper.dynamic.class' => 'Symfony\\Bundle\\AsseticBundle\\Templating\\DynamicAsseticHelper',
+            'assetic.helper.static.class' => 'Symfony\\Bundle\\AsseticBundle\\Templating\\StaticAsseticHelper',
+            'assetic.php_formula_loader.class' => 'Symfony\\Bundle\\AsseticBundle\\Factory\\Loader\\AsseticHelperFormulaLoader',
+            'assetic.debug' => false,
+            'assetic.use_controller' => false,
+            'assetic.enable_profiler' => false,
+            'assetic.read_from' => ($this->targetDirs[3].'\\app/../web'),
+            'assetic.write_to' => ($this->targetDirs[3].'\\app/../web'),
+            'assetic.variables' => array(
+
+            ),
+            'assetic.java.bin' => 'C:\\ProgramData\\Oracle\\Java\\javapath\\java.EXE',
+            'assetic.node.bin' => 'C:\\Program Files\\nodejs\\\\node.EXE',
+            'assetic.ruby.bin' => '/usr/bin/ruby',
+            'assetic.sass.bin' => '/usr/bin/sass',
+            'assetic.reactjsx.bin' => '/usr/bin/jsx',
+            'assetic.filter.cssrewrite.class' => 'Assetic\\Filter\\CssRewriteFilter',
+            'assetic.filter.jsqueeze.single_line' => true,
+            'assetic.filter.jsqueeze.keep_important_comments' => true,
+            'assetic.filter.jsqueeze.special_var_rx' => false,
+            'assetic.filter.scssphp.class' => 'Assetic\\Filter\\ScssphpFilter',
+            'assetic.filter.scssphp.import_paths' => array(
+
+            ),
+            'assetic.filter.scssphp.compass' => false,
+            'assetic.filter.scssphp.variables' => array(
+
+            ),
+            'assetic.filter.scssphp.formatter' => 'Leafo\\ScssPhp\\Formatter\\Compressed',
+            'assetic.twig_extension.functions' => array(
+
+            ),
             'console.command.ids' => array(
 
             ),

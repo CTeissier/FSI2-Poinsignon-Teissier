@@ -56,6 +56,11 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'esiea_platform_delete')), array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\AdvertController::deleteAction',));
             }
 
+            // esiea_platform_header
+            if ($pathinfo === '/platform/header') {
+                return array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\AdvertController::headerAction',  '_route' => 'esiea_platform_header',);
+            }
+
         }
 
         // esiea_core_home
