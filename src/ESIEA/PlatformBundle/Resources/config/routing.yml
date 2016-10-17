@@ -33,3 +33,8 @@ esiea_platform_delete:
         _controller: ESIEAPlatformBundle:Advert:delete
     requirements:
         id: \d+
+
+esiea_platform_header:
+    path:     /header
+    defaults:
+        _controller: ESIEAPlatformBundle:Advert:header

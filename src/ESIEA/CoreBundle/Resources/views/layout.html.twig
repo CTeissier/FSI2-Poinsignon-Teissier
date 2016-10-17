@@ -11,12 +11,19 @@
     {% block stylesheets %}
       {# On charge le CSS de bootstrap depuis le site directement #}
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+       {% stylesheets filter="cssrewrite, ?scssphp"
+        'bundles/ocplatform/css/main.css'
+       'bundles/ocplatform/css/platform.css' %}
+       <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+     {% endstylesheets %}
+
     {% endblock %}
   </head>
 
   <body>
   <div class="container">
     <div id="header" class="jumbotron">
+
       <h1>Ma plateforme d'annonces</h1>
       <p>
         Ce projet est propulsé par Symfony, et construit grâce au MOOC OpenClassrooms et SensioLabs.
@@ -27,6 +34,8 @@
         </a>
       </p>
     </div>
+
+          {{ render(controller('ESIEAPlatformBundle:Site:header')) }}
 
     <div class="row">
       <div id="menu" class="col-md-3">

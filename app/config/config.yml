@@ -77,6 +77,11 @@ swiftmailer:
     spool:     { type: memory }
 
 # Assetic
-#assetic:
-# debug: '%kernel.debug'
-# use_controller: '%kernel.debug'
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+    cssrewrite: ~
+    jsqueeze:   ~
+    scssphp:
+    formatter: 'Leafo\ScssPhp\Formatter\Compressed'

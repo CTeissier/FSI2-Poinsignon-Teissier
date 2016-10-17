@@ -23,7 +23,7 @@
   <i>Par {{ advert.author }}, le {{ advert.date|date('d/m/Y') }}</i>
 
   <div class="well">
-    {{ advert.content }}
+    {{ advert.content | nl2br }}
   </div>
 
 
