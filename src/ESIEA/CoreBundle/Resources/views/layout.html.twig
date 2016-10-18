@@ -39,7 +39,7 @@
   <body>
 
 
-          
+    <!-- Left Side Bar -->      
     <div class="row">
       <div id="menu" class="col-md-3">
         <h3>Les annonces</h3>
@@ -53,11 +53,13 @@
       </div>
       <div id="content" class="col-md-9">
         {% block body %}
+             <!-- Les trois dernières recettes affichés -->
+
         {% endblock %}
       </div>
     </div>
 
-    <hr>
+    
 
     <footer>
       <!-- Contact Section -->
@@ -65,13 +67,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Contactez-nous</h2>
-                <p>Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
+                <p>Vous êtes libre de nous envoyer un email et nous faire part de vos suggestions, ou juste pour faire un coucou !</p>
                 <p><a href="daniel.poinsignon@gmail.com">daniel.poinsignon@gmail.com</a>
                 </p>
+                <p><a href="teissier@et.esiea.fr">teissier@et.esiea.fr</a>
+                </p>
                 <ul class="list-inline banner-social-buttons">
-                    <li>
-                        <a href="https:" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">LinkedIn</span></a>
-                    </li>
+                  
                     <li>
                         <a href="https:" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
                     </li>
@@ -82,7 +84,7 @@
             </div>
         </div>
     </section>
-      <p>Daniel POINSIGNON & Cannelle TEISSIER © {{ 'now'|date('Y') }} pour Monsieur Garnier-Castellane.</p>
+      <p style="text-align:center"><font size ="2"> Daniel POINSIGNON & Cannelle TEISSIER © {{ 'now'|date('Y') }} for ESIEA.</font></p>
     </footer>
   </div>
 
