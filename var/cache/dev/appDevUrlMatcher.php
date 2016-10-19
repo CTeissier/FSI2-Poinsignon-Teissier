@@ -168,7 +168,12 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // esiea_platform_header
             if ($pathinfo === '/platform/header') {
-                return array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\AdvertController::headerAction',  '_route' => 'esiea_platform_header',);
+                return array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\SiteController::headerAction',  '_route' => 'esiea_platform_header',);
+            }
+
+            // esiea_platform_faq
+            if ($pathinfo === '/platform/faq') {
+                return array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\SiteController::faqAction',  '_route' => 'esiea_platform_faq',);
             }
 
         }

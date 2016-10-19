@@ -18,8 +18,8 @@ class __TwigTemplate_3682d4a348a6015c7a08ba7a3b22fd79fa0d86611a6c54d7e3bcc752ec6
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_855add584f92e020afbb040157b7c73812bd87f9377f4e6622af73dc42924dd9 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_855add584f92e020afbb040157b7c73812bd87f9377f4e6622af73dc42924dd9->enter($__internal_855add584f92e020afbb040157b7c73812bd87f9377f4e6622af73dc42924dd9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESIEACoreBundle::layout.html.twig"));
+        $__internal_b14a7c283285d2407724caaf13e59e0e708695239b146117eeac3aa8a8aafdf0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b14a7c283285d2407724caaf13e59e0e708695239b146117eeac3aa8a8aafdf0->enter($__internal_b14a7c283285d2407724caaf13e59e0e708695239b146117eeac3aa8a8aafdf0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESIEACoreBundle::layout.html.twig"));
 
         // line 2
         echo "<!DOCTYPE html>
@@ -48,7 +48,7 @@ class __TwigTemplate_3682d4a348a6015c7a08ba7a3b22fd79fa0d86611a6c54d7e3bcc752ec6
      ";
         // line 19
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 30
+        // line 32
         echo "   </head>
   
   <body>
@@ -61,7 +61,7 @@ class __TwigTemplate_3682d4a348a6015c7a08ba7a3b22fd79fa0d86611a6c54d7e3bcc752ec6
                     <div class=\"col-md-8 col-md-offset-2\">
 
 <img src=\"http://www.w3schools.com/html/pic_mountain.jpg\" alt=\"Mountain View\" style=\"width:304px;height:228px;\">
-                    
+
                         <h1 class=\"brand-heading\">ESIE_EATS</h1>
                         <p class=\"intro-text\">Prononcé EASY_EATS est un service proposé par les étudiants de l'ESIEA.
                             <br>Plus d'information prochainement.</p>
@@ -100,28 +100,28 @@ class __TwigTemplate_3682d4a348a6015c7a08ba7a3b22fd79fa0d86611a6c54d7e3bcc752ec6
          <h2>Dernières recettes</h2>
          <ul class=\"intro-text\">
             ";
-        // line 80
+        // line 82
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["listAdverts"]) ? $context["listAdverts"] : $this->getContext($context, "listAdverts")));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["advert"]) {
-            // line 81
+            // line 83
             echo "            <br>
                <a href=\"";
-            // line 82
+            // line 84
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("esiea_platform_view", array("id" => $this->getAttribute($context["advert"], "id", array()))), "html", null, true);
             echo "\">
                ";
-            // line 83
+            // line 85
             echo twig_escape_filter($this->env, $this->getAttribute($context["advert"], "title", array()), "html", null, true);
             echo "
                </a>
                par ";
-            // line 85
+            // line 87
             echo twig_escape_filter($this->env, $this->getAttribute($context["advert"], "author", array()), "html", null, true);
             echo ",
                le ";
-            // line 86
+            // line 88
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["advert"], "date", array()), "d/m/Y"), "html", null, true);
             echo "
             </br>
@@ -129,31 +129,31 @@ class __TwigTemplate_3682d4a348a6015c7a08ba7a3b22fd79fa0d86611a6c54d7e3bcc752ec6
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 89
+            // line 91
             echo "            <li>Pas (encore !) d'annonces</li>
             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['advert'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 91
+        // line 93
         echo "
          </ul>
          <!-- Pagination -->
          <ul class=\"pagination\">
             ";
-        // line 95
+        // line 97
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(range(1, (isset($context["nbPages"]) ? $context["nbPages"] : $this->getContext($context, "nbPages"))));
         foreach ($context['_seq'] as $context["_key"] => $context["p"]) {
-            // line 96
+            // line 98
             echo "            <li";
             if (($context["p"] == (isset($context["page"]) ? $context["page"] : $this->getContext($context, "page")))) {
                 echo " class=\"active\"";
             }
             echo ">
             <a href=\"";
-            // line 97
+            // line 99
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("esiea_platform_home", array("page" => $context["p"])), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $context["p"], "html", null, true);
@@ -164,7 +164,7 @@ class __TwigTemplate_3682d4a348a6015c7a08ba7a3b22fd79fa0d86611a6c54d7e3bcc752ec6
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['p'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 100
+        // line 102
         echo "         </ul>
       </div>
    </div>
@@ -191,7 +191,7 @@ class __TwigTemplate_3682d4a348a6015c7a08ba7a3b22fd79fa0d86611a6c54d7e3bcc752ec6
             </div>
          </section>
          <p style=\"text-align:center\"><font size =\"2\"> Daniel POINSIGNON & Cannelle TEISSIER © ";
-        // line 125
+        // line 127
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y"), "html", null, true);
         echo " for ESIEA.</font></p>
       </footer>
@@ -203,46 +203,48 @@ class __TwigTemplate_3682d4a348a6015c7a08ba7a3b22fd79fa0d86611a6c54d7e3bcc752ec6
 
    </body>
 ";
-        // line 134
+        // line 136
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 143
+        // line 145
         echo "
 </html>
 ";
         
-        $__internal_855add584f92e020afbb040157b7c73812bd87f9377f4e6622af73dc42924dd9->leave($__internal_855add584f92e020afbb040157b7c73812bd87f9377f4e6622af73dc42924dd9_prof);
+        $__internal_b14a7c283285d2407724caaf13e59e0e708695239b146117eeac3aa8a8aafdf0->leave($__internal_b14a7c283285d2407724caaf13e59e0e708695239b146117eeac3aa8a8aafdf0_prof);
 
     }
 
     // line 12
     public function block_title($context, array $blocks = array())
     {
-        $__internal_dfc56166d53e027278ad7851fd193fccd0be0727ed0fad613004da2a59ccb0b7 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_dfc56166d53e027278ad7851fd193fccd0be0727ed0fad613004da2a59ccb0b7->enter($__internal_dfc56166d53e027278ad7851fd193fccd0be0727ed0fad613004da2a59ccb0b7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_7006b1b19fbfe3d46ff7f6c35272ce179933d8208ab016312f68377652f4fb4b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_7006b1b19fbfe3d46ff7f6c35272ce179933d8208ab016312f68377652f4fb4b->enter($__internal_7006b1b19fbfe3d46ff7f6c35272ce179933d8208ab016312f68377652f4fb4b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "ESIEA Plateforme";
         
-        $__internal_dfc56166d53e027278ad7851fd193fccd0be0727ed0fad613004da2a59ccb0b7->leave($__internal_dfc56166d53e027278ad7851fd193fccd0be0727ed0fad613004da2a59ccb0b7_prof);
+        $__internal_7006b1b19fbfe3d46ff7f6c35272ce179933d8208ab016312f68377652f4fb4b->leave($__internal_7006b1b19fbfe3d46ff7f6c35272ce179933d8208ab016312f68377652f4fb4b_prof);
 
     }
 
     // line 19
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_6c6e027dd386e47b439f4eda27597f0ba90a9c132595e07f975652b0bc98ec81 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_6c6e027dd386e47b439f4eda27597f0ba90a9c132595e07f975652b0bc98ec81->enter($__internal_6c6e027dd386e47b439f4eda27597f0ba90a9c132595e07f975652b0bc98ec81_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_a9b31d7a1e7ab62b94fbcee82407124aadfd7a1d3ea2517b45a259e0599d4f50 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_a9b31d7a1e7ab62b94fbcee82407124aadfd7a1d3ea2517b45a259e0599d4f50->enter($__internal_a9b31d7a1e7ab62b94fbcee82407124aadfd7a1d3ea2517b45a259e0599d4f50_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 20
         echo "      ";
         // line 21
         echo "      <link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\">
       <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto\" >
+
+      <link href=\"http://fonts.googleapis.com/css?family=Roboto\" rel=\"stylesheet\" type=\"text/css\">
       ";
-        // line 23
+        // line 25
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "c91f9fa_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_c91f9fa_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/css/c91f9fa_demo_1.css");
-            // line 26
+            // line 28
             echo "      <link rel=\"stylesheet\" href=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\" type=\"text/css\" />
@@ -258,26 +260,26 @@ class __TwigTemplate_3682d4a348a6015c7a08ba7a3b22fd79fa0d86611a6c54d7e3bcc752ec6
       ";
         }
         unset($context["asset_url"]);
-        // line 29
+        // line 31
         echo "      ";
         
-        $__internal_6c6e027dd386e47b439f4eda27597f0ba90a9c132595e07f975652b0bc98ec81->leave($__internal_6c6e027dd386e47b439f4eda27597f0ba90a9c132595e07f975652b0bc98ec81_prof);
+        $__internal_a9b31d7a1e7ab62b94fbcee82407124aadfd7a1d3ea2517b45a259e0599d4f50->leave($__internal_a9b31d7a1e7ab62b94fbcee82407124aadfd7a1d3ea2517b45a259e0599d4f50_prof);
 
     }
 
-    // line 134
+    // line 136
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_7bbfaf18bc2515aa1426d5829150002182c9d748b53091d0dbcbca87c96f84cc = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_7bbfaf18bc2515aa1426d5829150002182c9d748b53091d0dbcbca87c96f84cc->enter($__internal_7bbfaf18bc2515aa1426d5829150002182c9d748b53091d0dbcbca87c96f84cc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_56daf4b4348537c3e6f40427bc98ef21fc1bac41a4baff8420a5752de5f9f238 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_56daf4b4348537c3e6f40427bc98ef21fc1bac41a4baff8420a5752de5f9f238->enter($__internal_56daf4b4348537c3e6f40427bc98ef21fc1bac41a4baff8420a5752de5f9f238_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 135
+        // line 137
         echo "      ";
-        // line 136
+        // line 138
         echo "      <script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
       <script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>
       <script src=\"";
-        // line 138
+        // line 140
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("bundles/esieaplatform/js/demo.js"), "html", null, true);
         echo "\"></script>
 
@@ -285,7 +287,7 @@ class __TwigTemplate_3682d4a348a6015c7a08ba7a3b22fd79fa0d86611a6c54d7e3bcc752ec6
 
       ";
         
-        $__internal_7bbfaf18bc2515aa1426d5829150002182c9d748b53091d0dbcbca87c96f84cc->leave($__internal_7bbfaf18bc2515aa1426d5829150002182c9d748b53091d0dbcbca87c96f84cc_prof);
+        $__internal_56daf4b4348537c3e6f40427bc98ef21fc1bac41a4baff8420a5752de5f9f238->leave($__internal_56daf4b4348537c3e6f40427bc98ef21fc1bac41a4baff8420a5752de5f9f238_prof);
 
     }
 
@@ -301,7 +303,7 @@ class __TwigTemplate_3682d4a348a6015c7a08ba7a3b22fd79fa0d86611a6c54d7e3bcc752ec6
 
     public function getDebugInfo()
     {
-        return array (  281 => 138,  277 => 136,  275 => 135,  269 => 134,  262 => 29,  246 => 26,  242 => 23,  238 => 21,  236 => 20,  230 => 19,  218 => 12,  209 => 143,  207 => 134,  195 => 125,  168 => 100,  157 => 97,  150 => 96,  146 => 95,  140 => 91,  133 => 89,  125 => 86,  121 => 85,  116 => 83,  112 => 82,  109 => 81,  104 => 80,  52 => 30,  50 => 19,  43 => 15,  37 => 12,  25 => 2,);
+        return array (  283 => 140,  279 => 138,  277 => 137,  271 => 136,  264 => 31,  248 => 28,  244 => 25,  238 => 21,  236 => 20,  230 => 19,  218 => 12,  209 => 145,  207 => 136,  195 => 127,  168 => 102,  157 => 99,  150 => 98,  146 => 97,  140 => 93,  133 => 91,  125 => 88,  121 => 87,  116 => 85,  112 => 84,  109 => 83,  104 => 82,  52 => 32,  50 => 19,  43 => 15,  37 => 12,  25 => 2,);
     }
 
     public function getSource()
@@ -328,6 +330,8 @@ class __TwigTemplate_3682d4a348a6015c7a08ba7a3b22fd79fa0d86611a6c54d7e3bcc752ec6
       {# On charge le CSS de bootstrap depuis le site directement #}
       <link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\">
       <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto\" >
+
+      <link href=\"http://fonts.googleapis.com/css?family=Roboto\" rel=\"stylesheet\" type=\"text/css\">
       {% stylesheets filter=\"cssrewrite, ?scssphp\"
       'bundles/esieaplatform/css/demo.css'
       %}
@@ -347,7 +351,7 @@ class __TwigTemplate_3682d4a348a6015c7a08ba7a3b22fd79fa0d86611a6c54d7e3bcc752ec6
                     <div class=\"col-md-8 col-md-offset-2\">
 
 <img src=\"http://www.w3schools.com/html/pic_mountain.jpg\" alt=\"Mountain View\" style=\"width:304px;height:228px;\">
-                    
+
                         <h1 class=\"brand-heading\">ESIE_EATS</h1>
                         <p class=\"intro-text\">Prononcé EASY_EATS est un service proposé par les étudiants de l'ESIEA.
                             <br>Plus d'information prochainement.</p>

@@ -15,8 +15,8 @@ class __TwigTemplate_3bdf99aee3800eb52c64ff1c443b7d5a2dff62ca474c28c0cd728b0e76e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_44a545160c953190beee85ceb884edd54a96494e24ff2670a044b647b69b5c27 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_44a545160c953190beee85ceb884edd54a96494e24ff2670a044b647b69b5c27->enter($__internal_44a545160c953190beee85ceb884edd54a96494e24ff2670a044b647b69b5c27_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESIEAPlatformBundle:Advert:header.html.twig"));
+        $__internal_6866ee356187c4c5ad1f4eba71992744dd376acfaa28a0e91f0210d70f1a297b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_6866ee356187c4c5ad1f4eba71992744dd376acfaa28a0e91f0210d70f1a297b->enter($__internal_6866ee356187c4c5ad1f4eba71992744dd376acfaa28a0e91f0210d70f1a297b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESIEAPlatformBundle:Advert:header.html.twig"));
 
         // line 2
         echo "<html lang=\"fr\">
@@ -45,7 +45,7 @@ class __TwigTemplate_3bdf99aee3800eb52c64ff1c443b7d5a2dff62ca474c28c0cd728b0e76e
              <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-main-collapse\">
                     Menu <i class=\"fa fa-bars\"></i>
                 </button>
-                <h2>ESIE_EAT</h2>
+                <h2>ESIE_<font color=\"#1d9b6c\">EAT</font></h2>
 
                
             </div>
@@ -82,7 +82,10 @@ class __TwigTemplate_3bdf99aee3800eb52c64ff1c443b7d5a2dff62ca474c28c0cd728b0e76e
                         <a class=\"page-scroll\" href=\"#recette\">Recettes</a>
                     </li>
                      <li>
-                        <a class=\"page-scroll\" href=\"#about\">FAQ</a>
+                        <a class=\"page-scroll\" href=\"";
+        // line 59
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("esiea_platform_faq");
+        echo "\">FAQ</a>
                     </li>
 
                     <li>
@@ -106,7 +109,7 @@ class __TwigTemplate_3bdf99aee3800eb52c64ff1c443b7d5a2dff62ca474c28c0cd728b0e76e
 </html>
 ";
         
-        $__internal_44a545160c953190beee85ceb884edd54a96494e24ff2670a044b647b69b5c27->leave($__internal_44a545160c953190beee85ceb884edd54a96494e24ff2670a044b647b69b5c27_prof);
+        $__internal_6866ee356187c4c5ad1f4eba71992744dd376acfaa28a0e91f0210d70f1a297b->leave($__internal_6866ee356187c4c5ad1f4eba71992744dd376acfaa28a0e91f0210d70f1a297b_prof);
 
     }
 
@@ -122,7 +125,7 @@ class __TwigTemplate_3bdf99aee3800eb52c64ff1c443b7d5a2dff62ca474c28c0cd728b0e76e
 
     public function getDebugInfo()
     {
-        return array (  71 => 46,  66 => 44,  22 => 2,);
+        return array (  87 => 59,  71 => 46,  66 => 44,  22 => 2,);
     }
 
     public function getSource()
@@ -154,7 +157,7 @@ class __TwigTemplate_3bdf99aee3800eb52c64ff1c443b7d5a2dff62ca474c28c0cd728b0e76e
              <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-main-collapse\">
                     Menu <i class=\"fa fa-bars\"></i>
                 </button>
-                <h2>ESIE_EAT</h2>
+                <h2>ESIE_<font color=\"#1d9b6c\">EAT</font></h2>
 
                
             </div>
@@ -185,7 +188,7 @@ class __TwigTemplate_3bdf99aee3800eb52c64ff1c443b7d5a2dff62ca474c28c0cd728b0e76e
                         <a class=\"page-scroll\" href=\"#recette\">Recettes</a>
                     </li>
                      <li>
-                        <a class=\"page-scroll\" href=\"#about\">FAQ</a>
+                        <a class=\"page-scroll\" href=\"{{ path('esiea_platform_faq') }}\">FAQ</a>
                     </li>
 
                     <li>

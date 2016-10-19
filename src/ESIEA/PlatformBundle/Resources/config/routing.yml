@@ -37,4 +37,9 @@ esiea_platform_delete:
 esiea_platform_header:
     path:     /header
     defaults:
-        _controller: ESIEAPlatformBundle:Advert:header
+        _controller: ESIEAPlatformBundle:Site:header
+
+esiea_platform_faq:
+    path:     /faq
+    defaults:
+        _controller: ESIEAPlatformBundle:Site:faq
