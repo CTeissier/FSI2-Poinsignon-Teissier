@@ -11,7 +11,6 @@ class __TwigTemplate_40d3e626064990ec616279a56dc75327fca52e97a4af0e587cbe48620b9
         $this->parent = $this->loadTemplate("ESIEACoreBundle::layout.html.twig", "ESIEAPlatformBundle::layout.html.twig", 3);
         $this->blocks = array(
             'title' => array($this, 'block_title'),
-            'body' => array($this, 'block_body'),
             'esieaplatform_body' => array($this, 'block_esieaplatform_body'),
         );
     }
@@ -23,20 +22,20 @@ class __TwigTemplate_40d3e626064990ec616279a56dc75327fca52e97a4af0e587cbe48620b9
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_3cc90ba3b4d5bd812d86a21793555a35eecdf779a46e15d910dc1463dc9571b5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_3cc90ba3b4d5bd812d86a21793555a35eecdf779a46e15d910dc1463dc9571b5->enter($__internal_3cc90ba3b4d5bd812d86a21793555a35eecdf779a46e15d910dc1463dc9571b5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESIEAPlatformBundle::layout.html.twig"));
+        $__internal_ca3ed58d1d8d94d13d22bef97c7412b8c55af2bf02562de9c7a425378db991bf = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_ca3ed58d1d8d94d13d22bef97c7412b8c55af2bf02562de9c7a425378db991bf->enter($__internal_ca3ed58d1d8d94d13d22bef97c7412b8c55af2bf02562de9c7a425378db991bf_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESIEAPlatformBundle::layout.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_3cc90ba3b4d5bd812d86a21793555a35eecdf779a46e15d910dc1463dc9571b5->leave($__internal_3cc90ba3b4d5bd812d86a21793555a35eecdf779a46e15d910dc1463dc9571b5_prof);
+        $__internal_ca3ed58d1d8d94d13d22bef97c7412b8c55af2bf02562de9c7a425378db991bf->leave($__internal_ca3ed58d1d8d94d13d22bef97c7412b8c55af2bf02562de9c7a425378db991bf_prof);
 
     }
 
     // line 5
     public function block_title($context, array $blocks = array())
     {
-        $__internal_7bc11dd5f7841451f02ac6cfa3e98fac4dbce8cb1d2bc888b9d6dcc168b39f09 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_7bc11dd5f7841451f02ac6cfa3e98fac4dbce8cb1d2bc888b9d6dcc168b39f09->enter($__internal_7bc11dd5f7841451f02ac6cfa3e98fac4dbce8cb1d2bc888b9d6dcc168b39f09_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_01600f29066a8a2788a4d644cfc1e842cba794e36030b8deb7b35462773fbce7 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_01600f29066a8a2788a4d644cfc1e842cba794e36030b8deb7b35462773fbce7->enter($__internal_01600f29066a8a2788a4d644cfc1e842cba794e36030b8deb7b35462773fbce7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 6
         echo "  Annonces - ";
@@ -44,43 +43,23 @@ class __TwigTemplate_40d3e626064990ec616279a56dc75327fca52e97a4af0e587cbe48620b9
         echo "
 ";
         
-        $__internal_7bc11dd5f7841451f02ac6cfa3e98fac4dbce8cb1d2bc888b9d6dcc168b39f09->leave($__internal_7bc11dd5f7841451f02ac6cfa3e98fac4dbce8cb1d2bc888b9d6dcc168b39f09_prof);
+        $__internal_01600f29066a8a2788a4d644cfc1e842cba794e36030b8deb7b35462773fbce7->leave($__internal_01600f29066a8a2788a4d644cfc1e842cba794e36030b8deb7b35462773fbce7_prof);
 
     }
 
-    // line 9
-    public function block_body($context, array $blocks = array())
-    {
-        $__internal_e7cee6f616de6ff500714bf18b042cc95330f68ff066e958309175979a363d40 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_e7cee6f616de6ff500714bf18b042cc95330f68ff066e958309175979a363d40->enter($__internal_e7cee6f616de6ff500714bf18b042cc95330f68ff066e958309175979a363d40_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
-
-        // line 10
-        echo "
-  ";
-        // line 12
-        echo "
-  ";
-        // line 14
-        echo "  ";
-        $this->displayBlock('esieaplatform_body', $context, $blocks);
-        // line 16
-        echo "
-";
-        
-        $__internal_e7cee6f616de6ff500714bf18b042cc95330f68ff066e958309175979a363d40->leave($__internal_e7cee6f616de6ff500714bf18b042cc95330f68ff066e958309175979a363d40_prof);
-
-    }
-
-    // line 14
+    // line 11
     public function block_esieaplatform_body($context, array $blocks = array())
     {
-        $__internal_6f677f73dc1ee57329694708062c74a68819b7539312e8247a5e2673a79f34d5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_6f677f73dc1ee57329694708062c74a68819b7539312e8247a5e2673a79f34d5->enter($__internal_6f677f73dc1ee57329694708062c74a68819b7539312e8247a5e2673a79f34d5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "esieaplatform_body"));
+        $__internal_007829b6b1aefe73f6d5a1fb3ee1e3b86eac228128081366150a7ff5a3fcdb73 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_007829b6b1aefe73f6d5a1fb3ee1e3b86eac228128081366150a7ff5a3fcdb73->enter($__internal_007829b6b1aefe73f6d5a1fb3ee1e3b86eac228128081366150a7ff5a3fcdb73_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "esieaplatform_body"));
 
-        // line 15
-        echo "  ";
+        // line 12
+        echo "<html>
+   <body></body>
+ </html>
+ ";
         
-        $__internal_6f677f73dc1ee57329694708062c74a68819b7539312e8247a5e2673a79f34d5->leave($__internal_6f677f73dc1ee57329694708062c74a68819b7539312e8247a5e2673a79f34d5_prof);
+        $__internal_007829b6b1aefe73f6d5a1fb3ee1e3b86eac228128081366150a7ff5a3fcdb73->leave($__internal_007829b6b1aefe73f6d5a1fb3ee1e3b86eac228128081366150a7ff5a3fcdb73_prof);
 
     }
 
@@ -96,7 +75,7 @@ class __TwigTemplate_40d3e626064990ec616279a56dc75327fca52e97a4af0e587cbe48620b9
 
     public function getDebugInfo()
     {
-        return array (  81 => 15,  75 => 14,  67 => 16,  64 => 14,  61 => 12,  58 => 10,  52 => 9,  42 => 6,  36 => 5,  11 => 3,);
+        return array (  57 => 12,  51 => 11,  41 => 6,  35 => 5,  11 => 3,);
     }
 
     public function getSource()
@@ -109,14 +88,14 @@ class __TwigTemplate_40d3e626064990ec616279a56dc75327fca52e97a4af0e587cbe48620b9
   Annonces - {{ parent() }}
 {% endblock %}
 
-{% block body %}
 
-  {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}
 
-  {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
-  {% block esieaplatform_body %}
-  {% endblock %}
+ {% block esieaplatform_body %}
+<html>
+   <body></body>
+ </html>
+ {% endblock %}
 
-{% endblock %}";
+";
     }
 }

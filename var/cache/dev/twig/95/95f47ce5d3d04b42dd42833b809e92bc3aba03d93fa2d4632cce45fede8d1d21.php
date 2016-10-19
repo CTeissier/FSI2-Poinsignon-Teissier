@@ -7,82 +7,98 @@ class __TwigTemplate_503ccb04598fc966b5581333571e28796e8b45c71c79d86fca96a5491ed
     {
         parent::__construct($env);
 
-        // line 3
-        $this->parent = $this->loadTemplate("ESIEAPlatformBundle::layout.html.twig", "ESIEAPlatformBundle:Advert:view.html.twig", 3);
+        $this->parent = false;
+
         $this->blocks = array(
-            'title' => array($this, 'block_title'),
             'esieaplatform_body' => array($this, 'block_esieaplatform_body'),
         );
     }
 
-    protected function doGetParent(array $context)
-    {
-        return "ESIEAPlatformBundle::layout.html.twig";
-    }
-
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_e2eb928d21e59ea4ab693e5bcee9001407d69105ffed1258d541ad0c4be8c54a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_e2eb928d21e59ea4ab693e5bcee9001407d69105ffed1258d541ad0c4be8c54a->enter($__internal_e2eb928d21e59ea4ab693e5bcee9001407d69105ffed1258d541ad0c4be8c54a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESIEAPlatformBundle:Advert:view.html.twig"));
+        $__internal_bec1a3b55a4a5e4428529e69003512f4b6d4c347fad2798078afd891cdcc5e01 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_bec1a3b55a4a5e4428529e69003512f4b6d4c347fad2798078afd891cdcc5e01->enter($__internal_bec1a3b55a4a5e4428529e69003512f4b6d4c347fad2798078afd891cdcc5e01_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESIEAPlatformBundle:Advert:view.html.twig"));
 
-        $this->parent->display($context, array_merge($this->blocks, $blocks));
-        
-        $__internal_e2eb928d21e59ea4ab693e5bcee9001407d69105ffed1258d541ad0c4be8c54a->leave($__internal_e2eb928d21e59ea4ab693e5bcee9001407d69105ffed1258d541ad0c4be8c54a_prof);
-
-    }
-
-    // line 5
-    public function block_title($context, array $blocks = array())
-    {
-        $__internal_ae534bf8b78716e534ed608e8814437884e7726c7093e91e3cd2865d67a7036c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_ae534bf8b78716e534ed608e8814437884e7726c7093e91e3cd2865d67a7036c->enter($__internal_ae534bf8b78716e534ed608e8814437884e7726c7093e91e3cd2865d67a7036c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
-
-        // line 6
-        echo "  Lecture d'une recette - ";
-        $this->displayParentBlock("title", $context, $blocks);
+        // line 2
         echo "
+
+
 ";
+        // line 5
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "c91f9fa_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_c91f9fa_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/css/c91f9fa_demo_1.css");
+            // line 7
+            echo "
+        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto\"/>
+        <link rel=\"stylesheet\" href=\"";
+            // line 9
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" type=\"text/css\" />
+        <link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\">
+
+";
+        } else {
+            // asset "c91f9fa"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_c91f9fa") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/css/c91f9fa.css");
+            // line 7
+            echo "
+        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto\"/>
+        <link rel=\"stylesheet\" href=\"";
+            // line 9
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" type=\"text/css\" />
+        <link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\">
+
+";
+        }
+        unset($context["asset_url"]);
+        // line 13
+        echo "
+
+";
+        // line 15
+        $this->displayBlock('esieaplatform_body', $context, $blocks);
         
-        $__internal_ae534bf8b78716e534ed608e8814437884e7726c7093e91e3cd2865d67a7036c->leave($__internal_ae534bf8b78716e534ed608e8814437884e7726c7093e91e3cd2865d67a7036c_prof);
+        $__internal_bec1a3b55a4a5e4428529e69003512f4b6d4c347fad2798078afd891cdcc5e01->leave($__internal_bec1a3b55a4a5e4428529e69003512f4b6d4c347fad2798078afd891cdcc5e01_prof);
 
     }
 
-    // line 9
     public function block_esieaplatform_body($context, array $blocks = array())
     {
-        $__internal_dbe0effbfeb7017993da3ec9c27bd4aef3a58352806b5193f4c970d57b402f2d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_dbe0effbfeb7017993da3ec9c27bd4aef3a58352806b5193f4c970d57b402f2d->enter($__internal_dbe0effbfeb7017993da3ec9c27bd4aef3a58352806b5193f4c970d57b402f2d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "esieaplatform_body"));
+        $__internal_66129764f6c113d0c193856206b74809669b64b8f0f3252da43784d2af9cd5cf = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_66129764f6c113d0c193856206b74809669b64b8f0f3252da43784d2af9cd5cf->enter($__internal_66129764f6c113d0c193856206b74809669b64b8f0f3252da43784d2af9cd5cf_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "esieaplatform_body"));
 
-        // line 10
+        // line 16
         echo "
   <div style=\"float: left; margin-right: 1em;\">
     ";
-        // line 13
+        // line 19
         echo "    ";
         if ( !(null === $this->getAttribute((isset($context["advert"]) ? $context["advert"] : $this->getContext($context, "advert")), "image", array()))) {
-            // line 14
+            // line 20
             echo "      <img
         src=\"";
-            // line 15
+            // line 21
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl($this->getAttribute($this->getAttribute((isset($context["advert"]) ? $context["advert"] : $this->getContext($context, "advert")), "image", array()), "webPath", array())), "html", null, true);
             echo "\"
         alt=\"";
-            // line 16
+            // line 22
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["advert"]) ? $context["advert"] : $this->getContext($context, "advert")), "image", array()), "alt", array()), "html", null, true);
             echo "\"
         height=\"60\"
       />
     ";
         }
-        // line 20
+        // line 26
         echo "  </div>
 
   <h2>";
-        // line 22
+        // line 28
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["advert"]) ? $context["advert"] : $this->getContext($context, "advert")), "title", array()), "html", null, true);
         echo "</h2>
   <i>Par ";
-        // line 23
+        // line 29
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["advert"]) ? $context["advert"] : $this->getContext($context, "advert")), "author", array()), "html", null, true);
         echo ", le ";
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["advert"]) ? $context["advert"] : $this->getContext($context, "advert")), "date", array()), "d/m/Y"), "html", null, true);
@@ -90,7 +106,7 @@ class __TwigTemplate_503ccb04598fc966b5581333571e28796e8b45c71c79d86fca96a5491ed
 
   <div class=\"well\" style=\"width:1000px;background:black\">
     ";
-        // line 26
+        // line 32
         echo nl2br(twig_escape_filter($this->env, $this->getAttribute((isset($context["advert"]) ? $context["advert"] : $this->getContext($context, "advert")), "content", array()), "html", null, true));
         echo "
   </div>
@@ -100,21 +116,21 @@ class __TwigTemplate_503ccb04598fc966b5581333571e28796e8b45c71c79d86fca96a5491ed
 
   <p>
     <a href=\"";
-        // line 33
+        // line 39
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("esiea_platform_home");
         echo "\" class=\"btn btn-default\">
       <i class=\"glyphicon glyphicon-chevron-left\"></i>
       Retour à la liste
     </a>
     <a href=\"";
-        // line 37
+        // line 43
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("esiea_platform_edit", array("id" => $this->getAttribute((isset($context["advert"]) ? $context["advert"] : $this->getContext($context, "advert")), "id", array()))), "html", null, true);
         echo "\" class=\"btn btn-default\">
       <i class=\"glyphicon glyphicon-edit\"></i>
       Modifier l'annonce
     </a>
     <a href=\"";
-        // line 41
+        // line 47
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("esiea_platform_delete", array("id" => $this->getAttribute((isset($context["advert"]) ? $context["advert"] : $this->getContext($context, "advert")), "id", array()))), "html", null, true);
         echo "\" class=\"btn btn-danger\">
       <i class=\"glyphicon glyphicon-trash\"></i>
@@ -124,7 +140,7 @@ class __TwigTemplate_503ccb04598fc966b5581333571e28796e8b45c71c79d86fca96a5491ed
 
 ";
         
-        $__internal_dbe0effbfeb7017993da3ec9c27bd4aef3a58352806b5193f4c970d57b402f2d->leave($__internal_dbe0effbfeb7017993da3ec9c27bd4aef3a58352806b5193f4c970d57b402f2d_prof);
+        $__internal_66129764f6c113d0c193856206b74809669b64b8f0f3252da43784d2af9cd5cf->leave($__internal_66129764f6c113d0c193856206b74809669b64b8f0f3252da43784d2af9cd5cf_prof);
 
     }
 
@@ -140,18 +156,24 @@ class __TwigTemplate_503ccb04598fc966b5581333571e28796e8b45c71c79d86fca96a5491ed
 
     public function getDebugInfo()
     {
-        return array (  118 => 41,  111 => 37,  104 => 33,  94 => 26,  86 => 23,  82 => 22,  78 => 20,  71 => 16,  67 => 15,  64 => 14,  61 => 13,  57 => 10,  51 => 9,  41 => 6,  35 => 5,  11 => 3,);
+        return array (  134 => 47,  127 => 43,  120 => 39,  110 => 32,  102 => 29,  98 => 28,  94 => 26,  87 => 22,  83 => 21,  80 => 20,  77 => 19,  73 => 16,  61 => 15,  57 => 13,  49 => 9,  45 => 7,  36 => 9,  32 => 7,  28 => 5,  23 => 2,);
     }
 
     public function getSource()
     {
         return "{# src/ESIEA/PlatformBundle/Resources/view/Advert/view.html.twig #}
 
-{% extends \"ESIEAPlatformBundle::layout.html.twig\" %}
 
-{% block title %}
-  Lecture d'une recette - {{ parent() }}
-{% endblock %}
+
+{% stylesheets filter=\"cssrewrite, ?scssphp\"
+        'bundles/esieaplatform/css/demo.css'%}
+
+        <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto\"/>
+        <link rel=\"stylesheet\" href=\"{{ asset_url }}\" type=\"text/css\" />
+        <link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\">
+
+{% endstylesheets %}
+
 
 {% block esieaplatform_body %}
 
