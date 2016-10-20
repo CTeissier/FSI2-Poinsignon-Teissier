@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
    <head>
-       <meta charset="utf-8">
+    
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -12,16 +13,70 @@
       <title>{% block title %}ESIEA Plateforme{% endblock %}</title>
  
      
-      {{ render(controller('ESIEAPlatformBundle:Site:header')) }}
+      <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+            </button>
+            
+
+                <h2>ESIE_<font color="#598bdb">EATS</font></h2>
+
+               
+            </div>
+
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+                    <li>
+                        <a class="page-scroll" href="{{ path('esiea_platform_home') }}">Home</a>
+                    </li>
+                    <li> <a  href="{{ path('esiea_platform_add') }}">
+                     <span class="page-scroll">Publier</span> une recette
+                                    </a></li>
+                   
+                    <li>
+                        <a class="page-scroll" href="#about">À propos</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#recette">Recettes</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="{{ path('esiea_platform_faq') }}">FAQ</a>
+                    </li>
+
+                    <li>
+                        <a class="page-scroll" 
+                        href="#contact"
+
+                        >Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
      
 
 
      {% block stylesheets %}
       {# On charge le CSS de bootstrap depuis le site directement #}
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" >
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" >
 
-      <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+      <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+
+
       {% stylesheets filter="cssrewrite, ?scssphp"
       'bundles/esieaplatform/css/demo.css'
       %}
@@ -40,10 +95,10 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
 
-<img src="http://www.w3schools.com/html/pic_mountain.jpg" alt="Mountain View" style="width:304px;height:228px;">
+<img src="https://maxcdn.icons8.com/Color/PNG/512/Food/rice_bowl-512.png" alt="Mountain View" style="width:304px;height:228px;">
 
-                        <h1 class="brand-heading">ESIE_EATS</h1>
-                        <p class="intro-text">Prononcé EASY_EATS est un service proposé par les étudiants de l'ESIEA.
+                        <h2 class="brand-heading">ESIE_<font color="#598bdb">EATS</font></h2>
+                        <p >Prononcé EASY_EATS est un service proposé par les étudiants de l'ESIEA.
                             <br>Plus d'information prochainement.</p>
                         
                     </div>
@@ -60,8 +115,11 @@
     <section id="about" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>À propos d'ESIE_EATS</h2>
-                <p>Nous travaillons avec plusieurs centaines de d'internautes pour vous proposer les meilleurs plats. Vos cuisiniers préférés cuisinent vos  <a href="google.fr">recettes</a> préférés, ESIE_EATS vous les livre.</p>
+                <h2>À propos d'ESIE_<font color="#598bdb">EATS</font></h2>
+                <p>Nous travaillons avec plusieurs centaines de d'internautes pour vous proposer les meilleurs plats. Vos cuisiniers préférés cuisinent vos  <a href="google.fr">recettes</a> préférés, ESIE_<font color="#598bdb">EATS</font> vous les livre.</p>
+
+
+
                 
                 <p>La rapidité dont vous avez besoin. Consultez notre sélection de centaines de restaurants livrés en 30 minutes en moyenne.</p>
                 <p>Le service que vous appréciez. Une fois vos plats sélectionnés, vous verrez s'inscrire le montant total de votre commande. Réglez avec votre compte Uber et suivez la livraison dans l'application.</p>
@@ -115,10 +173,10 @@
                   </p>
                   <ul class="list-inline banner-social-buttons">
                      <li>
-                        <a href="https:" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                        <a href="https:" class="btn btn-default btn-lg"><span class="network-name">Github</span></a>
                      </li>
                      <li>
-                        <a href="https:" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">ESIEA</span></a>
+                        <a href="https:" class="btn btn-default btn-lg"> <span class="network-name">ESIEA</span></a>
                      </li>
                   </ul>
                </div>
@@ -134,7 +192,7 @@
 
    </body>
 {% block javascripts %}
-      {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+     
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
       <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
       <script src="{{ asset('bundles/esieaplatform/js/demo.js') }}"></script>

@@ -24,8 +24,10 @@
             <div class="navbar-header">
              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     Menu <i class="fa fa-bars"></i>
-                </button>
-                <h2>ESIE_<font color="#1d9b6c">EAT</font></h2>
+            </button>
+            
+
+                <h2>ESIE_<font color="#598bdb">EATS</font></h2>
 
                
             </div>
@@ -44,23 +46,25 @@
                         <a class="page-scroll" href="{{ path('esiea_platform_home') }}">Home</a>
                     </li>
                     <li> <a  href="{{ path('esiea_platform_add') }}">
-                     <span class="light">Publier</span> une recette
+                     <span class="page-scroll">Publier</span> une recette
                                     </a></li>
-
-
-                    
+                   
                     <li>
-                        <a class="page-scroll" href="#about">À propos</a>
+                        <a class="page-scroll" href="{{ path('esiea_platform_home') }}">À propos</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#recette">Recettes</a>
+                        <a class="page-scroll" href="{{ path('esiea_platform_home') }}">Recettes</a>
                     </li>
                      <li>
                         <a class="page-scroll" href="{{ path('esiea_platform_faq') }}">FAQ</a>
                     </li>
 
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="{{ path('esiea_platform_home') }}"
+
+                        href="#contact"
+
+                        >Contact</a>
                     </li>
                 </ul>
             </div>
@@ -68,12 +72,6 @@
         </div>
         <!-- /.container -->
     </nav>
-
-
-    
-
-
-
 
 </body>
 

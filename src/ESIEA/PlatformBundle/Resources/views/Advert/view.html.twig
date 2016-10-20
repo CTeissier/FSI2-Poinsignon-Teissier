@@ -2,7 +2,33 @@
 
 
 
+<head>
+       <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+
+      <title>{% block title %}ESIEA Plateforme{% endblock %}</title>
+ 
+     
+      {{ render(controller('ESIEAPlatformBundle:Site:header')) }}
+     
+
+
+     {% block stylesheets %}
+      {# On charge le CSS de bootstrap depuis le site directement #}
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" >
+      {% stylesheets filter="cssrewrite, ?scssphp"
+      'bundles/esieaplatform/css/demo.css'
+      %}
+      <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      {% endstylesheets %}
+      {% endblock %}
+   </head>
 
 {% block esieaplatform_body %}
 

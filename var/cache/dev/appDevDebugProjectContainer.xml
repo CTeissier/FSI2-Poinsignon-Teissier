@@ -22,7 +22,6 @@
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
-      <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
@@ -336,7 +335,6 @@
       <parameter>WebProfilerBundle</parameter>
       <parameter>SensioDistributionBundle</parameter>
       <parameter>SensioGeneratorBundle</parameter>
-      <parameter>DoctrineFixturesBundle</parameter>
     </parameter>
     <parameter key="assetic.twig_extension.class">Symfony\Bundle\AsseticBundle\Twig\AsseticExtension</parameter>
     <parameter key="assetic.twig_formula_loader.class">Assetic\Extension\Twig\TwigFormulaLoader</parameter>
@@ -560,7 +558,7 @@
                   <tag name="cache.pool"/>
                   <argument>d-OgB8Dx9c</argument>
                   <argument>0</argument>
-                  <argument>RQz6-vdtJkIrCOTHqRESdg</argument>
+                  <argument>jsYqETpaUTHmzj2R7yo3Rw</argument>
                   <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
                   <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                   <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -573,7 +571,7 @@
                   <tag name="cache.pool"/>
                   <argument>WxDls2eO39</argument>
                   <argument>0</argument>
-                  <argument>RQz6-vdtJkIrCOTHqRESdg</argument>
+                  <argument>jsYqETpaUTHmzj2R7yo3Rw</argument>
                   <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
                   <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                   <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -905,7 +903,7 @@
       <tag name="cache.pool"/>
       <argument>Wl6ZKcVjqQ</argument>
       <argument>0</argument>
-      <argument>RQz6-vdtJkIrCOTHqRESdg</argument>
+      <argument>jsYqETpaUTHmzj2R7yo3Rw</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -1658,7 +1656,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5807cd768114d4.75238430</argument>
+            <argument>58087881a53d84.45139771</argument>
           </service>
         </argument>
       </argument>
@@ -1792,7 +1790,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>5807cd768114d4.75238430</argument>
+            <argument>58087881a53d84.45139771</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2010,7 +2008,6 @@
               <argument>WebProfilerBundle</argument>
               <argument>SensioDistributionBundle</argument>
               <argument>SensioGeneratorBundle</argument>
-              <argument>DoctrineFixturesBundle</argument>
             </argument>
             <argument type="service">
               <service class="Symfony\Bundle\AsseticBundle\DefaultValueSupplier" public="false">
@@ -2738,33 +2735,6 @@
                   <argument type="service" id="templating.loader"/>
                   <argument>SensioGeneratorBundle</argument>
                   <argument>C:\wamp64\www\Symfony\vendor\sensio\generator-bundle/Resources/views</argument>
-                  <argument>/\.[^.]+\.twig$/</argument>
-                </service>
-              </argument>
-            </argument>
-          </service>
-        </argument>
-        <argument>twig</argument>
-      </call>
-      <call method="addResource">
-        <argument type="service">
-          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
-            <tag name="assetic.templating.twig"/>
-            <tag name="assetic.formula_resource" loader="twig"/>
-            <argument type="collection">
-              <argument type="service">
-                <service class="%assetic.directory_resource.class%" public="false">
-                  <argument type="service" id="templating.loader"/>
-                  <argument>DoctrineFixturesBundle</argument>
-                  <argument>C:\wamp64\www\Symfony\app/Resources/DoctrineFixturesBundle/views</argument>
-                  <argument>/\.[^.]+\.twig$/</argument>
-                </service>
-              </argument>
-              <argument type="service">
-                <service class="%assetic.directory_resource.class%" public="false">
-                  <argument type="service" id="templating.loader"/>
-                  <argument>DoctrineFixturesBundle</argument>
-                  <argument>C:\wamp64\www\Symfony\vendor\doctrine\doctrine-fixtures-bundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
