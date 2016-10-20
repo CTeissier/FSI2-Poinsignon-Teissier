@@ -1,77 +1,76 @@
 {# src/ESIEA/PlatformBundle/Resources/view/Advert/view.html.twig #}
 
 
-
 <head>
-       <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>{% block title %}ESIEA Plateforme{% endblock %}</title>
- 
-     
-      {{ render(controller('ESIEAPlatformBundle:Site:header')) }}
-     
-
-
-     {% block stylesheets %}
+         {{ render(controller('ESIEAPlatformBundle:Site:header')) }}
+      {% block stylesheets %}
       {# On charge le CSS de bootstrap depuis le site directement #}
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" >
       {% stylesheets filter="cssrewrite, ?scssphp"
       'bundles/esieaplatform/css/demo.css'
       %}
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" >
+      <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
       <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       {% endstylesheets %}
       {% endblock %}
    </head>
 
+
 {% block esieaplatform_body %}
-<section id="add" class="container content-section text-center" bgcolor="#FF0000">
-
+<section id="add" class="container content-section text-center" bgcolor="#FF0000" style="text-align: center">
    <img
-        src="{{ asset(advert.image.webPath) }}"
-        alt="{{ advert.image.alt }}"
-        height="240"
+      src="{{ asset(advert.image.webPath) }}"
+      alt="{{ advert.image.alt }}"
+      height="240"
       />
-  <div style="float: left; margin-right: 1em;">
-    {# On vérifie qu'une image soit bien associée à l'article #}
-    {% if advert.image is not null %}
-      <img
-        src="{{ asset(advert.image.webPath) }}"
-        alt="{{ advert.image.alt }}"
-        height="120"
-      />
-    {% endif %}
-  </div>
+   
+   <div style="float: left; margin-right: 1em;">
+   <!-- Image ici -->
+   
+   </div>
+   <div>
+   <br> <h2>{{ advert.title }}</h2></br>
+   </div>
+   <p style="text-align: left">Par Chef {{ advert.author }} 
+   <br>{{ advert.date|date('d/m/Y') }}</br></p>
 
-  <br><h2>{{ advert.title }}</h2></br>
-  <i>Par {{ advert.author }}, le {{ advert.date|date('d/m/Y') }}</i>
-
-  <div class="well" style="width:1000px;background:black">
-    {{ advert.content | nl2br }}
-  </div>
-
-
-
-
-  <p>
-    <a href="{{ path('esiea_platform_home') }}" class="btn btn-default">
+   <div class="well" style="background: black">
+     <p> {{ advert.content | nl2br }} </p>
+   </div>
+   <p style="text-align: center">
+      <a href="{{ path('esiea_platform_home') }}" class="btn btn-default">
       <i class="glyphicon glyphicon-chevron-left"></i>
-      Retour à la liste
-    </a>
-    <a href="{{ path('esiea_platform_edit', {'id': advert.id}) }}" class="btn btn-default">
+      <br>Retour à la liste</br>
+      </a>
+
+      <a href="{{ path('esiea_platform_home') }}" class="btn btn-primary">
+      <i class="glyphicon glyphicon-cutlery"></i>
+      <br>Livrer chez moi</br>
+      </a>
+
+      <a href="{{ path('esiea_platform_edit', {'id': advert.id}) }}" class="btn btn-default">
       <i class="glyphicon glyphicon-edit"></i>
-      Modifier l'annonce
-    </a>
-    <a href="{{ path('esiea_platform_delete', {'id': advert.id}) }}" class="btn btn-danger">
+      <br>Modifier l'annonce</br>
+      </a>
+      <a href="{{ path('esiea_platform_delete', {'id': advert.id}) }}" class="btn btn-danger">
       <i class="glyphicon glyphicon-trash"></i>
-      Supprimer l'annonce
-    </a>
-  </p>
+      <br>Supprimer l'annonce</br>
+      </a>
+
+
+
+   </p>
 </section>
+
+{% block javascripts %}
+{# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="{{ asset('bundles/esieaplatform/js/demo.js') }}"></script>
 {% endblock %}
+{% endblock %} 

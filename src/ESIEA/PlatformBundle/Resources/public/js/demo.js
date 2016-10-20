@@ -10,7 +10,7 @@ function collapseNavbar() {
 $(window).scroll(collapseNavbar);
 $(document).ready(collapseNavbar);
 
-// jQuery for page scrolling feature - requires jQuery Easing plugin
+// Scrolling
 $(function() {
     $('a.page-scroll').bind('click', function(event) {
         var $anchor = $(this);
@@ -21,8 +21,10 @@ $(function() {
     });
 });
 
-// Closes the Responsive Menu on Menu Item Click
+// Fermer le menu au click
 $('.navbar-collapse ul li a').click(function() {
     $(this).closest('.collapse').collapse('toggle');
 });
+
+
 
