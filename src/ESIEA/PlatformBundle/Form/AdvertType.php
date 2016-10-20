@@ -29,8 +29,7 @@ class AdvertType extends AbstractType
       ->add('author',    TextType::class)
       ->add('content',   TextareaType::class)
       ->add('image',     ImageType::class)
-      
-      ->add('save',      SubmitType::class)
+          ->add('save',      SubmitType::class)
     ;
 
     $builder->addEventListener(

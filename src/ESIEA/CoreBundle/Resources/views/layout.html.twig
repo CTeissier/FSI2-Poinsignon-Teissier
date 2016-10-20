@@ -1,4 +1,7 @@
 {# src/ESIEA/CoreBundle/Resources/views/layout.html.twig #}
+
+<!-- Core -->
+
 <!DOCTYPE html>
 <html>
    <head>
@@ -6,8 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  
 
 
       <title>{% block title %}ESIEA Plateforme{% endblock %}</title>
@@ -88,7 +90,10 @@
   
   <body>
       
-    <!-- Intro Header -->
+    
+      
+ 
+<!-- Intro Header -->
     <header class="intro">
         <div class="intro-body"   >
             <div class="container">
@@ -129,38 +134,28 @@
         </div>
     </section>
 
+<!-- Menu side bar -->
+<div class="row">
+      <div id="menu" class="col-md-3">
+        <h3>Les annonces</h3>
+        <ul class="nav nav-pills nav-stacked">
+          <li><a href="{{ path('esiea_platform_home') }}">Accueil</a></li>
+          <li><a href="{{ path('esiea_platform_add') }}">Ajouter une annonce</a></li>
+        </ul>
 
-
-
-<section id="recette" class="container content-section text-center">
-   <div class="row">
-      <div class="col-lg-8 col-lg-offset-2">
-         <h2>Dernières recettes</h2>
-         <ul class="intro-text">
-            {% for advert in listAdverts %}
-            <br>
-               <a href="{{ path('esiea_platform_view', {'id': advert.id}) }}">
-               {{ advert.title }}
-               </a>
-               par {{ advert.author }},
-               le {{ advert.date|date('d/m/Y') }}
-            </br>
-            {% else %}
-            <li>Pas (encore !) d'annonces</li>
-            {% endfor %}
-
-         </ul>
-         <!-- Pagination -->
-         <ul class="pagination">
-            {% for p in range(1, nbPages) %}
-            <li{% if p == page %} class="active"{% endif %}>
-            <a href="{{ path('esiea_platform_home', {'page': p}) }}">{{ p }}</a>
-            </li>
-            {% endfor %}
-         </ul>
+        <h4>Dernières annonces</h4>
+        {{ render(controller("ESIEAPlatformBundle:Advert:menu", {'limit': 3})) }}
       </div>
-   </div>
-</section>
+      <div id="content" class="col-md-9">
+        {% block body %}
+        {% endblock %}
+      </div>
+    </div>
+
+
+
+
+
          <!-- Contact Section -->
          <section id="contact" class="container content-section text-center">
             <div class="row">
@@ -185,8 +180,6 @@
          <p style="text-align:center"><font size ="2"> Daniel POINSIGNON & Cannelle TEISSIER © {{ 'now'|date('Y') }} for ESIEA.</font></p>
       </footer>
       </div>
-      
-   </body>
 
 
 
@@ -199,6 +192,6 @@
 
 
 
-      {% endblock %}
+  {% endblock %}
 
 </html>
