@@ -31,19 +31,25 @@
    </head>
 
 {% block esieaplatform_body %}
+<section id="add" class="container content-section text-center" bgcolor="#FF0000">
 
+   <img
+        src="{{ asset(advert.image.webPath) }}"
+        alt="{{ advert.image.alt }}"
+        height="240"
+      />
   <div style="float: left; margin-right: 1em;">
     {# On vérifie qu'une image soit bien associée à l'article #}
     {% if advert.image is not null %}
       <img
         src="{{ asset(advert.image.webPath) }}"
         alt="{{ advert.image.alt }}"
-        height="60"
+        height="120"
       />
     {% endif %}
   </div>
 
-  <h2>{{ advert.title }}</h2>
+  <br><h2>{{ advert.title }}</h2></br>
   <i>Par {{ advert.author }}, le {{ advert.date|date('d/m/Y') }}</i>
 
   <div class="well" style="width:1000px;background:black">
@@ -67,5 +73,5 @@
       Supprimer l'annonce
     </a>
   </p>
-
+</section>
 {% endblock %}

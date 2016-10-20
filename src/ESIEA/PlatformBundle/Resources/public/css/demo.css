@@ -177,6 +177,13 @@ a:focus {
   -moz-transition-property: -moz-transform;
   -moz-transition-duration: 1s;
 }
+
+
+.well {
+
+text-align: center;
+  
+}
 .btn-circle:hover i.animated {
   -webkit-animation-name: pulse;
   -moz-animation-name: pulse;
