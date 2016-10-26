@@ -86,19 +86,19 @@
 
 {% block esieaplatform_body %}
 
-  <h2>Modifier une annonce</h2>
+  
 
+
+<section id="edit" class="container content-section text-center" >
+
+<h3>Modifier votre recette</h3>
   {{ include("ESIEAPlatformBundle:Advert:form.html.twig") }}
-
-  <p>
-    Vous éditez une annonce déjà existante, merci de ne pas changer
-    l'esprit général de l'annonce déjà publiée.
-  </p>
+</section>
 
   <p>
     <a href="{{ path('esiea_platform_view', {'id': advert.id}) }}" class="btn btn-default">
       <i class="glyphicon glyphicon-chevron-left"></i>
-      Retour à l'annonce
+      Retour à votre recette
     </a>
   </p>
 

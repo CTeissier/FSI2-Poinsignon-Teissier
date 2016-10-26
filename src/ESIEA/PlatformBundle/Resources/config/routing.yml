@@ -43,3 +43,14 @@ esiea_platform_faq:
     path:     /faq
     defaults:
         _controller: ESIEAPlatformBundle:Site:faq
+
+
+esiea_platform_delivery:
+    path:     /delivery/
+    defaults:
+        _controller: ESIEAPlatformBundle:Site:delivery
+
+esiea_platform_payment:
+    path:     /payment/
+    defaults:
+        _controller: ESIEAPlatformBundle:Site:payment

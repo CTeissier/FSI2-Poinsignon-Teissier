@@ -180,9 +180,8 @@ a:focus {
 
 
 .well {
-
 text-align: center;
-  
+
 }
 .btn-circle:hover i.animated {
   -webkit-animation-name: pulse;
@@ -253,6 +252,12 @@ text-align: center;
     margin-top: 250px;
   }
 }
+
+.checkbox {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+
+}
+
 .btn {
   text-transform: uppercase;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -317,3 +322,4 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
 }
+

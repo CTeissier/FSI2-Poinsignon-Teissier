@@ -18,8 +18,7 @@ class AdvertController extends Controller
     if ($page < 1) {
       throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
     }
-    // Ici je fixe le nombre d'annonces par page à 3
-    // Mais bien sûr il faudrait utiliser un paramètre, et y accéder via $this->container->getParameter('nb_per_page')
+    
     $nbPerPage = 3;
     // On récupère notre objet Paginator
     $listAdverts = $this->getDoctrine()
@@ -50,21 +49,10 @@ class AdvertController extends Controller
     if (null === $advert) {
       throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
     }
-    /*// Récupération de la liste des candidatures de l'annonce
-    $listApplications = $em
-      ->getRepository('ESIEAPlatformBundle:Application')
-      ->findBy(array('advert' => $advert))
-    ;
-    // Récupération des AdvertSkill de l'annonce
-    $listAdvertSkills = $em
-      ->getRepository('ESIEAPlatformBundle:AdvertSkill')
-      ->findBy(array('advert' => $advert))
-    ;*/
+  
     return $this->render('ESIEAPlatformBundle:Advert:view.html.twig', array(
       'advert'           => $advert,
-      //'listApplications' => $listApplications,
-      //'listAdvertSkills' => $listAdvertSkills,
-    ));
+         ));
   }
   public function addAction(Request $request)
   {

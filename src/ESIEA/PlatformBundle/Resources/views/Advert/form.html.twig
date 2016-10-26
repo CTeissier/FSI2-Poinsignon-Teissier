@@ -1,69 +1,83 @@
 {# src/ESIEA/PlatformBundle/Resources/views/Advert/form.html.twig #}
 <html>
 
-<h3>Formulaire d'annonce</h3>
-<head>
-   <meta charset="utf-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="description" content="">
-   <meta name="author" content="">
-   <title>Home</title>
-   <!-- Bootstrap Core CSS -->
-   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-   {% stylesheets filter="cssrewrite, ?scssphp"
-   'bundles/esieaplatform/css/demo.css'%}
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/>
-   <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-   {% endstylesheets %}
-</head>
+ 
 
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-   <div class="well" >
-      <section id="add" class="container content-section text-center">
-         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-         {# Les erreurs générales du formulaire. #}
-         {{ form_errors(form) }}
-         {# Génération du label + error + widget pour un champ. #}
-         {% if form.date is defined %}
-         {{ form_row(form.date) }}
-         {% endif %}
-         {# Génération manuelle et éclatée : #}
-         <div class="form-group">
-            {# Génération du label. #}
-            {{ form_label(form.title, "Titre de l'annonce", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-            {# Affichage des erreurs pour ce champ précis. #}
-            {{ form_errors(form.title) }}
-            <div class="col-sm-10">
-               {# Génération de l'input. #}
-               {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
-            </div>
-         </div>
-         {# Idem pour un autre champ. #}
-         <div class="form-group"  >
-            {{ form_label(form.content, "Contenu de l'annonce", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-            {{ form_errors(form.title) }}
-            <div class="col-sm-10">
-               {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
-            </div>
-         </div>
-         {{ form_row(form.author) }}
-         {% if form.published is defined %}
-         {{ form_row(form.published) }}
-         {% endif %}
-         {{ form_row(form.image) }}
-         {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-         {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
-         {# Génération automatique des champs pas encore écrits.
-         Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
-         et tous les champs cachés (type « hidden »). #}
-         {{ form_rest(form) }}
-         {# Fermeture de la balise 
-         <form>
-         du formulaire HTML #}
-         {{ form_end(form) }}
-      </section>
+
+
+
+<div style="text-align: left">
+      {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+   
+      {{ form_errors(form) }}
+      {# Génération du label + error + widget pour un champ. #}
+      {% if form.date is defined %}
+      {{ form_row(form.date) }}
+      {% endif %}
+      {# Génération manuelle et éclatée : #}
+     
+      <!--Auteur-->    
+      <br> 
+      {{ form_row(form.author) }}
+     </br>
+      <!--Nom de recette-->
+      <div><br>
+         {{ form_label(form.title, "Nom de votre recette", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+         {{ form_errors(form.title) }}
+      </br>
+      </div>
+
+
+      <!--Description de la recette-->
+        <br>
+            {# Génération de l'input. #}
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+      </br>
+      
+     
+      <!-- Contenu de l'annonce-->
+      <br>
+         {{ form_label(form.content, "Décrivez votre recette", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+      </br>   
+
+
+
+         {{ form_errors(form.title) }}
+
+
+         <br>
+       
+            {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+       
+      </br>
+      <!--Condition utilisation-->
+      
+   <center>
+ 
+      {% if form.published is defined %}
+      {{ form_row(form.published) }}
+      
+      {% endif %}
+  
+
+      
+   
+      <font color="black">{{ form_row(form.image) }}</font>
+
+      {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+      {{ form_rest(form) }}
+      {{ form_end(form) }}
+
+   
+     
+      
+     
+      {# Bouton de sauvegarde #}
+
+      
+
+  </center>
    </div>
-</body>
-</html>
+
+
