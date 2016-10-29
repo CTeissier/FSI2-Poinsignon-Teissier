@@ -11,7 +11,6 @@ class __TwigTemplate_5dd27d590894798a1dab20eeb8628fa41b6bf23966f2b977c1ea2c669e8
         $this->parent = $this->loadTemplate("ESIEACoreBundle::layout.html.twig", "@ESIEAPlatform/layout.html.twig", 3);
         $this->blocks = array(
             'title' => array($this, 'block_title'),
-            'body' => array($this, 'block_body'),
             'esieaplatform_body' => array($this, 'block_esieaplatform_body'),
         );
     }
@@ -36,31 +35,18 @@ class __TwigTemplate_5dd27d590894798a1dab20eeb8628fa41b6bf23966f2b977c1ea2c669e8
 ";
     }
 
-    // line 9
-    public function block_body($context, array $blocks = array())
-    {
-        // line 10
-        echo "
-  ";
-        // line 12
-        echo "  <h1>Annonces</h1>
-
-  <hr>
-
-  ";
-        // line 17
-        echo "  ";
-        $this->displayBlock('esieaplatform_body', $context, $blocks);
-        // line 19
-        echo "
-";
-    }
-
-    // line 17
+    // line 11
     public function block_esieaplatform_body($context, array $blocks = array())
     {
-        // line 18
-        echo "  ";
+        // line 12
+        echo "<html>
+   <body>
+   \t
+
+   \t
+   </body>
+ </html>
+ ";
     }
 
     public function getTemplateName()
@@ -75,7 +61,7 @@ class __TwigTemplate_5dd27d590894798a1dab20eeb8628fa41b6bf23966f2b977c1ea2c669e8
 
     public function getDebugInfo()
     {
-        return array (  63 => 18,  60 => 17,  55 => 19,  52 => 17,  46 => 12,  43 => 10,  40 => 9,  33 => 6,  30 => 5,  11 => 3,);
+        return array (  42 => 12,  39 => 11,  32 => 6,  29 => 5,  11 => 3,);
     }
 
     public function getSource()

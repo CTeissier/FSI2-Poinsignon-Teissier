@@ -9,9 +9,9 @@ class AdvertRepository extends EntityRepository
   public function getAdvertsBefore(\Datetime $date)
   {
     return $this->createQueryBuilder('a')
-      ->where('a.updatedAt <= :date')                      // Date de modification antérieure à :date
-      ->orWhere('a.updatedAt IS NULL AND a.date <= :date') // Si la date de modification est vide, on vérifie la date de création
-      /*->andWhere('a.applications IS EMPTY')                // On vérifie que l'annonce ne contient aucune candidature*/
+      ->where('a.updatedAt <= :date')                      
+      ->orWhere('a.updatedAt IS NULL AND a.date <= :date') 
+     
       ->setParameter('date', $date)
       ->getQuery()
       ->getResult()
@@ -22,8 +22,7 @@ class AdvertRepository extends EntityRepository
     $query = $this->createQueryBuilder('a')
       ->leftJoin('a.image', 'i')
       ->addSelect('i')
-      //->leftJoin('a.categories', 'c')
-      //->addSelect('c')
+      
       ->orderBy('a.date', 'DESC')
       ->getQuery()
     ;
@@ -39,21 +38,9 @@ class AdvertRepository extends EntityRepository
   }
   public function myFindAll()
   {
-    /*// Méthode 1 : en passant par l'EntityManager
-    $queryBuilder = $this->_em->createQueryBuilder()
-      ->select('a')
-      ->from($this->_entityName, 'a')
-    ;*/
-
-    // Dans un repository, $this->_entityName est le namespace de l'entité gérée
-    // Ici, il vaut donc OC\PlatformBundle\Entity\Advert
-    // Méthode 2 : en passant par le raccourci (je recommande)
     $queryBuilder = $this->createQueryBuilder('a');
-    // On n'ajoute pas de critère ou tri particulier, la construction
-    // de notre requête est finie
-    // On récupère la Query à partir du QueryBuilder
     $query = $queryBuilder->getQuery();
-    // On récupère les résultats à partir de la Query
+  
     $results = $query->getResult();
     // On retourne ces résultats
     return $results;
@@ -61,37 +48,21 @@ class AdvertRepository extends EntityRepository
   public function myFind()
   {
     $qb = $this->createQueryBuilder('a');
-    // On peut ajouter ce qu'on veut avant
+  
     $qb
       ->where('a.author = :author')
-      ->setParameter('author', 'Marine')
+      ->setParameter('author', 'Daniel')
     ;
-    // On applique notre condition sur le QueryBuilder
+    
     $this->whereCurrentYear($qb);
-    // On peut ajouter ce qu'on veut après
+    
     $qb->orderBy('a.date', 'DESC');
     return $qb
       ->getQuery()
       ->getResult()
     ;
   }
- /*public function getAdvertWithCategories(array $categoryNames)
-  {
-    $qb = $this->createQueryBuilder('a');
-    // On fait une jointure avec l'entité Category avec pour alias « c »
-    $qb
-      ->innerJoin('a.categories', 'c')
-      ->addSelect('c')
-    ;
-    // Puis on filtre sur le nom des catégories à l'aide d'un IN
-    $qb->where($qb->expr()->in('c.name', $categoryNames));
-    // La syntaxe du IN et d'autres expressions se trouve dans la documentation Doctrine
-    // Enfin, on retourne le résultat
-    return $qb
-      ->getQuery()
-      ->getResult()
-      ;
-  }*/
+
   protected function whereCurrentYear(QueryBuilder $qb)
   {
     $qb

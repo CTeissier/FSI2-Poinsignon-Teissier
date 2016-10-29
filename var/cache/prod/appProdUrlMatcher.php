@@ -58,7 +58,30 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 
             // esiea_platform_header
             if ($pathinfo === '/platform/header') {
-                return array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\AdvertController::headerAction',  '_route' => 'esiea_platform_header',);
+                return array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\SiteController::headerAction',  '_route' => 'esiea_platform_header',);
+            }
+
+            // esiea_platform_faq
+            if ($pathinfo === '/platform/faq') {
+                return array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\SiteController::faqAction',  '_route' => 'esiea_platform_faq',);
+            }
+
+            // esiea_platform_delivery
+            if (rtrim($pathinfo, '/') === '/platform/delivery') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'esiea_platform_delivery');
+                }
+
+                return array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\SiteController::deliveryAction',  '_route' => 'esiea_platform_delivery',);
+            }
+
+            // esiea_platform_payment
+            if (rtrim($pathinfo, '/') === '/platform/payment') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'esiea_platform_payment');
+                }
+
+                return array (  '_controller' => 'ESIEA\\PlatformBundle\\Controller\\SiteController::paymentAction',  '_route' => 'esiea_platform_payment',);
             }
 
         }
@@ -70,11 +93,6 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             }
 
             return array (  '_controller' => 'ESIEA\\CoreBundle\\Controller\\CoreController::indexAction',  '_route' => 'esiea_core_home',);
-        }
-
-        // esiea_core_contact
-        if ($pathinfo === '/contact') {
-            return array (  '_controller' => 'ESIEA\\CoreBundle\\Controller\\CoreController::contactAction',  '_route' => 'esiea_core_contact',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

@@ -16,117 +16,142 @@ class __TwigTemplate_0e752e88a8635e1b61647d0ba72bf0a52afdae20dd34177535320638fe5
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 2
-        echo "
-<h3>Formulaire d'annonce</h3>
+        echo "<html>
 
-<div class=\"well\" >
-  ";
-        // line 6
+ 
+
+
+
+
+
+<div style=\"text-align: left\">
+      ";
+        // line 11
         echo         $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : null), 'form_start', array("attr" => array("class" => "form-horizontal")));
         echo "
-
-  ";
-        // line 9
-        echo "  ";
+   
+      ";
+        // line 13
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : null), 'errors');
         echo "
-
-  ";
-        // line 12
-        echo "  ";
+      ";
+        // line 15
+        echo "      ";
         if ($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "date", array(), "any", true, true)) {
-            // line 13
-            echo "    ";
+            // line 16
+            echo "      ";
             echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "date", array()), 'row');
             echo "
-  ";
+      ";
         }
-        // line 15
-        echo "
-  ";
-        // line 17
-        echo "  <div class=\"form-group\">
-    ";
-        // line 19
-        echo "    ";
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "title", array()), 'label', array("label_attr" => array("class" => "col-sm-2 control-label"), "label" => "Titre de l'annonce"));
-        echo "
-
-    ";
-        // line 22
-        echo "    ";
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "title", array()), 'errors');
-        echo "
-
-    <div class=\"col-sm-10\">
-      ";
-        // line 26
+        // line 18
         echo "      ";
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "title", array()), 'widget', array("attr" => array("class" => "form-control")));
-        echo "
-    </div>
-  </div>
-
-  ";
-        // line 31
-        echo "  <div class=\"form-group\"  >
-    ";
-        // line 32
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "content", array()), 'label', array("label_attr" => array("class" => "col-sm-2 control-label"), "label" => "Contenu de l'annonce"));
-        echo "
-    ";
-        // line 33
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "title", array()), 'errors');
-        echo "
-    <div class=\"col-sm-10\">
+        // line 19
+        echo "     
+      <!--Auteur-->    
+      <br> 
       ";
-        // line 35
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "content", array()), 'widget', array("attr" => array("class" => "form-control")));
-        echo "
-    </div>
-  </div>
-
-  ";
-        // line 39
+        // line 22
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "author", array()), 'row');
         echo "
+     </br>
+      <!--Nom de recette-->
+      <div><br>
+         ";
+        // line 26
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "title", array()), 'label', array("label_attr" => array("class" => "col-sm-2 control-label"), "label" => "Nom de votre recette"));
+        echo "
+         ";
+        // line 27
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "title", array()), 'errors');
+        echo "
+      </br>
+      </div>
 
-  ";
+
+      <!--Description de la recette-->
+        <br>
+            ";
+        // line 35
+        echo "            ";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "title", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+      </br>
+      
+     
+      <!-- Contenu de l'annonce-->
+      <br>
+         ";
         // line 41
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "content", array()), 'label', array("label_attr" => array("class" => "col-sm-2 control-label"), "label" => "Décrivez votre recette"));
+        echo "
+      </br>   
+
+
+
+         ";
+        // line 46
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "title", array()), 'errors');
+        echo "
+
+
+         <br>
+       
+            ";
+        // line 51
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "content", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+       
+      </br>
+      <!--Condition utilisation-->
+      
+   <center>
+ 
+      ";
+        // line 58
         if ($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "published", array(), "any", true, true)) {
-            // line 42
-            echo "    ";
+            // line 59
+            echo "      ";
             echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "published", array()), 'row');
             echo "
-  ";
+      
+      ";
         }
-        // line 44
-        echo "
-  ";
-        // line 45
+        // line 62
+        echo "  
+
+      
+   
+      <font color=\"black\">";
+        // line 66
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "image", array()), 'row');
-        echo "
+        echo "</font>
 
-
-
-  ";
-        // line 50
-        echo "  ";
+      ";
+        // line 68
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : null), "save", array()), 'widget', array("attr" => array("class" => "btn btn-primary")));
         echo "
-
-  ";
-        // line 55
-        echo "  ";
+      ";
+        // line 69
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : null), 'rest');
         echo "
-
-  ";
-        // line 58
-        echo "  ";
+      ";
+        // line 70
         echo         $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : null), 'form_end');
         echo "
-</div>
+
+   
+     
+      
+     
+      ";
+        // line 77
+        echo "
+      
+
+  </center>
+   </div>
+
 
 ";
     }
@@ -143,7 +168,7 @@ class __TwigTemplate_0e752e88a8635e1b61647d0ba72bf0a52afdae20dd34177535320638fe5
 
     public function getDebugInfo()
     {
-        return array (  126 => 58,  120 => 55,  114 => 50,  107 => 45,  104 => 44,  98 => 42,  96 => 41,  91 => 39,  84 => 35,  79 => 33,  75 => 32,  72 => 31,  64 => 26,  57 => 22,  51 => 19,  48 => 17,  45 => 15,  39 => 13,  36 => 12,  30 => 9,  25 => 6,  19 => 2,);
+        return array (  149 => 77,  140 => 70,  136 => 69,  132 => 68,  127 => 66,  121 => 62,  114 => 59,  112 => 58,  102 => 51,  94 => 46,  86 => 41,  76 => 35,  66 => 27,  62 => 26,  55 => 22,  50 => 19,  48 => 18,  42 => 16,  39 => 15,  35 => 13,  30 => 11,  19 => 2,);
     }
 
     public function getSource()
