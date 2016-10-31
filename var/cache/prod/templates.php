@@ -77,7 +77,6 @@
   'TwigBundle:Exception:traces_text.html.twig' => 'C:\\wamp64\\www\\Symfony\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views/Exception/traces_text.html.twig',
   'TwigBundle::layout.html.twig' => 'C:\\wamp64\\www\\Symfony\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views/layout.html.twig',
   'TwigBundle:Exception:error404.html.twig' => 'C:\\wamp64\\www\\Symfony\\app/Resources/TwigBundle/views/Exception/error404.html.twig',
-  'SwiftmailerBundle:Collector:swiftmailer.html.twig' => 'C:\\wamp64\\www\\Symfony\\vendor\\symfony\\swiftmailer-bundle/Resources/views/Collector/swiftmailer.html.twig',
   'DoctrineBundle:Collector:db.html.twig' => 'C:\\wamp64\\www\\Symfony\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/db.html.twig',
   'DoctrineBundle:Collector:explain.html.twig' => 'C:\\wamp64\\www\\Symfony\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/explain.html.twig',
   'ESIEAPlatformBundle:Advert:add.html.twig' => 'C:\\wamp64\\www\\Symfony\\src\\ESIEA\\PlatformBundle/Resources/views/Advert/add.html.twig',

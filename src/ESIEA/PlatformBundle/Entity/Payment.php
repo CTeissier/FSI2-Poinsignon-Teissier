@@ -6,16 +6,14 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="esiea_payment")
- * @ORM\Entity(repositoryClass="ESIEA\PlatformBundle\Repository\AdvertRepository")
- * @ORM\HasLifecycleCallbacks()
+ * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class Payment
 {
   /**
-   * @var int
-   *
    * @ORM\Column(name="id", type="integer")
-   * @ORM\id
+   * @ORM\Id
    * @ORM\GeneratedValue(strategy="AUTO")
    */
   private $id;
