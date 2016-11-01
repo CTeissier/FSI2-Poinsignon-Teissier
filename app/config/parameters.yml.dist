@@ -12,8 +12,8 @@ parameters:
     mailer_user: null
     mailer_password: null
 
-    database_url: ~
-    monolog_action_level: error
+    #database_url: ~
+    #monolog_action_level: error
 
     secret: ThisTokenIsNotSoSecretChangeIt
 

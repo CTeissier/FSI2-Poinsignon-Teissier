@@ -13,16 +13,9 @@ web_profiler:
     intercept_redirects: false
 
 
-doctrine:           
-        dbal:
-        url: "%database_url%"
-
-
 monolog:
     handlers:
         main:
-            action_level: %monolog_action_level%
-
             type: stream
             path: "%kernel.logs_dir%/%kernel.environment%.log"
             level: debug
