@@ -1,5 +1,5 @@
 <?php
-    $db = parse_url(getenv('CLEARDB_DATABASE_URL'));
+$db = parse_url(getenv('CLEARDB_DATABASE_URL'));
 
 $container->setParameter('database.driver', getenv('SYMFONY_BD_DRIVER'));
 $container->setParameter('database.host', getenv('SYMFONY_BD_HOST'));
