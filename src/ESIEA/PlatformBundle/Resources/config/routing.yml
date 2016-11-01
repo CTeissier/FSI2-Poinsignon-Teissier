@@ -1,0 +1,56 @@
+# src/ESIEA/PlatformBundle/Resources/config/routing.yml
+
+esiea_platform_home:
+    path:      /{page}
+    defaults:
+        _controller: ESIEAPlatformBundle:Advert:index
+        page:        1
+    requirements:
+        page: \d*
+    
+esiea_platform_view:
+    path:      /advert/{id}
+    defaults:
+        _controller: ESIEAPlatformBundle:Advert:view
+    requirements:
+        id: \d+
+
+esiea_platform_add:
+    path:      /add
+    defaults:
+        _controller: ESIEAPlatformBundle:Advert:add
+
+esiea_platform_edit:
+    path:      /edit/{id}
+    defaults:
+        _controller: ESIEAPlatformBundle:Advert:edit
+    requirements:
+        id: \d+
+
+esiea_platform_delete:
+    path:      /delete/{id}
+    defaults:
+        _controller: ESIEAPlatformBundle:Advert:delete
+    requirements:
+        id: \d+
+
+esiea_platform_header:
+    path:     /header
+    defaults:
+        _controller: ESIEAPlatformBundle:Site:header
+
+esiea_platform_faq:
+    path:     /faq
+    defaults:
+        _controller: ESIEAPlatformBundle:Site:faq
+
+
+esiea_platform_delivery:
+    path:     /delivery/
+    defaults:
+        _controller: ESIEAPlatformBundle:Site:delivery
+
+esiea_platform_payment:
+    path:     /payment/
+    defaults:
+        _controller: ESIEAPlatformBundle:Site:payment

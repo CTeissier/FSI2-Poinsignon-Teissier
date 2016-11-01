@@ -1,0 +1,11 @@
+
+
+esiea_platform:
+    resource: "@ESIEAPlatformBundle/Resources/config/routing.yml"
+    prefix:   /platform
+
+
+
+esiea_core:
+    resource: "@ESIEACoreBundle/Resources/config/routing.yml"
+#A changer si l'on souhaite changer le paths

@@ -1,0 +1,10 @@
+# src/ESIEA/CoreBundle/Resources/config/routing.yml
+
+esiea_core_home:
+    path: /
+    defaults:
+        _controller: ESIEACoreBundle:Core:index
+
+
+
+
