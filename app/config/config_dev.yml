@@ -1,5 +1,5 @@
 imports:
-     - { resource: parameters.yml }
+     #- { resource: parameters.yml }
      - { resource: config.yml }
 
 framework:
@@ -12,9 +12,17 @@ web_profiler:
     toolbar: true
     intercept_redirects: false
 
+
+doctrine:           
+        dbal:
+        url: "%database_url%"
+
+
 monolog:
     handlers:
         main:
+            action_level: %monolog_action_level%
+
             type: stream
             path: "%kernel.logs_dir%/%kernel.environment%.log"
             level: debug
