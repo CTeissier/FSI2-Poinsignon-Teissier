@@ -15,7 +15,7 @@ monolog:
             
             handler:      nested
 #New adding
-            #action_level: %monolog_action_level%
+            action_level: error
 
         nested:
             type:  stream
@@ -25,5 +25,5 @@ monolog:
             type:  console
 
 doctrine:
-        dbal:
+    dbal:
         url: "%database_url%"
