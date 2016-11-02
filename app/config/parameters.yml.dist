@@ -8,6 +8,12 @@ parameters:
     database_name: symfony
     database_user: root
     database_password: null
+    database_url: postgres://iwvjauxtzpegtu:eEytfwLI9Dq_-o-MGpwJWWAKNx@ec2-50-17-249-147.compute-1.amazonaws.com:5432/dfg4v64r44l9jo
+    monolog_action_level: error
+
+
+
+
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null
