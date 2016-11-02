@@ -48,6 +48,7 @@
         "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters", 
         "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache" 
         ], 
+         
       "post-install-cmd":[
          "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
          "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
