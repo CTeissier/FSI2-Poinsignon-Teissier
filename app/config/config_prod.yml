@@ -26,4 +26,4 @@ monolog:
 
 doctrine:
     dbal:
-        url: "%database_url%"
+        url: "postgres://%database_user%:%database_password%@%database_host%:%database_port%/%database_name%
