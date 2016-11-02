@@ -39,9 +39,9 @@
 
        
 
-      /*  "pre-install-cmd": [
-            //"ESIEA\\Composer\\HerokuEnvironment::populateEnvironment"
-        ],*/
+        "pre-install-cmd": [
+            "ESIEA\\Composer\\HerokuEnvironment::populateEnvironment"
+        ],
         "symfony-scripts": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
