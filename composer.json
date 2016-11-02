@@ -48,7 +48,7 @@
         "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters", 
         "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache" 
         ], 
-         
+
       "post-install-cmd":[
          "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
          "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
@@ -82,8 +82,8 @@
       "incenteev-parameters":{
          "file":"app/config/parameters.yml",
          "env-map":{
-            "database_url":"postgres://uiaqhfymvkcjih:BjntgdkrZIII1yi5b7BshOXPlT@ec2-184-73-199-29.compute-1.amazonaws.com:5432/dd684rt9crc2om",
-            "monolog_action_level":"LOG_LEVEL"
+            
+            
          }
       },
       "branch-alias":{
