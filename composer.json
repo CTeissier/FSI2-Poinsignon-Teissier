@@ -35,17 +35,11 @@
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0"
     },
-    "scripts": 
+    "scripts": {
 
-    {
         "pre-install-cmd": [
-            "AppBundle\\Composer\\HerokuEnvironment::populateEnvironment"
-        ]
-    }
-
-
-
-    {
+            "ESIEA\\Composer\\HerokuEnvironment::populateEnvironment"
+        ],
         "symfony-scripts": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
@@ -76,8 +70,6 @@
                 "short_open_tag=off"
             ]
         },
-
-
         "symfony-app-dir": "app",
         "symfony-bin-dir": "bin",
         "symfony-var-dir": "var",
@@ -87,9 +79,11 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml",
         "env-map": {
-            "database_url": "DATABASE_URL",
-            "monolog_action_level": "LOG_LEVEL"
-        }
+                "database_name": "SYMFONY__DATABASE_NAME",
+                "database_user": "SYMFONY__DATABASE_USER",
+                "database_host": "SYMFONY__DATABASE_HOST",
+                "database_password": "SYMFONY__DATABASE_PASSWORD"
+            }
         },
 
 
