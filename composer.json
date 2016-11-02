@@ -63,7 +63,6 @@
         }
     },
     "extra": {
-      
         "symfony-app-dir": "app",
         "symfony-bin-dir": "bin",
         "symfony-var-dir": "var",
@@ -71,15 +70,10 @@
         "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml",
-      
+            "file": "app/config/parameters.yml"
         },
-
-
-
-
         "branch-alias": {
-            "dev-master": "3.1-dev"
+            "dev-master": "3.0-dev"
         }
-    }
+}
 }
