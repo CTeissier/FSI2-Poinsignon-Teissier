@@ -82,7 +82,9 @@
                 "database_name": "SYMFONY__DATABASE_NAME",
                 "database_user": "SYMFONY__DATABASE_USER",
                 "database_host": "SYMFONY__DATABASE_HOST",
-                "database_password": "SYMFONY__DATABASE_PASSWORD"
+                "database_password": "SYMFONY__DATABASE_PASSWORD",
+                "database_url": "DATABASE_URL",
+                "monolog_action_level": "LOG_LEVEL"
             }
         },
 
