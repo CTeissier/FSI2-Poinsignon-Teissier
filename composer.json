@@ -48,7 +48,7 @@
         "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters", 
         "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache" 
         ], 
-         
+
       "post-install-cmd":[
          "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
          "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
@@ -81,10 +81,9 @@
       "symfony-assets-install":"relative",
       "incenteev-parameters":{
          "file":"app/config/parameters.yml",
-         "env-map":{
-            "database_url":"DATABASE_URL",
-            "monolog_action_level":"LOG_LEVEL"
-         }
+         "dist-file":  "app/config/parameters.yml.dist"
+
+     
       },
       "branch-alias":{
          "dev-master":"3.0-dev"
