@@ -1,5 +1,8 @@
 <?php
-    $db = parse_url(getenv('HEROKU_POSTGRESQL_IVORY_URL'));
+    //$db = parse_url(getenv('CLEARDB_DATABASE_URL')); If MySQL is chosen
+	$db = parse_url(getenv('HEROKU_POSTGRESQL_IVORY_URL'));
+
+    
 
     $container->setParameter('database_driver', 'pdo_mysql');
     $container->setParameter('database_host', $db['host']);

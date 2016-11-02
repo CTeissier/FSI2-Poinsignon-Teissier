@@ -24,10 +24,6 @@ monolog:
         console:
             type:  console
 
-
-
-
-
-doctrine:
-    dbal:
-        url: "%database_url%"
+#doctrine:
+#    dbal:
+#        url: "%database_url%"
