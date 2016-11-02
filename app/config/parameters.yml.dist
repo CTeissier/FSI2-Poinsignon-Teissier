@@ -8,7 +8,7 @@ parameters:
     database_name: symfony
     database_user: root
     database_password: null
-    database_url: postgres://iwvjauxtzpegtu:eEytfwLI9Dq_-o-MGpwJWWAKNx@ec2-50-17-249-147.compute-1.amazonaws.com:5432/dfg4v64r44l9jo
+    database_url: postgres://uiaqhfymvkcjih:BjntgdkrZIII1yi5b7BshOXPlT@ec2-184-73-199-29.compute-1.amazonaws.com:5432/dd684rt9crc2om
     monolog_action_level: error
 
 
