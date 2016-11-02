@@ -15,7 +15,7 @@ monolog:
             
             handler:      nested
 #New adding
-            action_level: %monolog_action_level%
+            #action_level: %monolog_action_level%
 
         nested:
             type:  stream
