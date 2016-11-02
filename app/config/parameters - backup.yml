@@ -12,7 +12,7 @@ parameters:
     secret: ThisTokenIsNotSoSecretChangeIt
 
 
-
+    # Cette configuration fonctionne
     database_host: ec2-50-17-249-147.compute-1.amazonaws.com
     database_port: 5432
     database_name: dfg4v64r44l9jo
