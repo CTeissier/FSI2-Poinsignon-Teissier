@@ -1,5 +1,5 @@
 imports:
-    - { resource: parameters.yml }
+    #- { resource: parameters.yml } from tuto
     - { resource: security.yml }
     - { resource: services.yml }
 
