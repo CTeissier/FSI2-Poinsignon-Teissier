@@ -14,9 +14,20 @@ monolog:
             type:         fingers_crossed
             action_level: error
             handler:      nested
+#New adding
+            action_level: %monolog_action_level%
+
         nested:
             type:  stream
             path:  "php://stderr"
             level: debug
         console:
             type:  console
+
+
+
+
+
+doctrine:
+    dbal:
+        url: "%database_url%"

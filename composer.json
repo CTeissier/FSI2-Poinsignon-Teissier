@@ -37,6 +37,8 @@
     },
     "scripts": {
 
+       
+
         "pre-install-cmd": [
             "ESIEA\\Composer\\HerokuEnvironment::populateEnvironment"
         ],
