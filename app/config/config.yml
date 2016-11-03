@@ -1,6 +1,7 @@
 imports:
     #- { resource: parameters.yml } from tuto
     - { resource: security.yml }
+    - { resource: parameters.yml }
     #- { resource: services.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed

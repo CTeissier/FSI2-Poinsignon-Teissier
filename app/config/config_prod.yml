@@ -1,6 +1,6 @@
 imports:
     - { resource: config.yml }
-    - { resource: parameters_production.php }
+    #- { resource: parameters_production.php } dans le tuto il faut le mettre
 
 #doctrine:
 #    orm:
@@ -24,7 +24,7 @@ monolog:
         console:
             type:  console
 
-doctrine:
-    dbal:
+#doctrine:
+    #dbal:
         #url: "postgres://%database_user%:%database_password%@%database_host%:%database_port%/%database_name%"
-        url: "%database_url2%"
+        #url: "%database_url2%"
