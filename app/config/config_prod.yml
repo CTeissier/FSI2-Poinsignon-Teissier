@@ -1,6 +1,5 @@
 imports:
     - { resource: config.yml }
-    #- { resource: parameters_production.php } dans le tuto il faut le mettre
 
 #doctrine:
 #    orm:
@@ -12,17 +11,15 @@ monolog:
     handlers:
         main:
             type:         fingers_crossed
-            
-            handler:      nested
-#New adding
             action_level: error
-
+            handler:      nested
         nested:
             type:  stream
-            path:  "php://stderr"
+            path:  'php://stderr'
             level: debug
         console:
             type:  console
+
 
 #doctrine:
     #dbal:
