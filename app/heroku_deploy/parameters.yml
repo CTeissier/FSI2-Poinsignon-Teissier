@@ -1,0 +1,15 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: ec2-184-73-199-29.compute-1.amazonaws.com
+    database_port: 5432
+    database_name: dd684rt9crc2om
+    database_user: uiaqhfymvkcjih
+    database_url: 'postgres://uiaqhfymvkcjih:BjntgdkrZIII1yi5b7BshOXPlT@ec2-184-73-199-29.compute-1.amazonaws.com:5432/dd684rt9crc2om'
+    database_password: BjntgdkrZIII1yi5b7BshOXPlT
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: your_super_token
+    monolog_action_level: eroor

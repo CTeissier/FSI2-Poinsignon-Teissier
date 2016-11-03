@@ -1,0 +1,30 @@
+imports:
+    - { resource: config.yml }
+    - { resource: parameters_production.php }
+
+#doctrine:
+#    orm:
+#        metadata_cache_driver: apc
+#        result_cache_driver: apc
+#        query_cache_driver: apc
+
+monolog:
+    handlers:
+        main:
+            type:         fingers_crossed
+            
+            handler:      nested
+#New adding
+            action_level: error
+
+        nested:
+            type:  stream
+            path:  "php://stderr"
+            level: debug
+        console:
+            type:  console
+
+doctrine:
+    dbal:
+        #url: "postgres://%database_user%:%database_password%@%database_host%:%database_port%/%database_name%"
+        url: "%database_url2%"
