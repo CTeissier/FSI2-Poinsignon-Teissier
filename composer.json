@@ -79,14 +79,26 @@
       "symfony-web-dir":"web",
       "symfony-tests-dir":"tests",
       "symfony-assets-install":"relative",
-      "incenteev-parameters":{
-         "file":"app/config/parameters.yml",
-         "dist-file":  "app/config/parameters.yml.dist"
 
-     
-      },
+
+
+
+            "incenteev-parameters": {
+        "file": "app/config/parameters.yml",
+        "dist-file":  "app/config/parameters.yml.dist",
+        "env-map": {
+            "database_url2": "DATABASE_URL"
+            
+        }
+    },
+
+
+
       "branch-alias":{
          "dev-master":"3.0-dev"
       }
+
+
+
    }
 }
