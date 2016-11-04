@@ -12,11 +12,16 @@ $(document).ready(collapseNavbar);
 
 // Scrolling
 $('.navbar-nav a').click(function(e){
-    var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
-        }, 1500, 'easeInOutExpo');
+    var url = $(this).attr('href');
+    if (url.substr(0, 1) != '#')
+    {
+        return true;
+    }
+   
     e.preventDefault();
+    $('html, body').stop().animate({
+        scrollTop: $($anchor.attr('href')).offset().top
+    }, 1500, 'easeInOutExpo');
 });
 
 
