@@ -1,13 +1,8 @@
 {% extends "ESIEACoreBundle::layout.html.twig" %}
 
-{% block PAGE_BODY '' %}
-
-
-    <main>
-       
-     
+{% block PAGE_BODY %}
         
-        <!-- About Section -->
+      <!-- About Section -->
         <section id="about" class="container content-section text-center">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
@@ -19,33 +14,36 @@
             </div>
         </section>
 
-        <!--Just delete menu side bar -->
+      <!--Just delete menu side bar -->
         <section id="recette" class="container content-section text-center">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>Dernières recettes</h2>
-                    {% for advert in listAdverts %}
-                    <p>
-                        <a href="{{ path('esiea_platform_view', {'id': advert.id}) }}" style="text-align:center">
-                        {{ advert.title }}
-                        </a>
-                        par {{ advert.author }},
-                        le {{ advert.date|date('d/m/Y') }}
-                    </p>
-                    {% else %}
-                    <p>Pas (encore !) d'annonces</p>
-                    {% endfor %}
+                       {% for advert in listAdverts %}
+                        <p>
+                           <a href="{{ path('esiea_platform_view', {'id': advert.id}) }}" style="text-align:center">
+                              {{ advert.title }}
+                           </a>
+                           par {{ advert.author }},
+                           le {{ advert.date|date('d/m/Y') }}
+                        </p>
+                       {% else %}
+                           <p>Pas (encore !) d'annonces</p>
+                       {% endfor %}
                     <!-- Pagination -->
                     <ul class="pagination">
                         {% for p in range(1, nbPages) %}
-                        <li{% if p == page %} class="active"{% endif %}>
-                        <a href="{{ path('esiea_platform_home', {'page': p}) }}">{{ p }}</a>
-                        </li>
+                           <li {{ p == page ? 'class="active"' : '' }}>
+                              <a href="{{ path('esiea_platform_home', {'page': p}) }}">
+                                 {{ p }}
+                              </a>
+                           </li>
                         {% endfor %}
                     </ul>
                 </div>
             </div>
         </section>
+        
         <!-- Contact Section -->
         <section id="contact" class="container content-section text-center">
             <div class="row">
@@ -68,6 +66,5 @@
             </div>
         </section>
         </div>
-    </main>
 
 {% endblock %}
