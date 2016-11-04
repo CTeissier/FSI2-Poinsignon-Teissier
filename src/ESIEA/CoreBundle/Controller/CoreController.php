@@ -18,7 +18,8 @@ class CoreController extends Controller
     {
         //Pas d'annonce on affiche rien
         if ($page < 1) {
-            throw new NotFoundHttpException('Page "' . $page . '" inexistante.');
+            //-throw new NotFoundHttpException('Page "' . $page . '" inexistante.');
+            return $this->render('ESIEAPlatformBundle:Advert:faq.html.twig');
         }
         
         //On affiche 3 annonce par page
