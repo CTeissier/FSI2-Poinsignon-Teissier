@@ -20,7 +20,7 @@ $('.navbar-nav a').click(function(e){
    
     e.preventDefault();
     $('html, body').stop().animate({
-        scrollTop: $($anchor.attr('href')).offset().top
+        scrollTop: $(url).offset().top
     }, 1500, 'easeInOutExpo');
 });
 
