@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>{% block title %}ESIEA Plateforme{% endblock %}</title>
       {# CSS ici #}
-      {% block stylesheets %}
+      
       {# On charge le CSS de bootstrap depuis le site directement #}
       {% stylesheets filter="cssrewrite, ?scssphp"
       'bundles/esieaplatform/css/demo.css'
@@ -21,7 +21,7 @@
       <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
       
       {% endstylesheets %}
-      {% endblock %}
+      
       <title>{{ PAGE_TITLE|default('Welcome') }} - Esie Eats</title>
       <meta name="robots" content="noindex">
    </head>
@@ -69,22 +69,20 @@
          </nav>
       </header>
       
+      <main>
          {% block PAGE_BODY '' %}
-             {% block body %}
-         <main>
-       
-         </main>
-             {% endblock %}
+      </main>
+             
       <footer>
          {# FOOTER etc. #}
          <p style="text-align:center"><font size ="2"> Daniel POINSIGNON & Cannelle TEISSIER © {{ 'now'|date('Y') }} for ESIEA - Manger, bouger.</font></p>
       </footer>
+     
       {# JS ici #}
-      {% block javascripts %}
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
       <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
       <script src="{{ asset('bundles/esieaplatform/js/demo.js') }}"></script>
-      {% endblock %}
+      
    </body>
 </html>
 {% endspaceless %}
