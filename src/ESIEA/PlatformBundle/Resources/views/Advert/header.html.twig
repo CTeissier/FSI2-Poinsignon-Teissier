@@ -1,25 +1,35 @@
 {# app/Resources/views/header.html.twig #}
-<html lang="fr">
-
-<head>
-
-   
-
-    <title>Home</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    
-
-
-
-</head>
-
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top"  style="background-color:black;">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+<!-- Core -->
+{% spaceless %}
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>{% block title %}ESIEA Plateforme{% endblock %}</title>
+      {# CSS ici #}
+      {% block stylesheets %}
+      {# On charge le CSS de bootstrap depuis le site directement #}
+      {% stylesheets filter="cssrewrite, ?scssphp"
+      'bundles/esieaplatform/css/demo.css'
+      %}
+      <link rel="shortcut icon" href="http://www.cre8d-design.com/clean-food-theme/demo/wp-content/uploads/2016/05/cropped-clean-food-favicon.png">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" >
+      <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+      
+      {% endstylesheets %}
+      {% endblock %}
+      <title>{{ PAGE_TITLE|default('Welcome') }} - Esie Eats</title>
+      <meta name="robots" content="noindex">
+   </head>
+   <body>
+      <header>
+         {# MENU etc. #}
+         <!-- Navigation -->
+        <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -72,7 +82,24 @@
         </div>
         <!-- /.container -->
     </nav>
-
-</body>
-
+      </header>
+      
+         {% block PAGE_BODY '' %}
+             {% block body %}
+         <main>
+       
+         </main>
+             {% endblock %}
+      <footer>
+         {# FOOTER etc. #}
+         <p style="text-align:center"><font size ="2"> Daniel POINSIGNON & Cannelle TEISSIER © {{ 'now'|date('Y') }} for ESIEA - Manger, bouger.</font></p>
+      </footer>
+      {# JS ici #}
+      {% block javascripts %}
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+      <script src="{{ asset('bundles/esieaplatform/js/demo.js') }}"></script>
+      {% endblock %}
+   </body>
 </html>
+{% endspaceless %}

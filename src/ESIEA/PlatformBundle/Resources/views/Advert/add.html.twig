@@ -1,22 +1,9 @@
 {# src/ESIEA/PlatformBundle/Resources/views/Advert/add.html.twig #}
-
-{% extends "ESIEACoreBundle::layout.html.twig" %}
-
-  
-
+{% extends "ESIEAPlatformBundle:Advert:header.html.twig" %}
 {% block body %}
 <!-- Formulaire d'ajout -->
-
-
 <section id="add" class="container content-section text-center" >
-
-<h3>Ajouter une recette</h3>   
- {{ include("ESIEAPlatformBundle:Advert:form.html.twig") }}
-
-  
-
+    <h3>Ajouter une recette</h3>
+    {{ include("ESIEAPlatformBundle:Advert:form.html.twig") }}
 </section>
-	
-   
-
 {% endblock %}
