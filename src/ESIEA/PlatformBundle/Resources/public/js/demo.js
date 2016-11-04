@@ -11,12 +11,12 @@ $(window).scroll(collapseNavbar);
 $(document).ready(collapseNavbar);
 
 // Scrolling
-$('.navbar-nav a').click(function(e); {
+$('.navbar-nav a').click(function(e){
     var $anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top
         }, 1500, 'easeInOutExpo');
-    event.preventDefault();
+    e.preventDefault();
 });
 
 
