@@ -16,7 +16,8 @@ class AdvertController extends Controller
   public function indexAction($page)
   {
     if ($page < 1) {
-      throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
+      //throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
+     $page = 1;
     }
     
     $nbPerPage = 3;
