@@ -11,18 +11,13 @@ $(window).scroll(collapseNavbar);
 $(document).ready(collapseNavbar);
 
 // Scrolling
-$(function() {
-    $('a.page-scroll').bind('click', function(event) {
-        var $anchor = $(this);
+$('.navbar-nav a').click(function(e){}); {
+    var $anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top
         }, 1500, 'easeInOutExpo');
-        event.preventDefault();
-    });
-});
-
-// Fermer le menu au click
-
+    event.preventDefault();
+};
 
 
 /*
