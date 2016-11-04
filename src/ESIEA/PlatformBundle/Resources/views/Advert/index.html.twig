@@ -1,27 +1,12 @@
 {% extends "ESIEACoreBundle::layout.html.twig" %}
-{% block body %}
-<body>
-    <header>
-        {# MENU etc. #}
-    </header>
+
+{% block PAGE_BODY '' %}
+
+
     <main>
-        {% block PAGE_BODY '' %}
-        <!-- Intro Header -->
-        <header class="intro">
-            <div class="intro-body"   >
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <img src="https://maxcdn.icons8.com/Color/PNG/512/Food/rice_bowl-512.png" alt="Mountain View" style="width:304px;height:228px;">
-                            <h2 class="brand-heading">ESIE_<font color="#598bdb">EATS</font></h2>
-                            <p >Prononcé EASY_EATS est un service proposé par les étudiants de l'ESIEA.
-                                <br>Plus d'information prochainement.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+       
+     
+        
         <!-- About Section -->
         <section id="about" class="container content-section text-center">
             <div class="row">
@@ -33,6 +18,7 @@
                 </div>
             </div>
         </section>
+
         <!--Just delete menu side bar -->
         <section id="recette" class="container content-section text-center">
             <div class="row">
@@ -83,6 +69,5 @@
         </section>
         </div>
     </main>
-</body>
-</html>
+
 {% endblock %}
