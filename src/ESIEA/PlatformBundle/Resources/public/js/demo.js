@@ -22,9 +22,18 @@ $(function() {
 });
 
 // Fermer le menu au click
-$('.navbar-collapse ul li a').click(function() {
-    $(this).closest('.collapse').collapse('toggle');
-});
 
 
 
+/*
+var Demo = {
+   init: function()
+   {
+       $('.toggle).click(Demo.toggleNavbar);
+   },
+   
+   toggleNavbar: function()
+   {
+       // blabla
+   }
+};*/
