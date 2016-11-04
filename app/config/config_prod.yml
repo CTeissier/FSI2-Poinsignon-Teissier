@@ -1,5 +1,12 @@
 imports:
     - { resource: config.yml }
+    - { resource: prod_parameters.yml }
+
+#framework:
+#    validation:
+#        cache: validator.mapping.cache.apc
+#    serializer:
+#        cache: serializer.mapping.cache.apc
 
 #doctrine:
 #    orm:
@@ -15,13 +22,8 @@ monolog:
             handler:      nested
         nested:
             type:  stream
+            #path:  "%kernel.logs_dir%/%kernel.environment%.log"
             path:  'php://stderr'
             level: debug
         console:
             type:  console
-
-
-#doctrine:
-    #dbal:
-        #url: "postgres://%database_user%:%database_password%@%database_host%:%database_port%/%database_name%"
-        #url: "%database_url2%"

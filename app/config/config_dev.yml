@@ -1,6 +1,6 @@
 imports:
- #    - { resource: parameters.yml } 
-     - { resource: config.yml }
+    - { resource: config.yml }
+    - { resource: parameters.yml }
 
 framework:
     router:
@@ -11,7 +11,6 @@ framework:
 web_profiler:
     toolbar: true
     intercept_redirects: false
-
 
 monolog:
     handlers:
