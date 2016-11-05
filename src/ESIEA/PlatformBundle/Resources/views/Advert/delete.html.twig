@@ -1,21 +1,19 @@
 {# src/ESIEA/PlatformBundle/Resources/views/Advert/delete.html.twig #}
-{% extends "ESIEACoreBundle::header.html.twig" %}
-{% block esieaplatform_body %}
-<section id="add" class="container content-section text-center" >
-    <h3>Supprimer une recette</h3>
-    <p>
-        Voulez-vous supprimer cette recette de "{{ advert.title }}" ?
-    </p>
-    {# On met l'id de l'annonce dans la route de l'action du formulaire #}
-    <form action="{{ path('esiea_platform_delete', {'id': advert.id}) }}" method="post">
-        <a href="{{ path('esiea_platform_view', {'id': advert.id}) }}" class="btn btn-default">
-        <i class="glyphicon glyphicon-chevron-left"></i>
-        Retour à la recette
-        </a>
-        {# Ici j'ai écrit le bouton de soumission à la main #}
-        <input type="submit" value="Supprimer" class="btn btn-danger" />
-        {# Ceci va générer le champ CSRF #}
-        {{ form_rest(form) }}
-    </form>
-</section>
+{% extends "ESIEAPlatformBundle:Advert:header.html.twig" %}
+
+{% block body %}
+  <section id="add" class="container content-section text-center" >
+      <h3>Supprimer une recette</h3>
+      <p>
+          Voulez-vous supprimer cette recette de "{{ advert.title }}" ?
+      </p>
+      <form action="{{ path('esiea_platform_delete', {'id': advert.id}) }}" method="post">
+          <a href="{{ path('esiea_platform_view', {'id': advert.id}) }}" class="btn btn-default">
+          <i class="glyphicon glyphicon-chevron-left"></i>
+          Retour à la recette
+          </a>
+          <input type="submit" value="Supprimer" class="btn btn-danger" />
+          {{ form_rest(form) }}
+      </form>
+  </section>
 {% endblock %}

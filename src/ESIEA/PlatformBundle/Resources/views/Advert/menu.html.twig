@@ -1,8 +1,6 @@
 {# src/ESIEA/PlatformBundle/Resources/views/Advert/menu.html.twig #}
 
-{# Ce template n'hérite de personne,
-   tout comme le template inclus avec {{ include() }}. #}
-
+{% block body %}
 <ul class="nav nav-pills nav-stacked">
   {% for advert in listAdverts %}
     <li>
@@ -12,3 +10,4 @@
     </li>
   {% endfor %}
 </ul>
+{% endblock %}

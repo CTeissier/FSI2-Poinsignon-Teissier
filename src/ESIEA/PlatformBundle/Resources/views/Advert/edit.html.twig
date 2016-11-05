@@ -1,14 +1,15 @@
 {# src/ESIEA/PlatformBundle/Resources/views/Advert/edit.html.twig #}
 {% extends "ESIEAPlatformBundle:Advert:header.html.twig" %}
-{% block esieaplatform_body %}
-<section id="edit" class="container content-section text-center" >
-    <h3>Modifier votre recette</h3>
-    {{ include("ESIEAPlatformBundle:Advert:form.html.twig") }}
-</section>
-<p>
-    <a href="{{ path('esiea_platform_view', {'id': advert.id}) }}" class="btn btn-default">
-    <i class="glyphicon glyphicon-chevron-left"></i>
-    Retour à votre recette
-    </a>
-</p>
+
+{% block body %}
+  <section id="edit" class="container content-section text-center" >
+      <h3>Modifier votre recette</h3>
+      {{ include("ESIEAPlatformBundle:Advert:form.html.twig") }}
+  </section>
+  <p>
+      <a href="{{ path('esiea_platform_view', {'id': advert.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à votre recette
+      </a>
+  </p>
 {% endblock %}

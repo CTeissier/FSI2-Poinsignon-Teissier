@@ -1,39 +1,13 @@
-<head>
-       <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{# src/ESIEA/PlatformBundle/Resources/views/Advert/payment.html.twig #}
+{% extends "ESIEAPlatformBundle:Advert:header.html.twig" %}
 
-
-      <title>{% block title %}ESIEA Plateforme{% endblock %}</title>
- 
-     
-      {{ render(controller('ESIEAPlatformBundle:Site:header')) }}
-     
-
-
-     {% block stylesheets %}
-     {% stylesheets filter="cssrewrite, ?scssphp"
-      'bundles/esieaplatform/css/demo.css'
-      
-      %}
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" >
-      <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-      <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-      {% endstylesheets %}
-      {% endblock %}
-   </head>
-
-
+{% block body %}
 <section id="add" class="container content-section text-center" >
-<div class="container">
-    
-    <div class="row">
-   
+    <div class="container">
+        <div class="row">
             <div class="credit-card-div">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <h5 class="text-muted">Vos informations de paiement</h5>
@@ -41,49 +15,39 @@
                             <div class="col-md-3 col-sm-3 col-xs-3">
                                 <input type="text" class="form-control" placeholder="0000 0000 0000 0000" />
                             </div>
-                            
                         </div>
                         <div class="row ">
                             <div class="col-md-3 col-sm-3 col-xs-3">
                                 <span class="help-block text-muted small-font">Mois d'expiration</span>
                                 <input type="text" class="form-control" placeholder="YY/MM" />
                             </div>
-                            
                             <div class="col-md-3 col-sm-3 col-xs-3">
                                 <span class="help-block text-muted small-font">Code carte</span>
                                 <input type="text" class="form-control" placeholder="CCV" />
                             </div>
-                            
                         </div>
                         <div class="row ">
-
-                            <br><div class="col-md-12 pad-adjust">
-
+                            <br>
+                            <div class="col-md-12 pad-adjust">
                                 <input type="text" class="form-control" placeholder="Nom sur le carte" />
-                            </div></br>
-
-                            <br><div class="col-md-12 pad-adjust">
-                            <!-- <input type="text" name="pseudo" onblur="verifPseudo(this)" class="form-control" placeholder="Code promotion" />-->
-
-
-
-                              <form placeholder="Code promotion">
-                                <label for="promo">Code promotion</label>
-                                <input id="promo" name="promo" pattern="ESIEAPARIS">
-                                <button>Valider mon code</button>
-                              </form>
-                            </div></br>
-
-      
-         
-
-
+                            </div>
+                            </br>
+                            <br>
+                            <div class="col-md-12 pad-adjust">
+                                <!-- <input type="text" name="pseudo" onblur="verifPseudo(this)" class="form-control" placeholder="Code promotion" />-->
+                                <form placeholder="Code promotion">
+                                    <label for="promo">Code promotion</label>
+                                    <input id="promo" name="promo" pattern="ESIEAPARIS">
+                                    <button>Valider mon code</button>
+                                </form>
+                            </div>
+                            </br>
                         </div>
                         <div class="row">
                             <div class="col-md-12 pad-adjust">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" checked class="text-muted">Sauvegarder mes informations de paiement. <a href="{{ path('esiea_platform_faq') }}">En savoir plus</a>
+                                    <input type="checkbox" checked class="text-muted">Sauvegarder mes informations de paiement. <a href="{{ path('esiea_platform_faq') }}">En savoir plus</a>
                                     </label>
                                 </div>
                             </div>
@@ -92,28 +56,14 @@
                             <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
                                 <a href="{{ path('esiea_platform_delivery' ) }}"><input type="submit" class="btn btn-danger" value="Retour" /></a>
                             </div>
-
-
-                               
-
                             <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
                                 <a href="{{ path('esiea_platform_home') }}"><input type="submit" onsubmit="return verifForm(this)"" class="btn btn-warning btn-block" value="Confirmer ma livraison" /></a>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-                 
+        </div>
     </div>
-</div>
 </section>
-
-
-
-
- {% block javascripts %}
-   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-   <script src="{{ asset('bundles/esieaplatform/js/demo.js') }}"></script>
-   {% endblock %}
+{% endblock %}

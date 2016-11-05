@@ -16,13 +16,11 @@
       %}
       <link rel="shortcut icon" href="http://www.cre8d-design.com/clean-food-theme/demo/wp-content/uploads/2016/05/cropped-clean-food-favicon.png">
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" >
       <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
       <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-      
       {% endstylesheets %}
       {% endblock %}
-      <title>{{ PAGE_TITLE|default('Welcome') }} - Esie Eats</title>
+      <title>{{ PAGE_TITLE|default('Welcome') }} - ESIE_Eats</title>
       <meta name="robots" content="noindex">
    </head>
    <body>
@@ -35,46 +33,33 @@
              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     Menu <i class="fa fa-bars"></i>
             </button>
-            
-
                 <h2>ESIE_<font color="#598bdb">EATS</font></h2>
-
-               
             </div>
-
-
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+
                 <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-
                     <li>
-                        <a class="page-scroll" href="{{ path('esiea_platform_home') }}">Home</a>
+                        <a href="{{ path('esiea_platform_home') }}">Home</a>
                     </li>
-                    <li> <a  href="{{ path('esiea_platform_add') }}">
-                     <span class="page-scroll">Publier</span> une recette
-                                    </a></li>
-                   
+                    <li> <a href="{{ path('esiea_platform_add') }}"><span>Publier</span> une recette</a></li>
                     <li>
-                        <a class="page-scroll" href="{{ path('esiea_platform_home') }}">À propos</a>
+                        <a href="{{ path('esiea_platform_home') }}">À propos</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{{ path('esiea_platform_home') }}">Recettes</a>
+                        <a href="{{ path('esiea_platform_home') }}">Recettes</a>
                     </li>
                      <li>
-                        <a class="page-scroll" href="{{ path('esiea_platform_faq') }}">FAQ</a>
+                        <a href="{{ path('esiea_platform_faq') }}">FAQ</a>
                     </li>
 
                     <li>
-                        <a class="page-scroll" href="{{ path('esiea_platform_home') }}"
-
-                        href="#contact"
-
-                        >Contact</a>
+                        <a href="{{ path('esiea_platform_home') }}" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -95,11 +80,13 @@
          <p style="text-align:center"><font size ="2"> Daniel POINSIGNON & Cannelle TEISSIER © {{ 'now'|date('Y') }} for ESIEA - Manger, bouger.</font></p>
       </footer>
       {# JS ici #}
-      {% block javascripts %}
+      {% javascripts 
+      '@ESIEAPlatformBundle/Resources/public/js/demo.js'
+        %}
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-      <script src="{{ asset('bundles/esieaplatform/js/demo.js') }}"></script>
-      {% endblock %}
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>  
+      <script src="{{ asset_url }}"></script>
+   {% endjavascripts %}
    </body>
 </html>
 {% endspaceless %}
