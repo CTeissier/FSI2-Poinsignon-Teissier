@@ -14,7 +14,8 @@ class CoreController extends Controller
    public function indexAction($page)
   {
     if ($page < 1) {
-     return $this->render('ESIEAPlatformBundle:Advert:index.html.twig');
+     $page = 1;
+    return $this->render('ESIEAPlatformBundle:Advert:add.html.twig');
     }
     
     $nbPerPage = 5;

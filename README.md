@@ -1,72 +1,34 @@
-<<<<<<< HEAD
-Symfony Standard Edition
-========================
+Projet Web à l'attention de Monsieur GARNIER-CASTELLANE,
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+    Un projet Symfony crée le 19 september 2016.
+    Vous trouverez le site déployé sur le lien suivant :
+    Veuillez également trouver dans la racine du projet le dossier capture.zip qui contient les captures d'écran certifiant le fonctionnement de notre site web en local.
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+## Fonctionnalités
+Le site propose aux utilisateurs de proposer leur recette et les cuisiner pour des particuliers en échange d'une commission. Le site ESIEA EATS se chargeant de faire l'intermédiaire et de s'occuper de la logistique via des coursiers rémunérés.  
 
-What's inside?
---------------
+Dans ce but nous avons proposés une page pour ajouter, modifier et supprimer une recette. Et en complément de celles-ci nous avons également ajoutés des pages pour rentrer des coordonnées de livraison et de paiement.
 
-The Symfony Standard Edition is configured with the following defaults:
+D'ailleurs votre code de promotion est ESIEAPARIS.
 
-  * An AppBundle you can use to start coding;
+## Installation
 
-  * Twig as the only configured template engine;
+    php composer.phar install
 
-  * Doctrine ORM/DBAL;
+    php bin/console doctrine:database:create
 
-  * Swiftmailer;
+    php bin/console doctrine:schema:update --dump-sql
 
-  * Annotations enabled for everything.
+    php bin/console doctrine:schema:update --force
 
-It comes pre-configured with the following bundles:
+    php bin/console assets:install web
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+## Au sujet du déploiement
+Le déploiement sur Heroku à été très difficile. Chose encore plus surprenante, sur une réinstallation de Symfony propre, des problèmes subsistaient pendant le déploiement.
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
+Nous avons fait le choix de déployer notre site web sur DigitalOcean. Nous avons pour cela configuré un serveur sous Debian via un accès SSH et en utilisant PuttY. 
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+## Contributeurs
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
-
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  https://symfony.com/doc/3.0/book/installation.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/3.0/book/doctrine.html
-[8]:  https://symfony.com/doc/3.0/book/templating.html
-[9]:  https://symfony.com/doc/3.0/book/security.html
-[10]: https://symfony.com/doc/3.0/cookbook/email.html
-[11]: https://symfony.com/doc/3.0/cookbook/logging/monolog.html
-[13]: https://symfony.com/doc/3.0/bundles/SensioGeneratorBundle/index.html
-=======
-# esie_eats
->>>>>>> e81d65078e8b5054bf12e56a4b8f6817f1db2f54
+Daniel POINSIGNON & Cannelle TEISSIER
+ESIEA Campus de Paris
