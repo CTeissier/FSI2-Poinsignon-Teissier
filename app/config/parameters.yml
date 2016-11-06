@@ -5,12 +5,9 @@ parameters:
     database_port: 3306
     database_name: symfony
     database_user: root
-<<<<<<< HEAD
-    database_password: EcBXhv501X4q
-    #database_password: null
-=======
+    #database_password: EcBXhv501X4q
     database_password: null
->>>>>>> 2a16f07c5f9e4fe91a33b38edb3aac2ef33aa992
+    database_password: null
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null
