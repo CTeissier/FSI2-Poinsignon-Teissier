@@ -11,7 +11,6 @@ class SiteController extends Controller
     {
         return $this->render('ESIEAPlatformBundle:Advert:header.html.twig');
     }
-
       public function faqAction()
     {
         return $this->render('ESIEAPlatformBundle:Advert:faq.html.twig');
@@ -21,8 +20,6 @@ class SiteController extends Controller
     {
         return $this->render('ESIEAPlatformBundle:Advert:delivery.html.twig');
     }
-
-
         public function paymentAction()
     {
         return $this->render('ESIEAPlatformBundle:Advert:payment.html.twig');
