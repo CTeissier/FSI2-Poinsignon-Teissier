@@ -20,7 +20,7 @@
       
       {% endstylesheets %}
 
-{% set page = 'home' %}
+{% set page = '' %}
 
 {# liens #}
 
@@ -59,7 +59,7 @@
                         <a href="#about">À propos</a>
                      </li>
                      <li>
-                        <a href="{{ page == 'home' ? 'toto' : 'tata' }}#recette">RECETTEPOPOTOUTOU</a>
+                        <a href="{{ page == 'home' ? '' : '/' }}#recette">Recette</a>
                      </li>
                      <li>
                         <a href="{{ path('esiea_platform_faq') }}">FAQ</a>
