@@ -57,8 +57,9 @@ a:focus {
   line-height: 1.6;
 }
 .faq-content{
-  text-align: right;
+  text-align: left;
 }
+
 .light {
   font-weight: 400;
 }
