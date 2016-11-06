@@ -1,15 +1,96 @@
 {# src/ESIEA/PlatformBundle/Resources/views/layout.html.twig #}
-{% extends "ESIEACoreBundle::layout.html.twig" %}
 
+{% spaceless %}
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      {# CSS ici #}
+      
+      {# On charge le CSS de bootstrap depuis le site directement #}
+      {% stylesheets filter="cssrewrite, ?scssphp"
+      'bundles/esieaplatform/css/demo.css'
+      %}
+      <link rel="shortcut icon" href="http://www.cre8d-design.com/clean-food-theme/demo/wp-content/uploads/2016/05/cropped-clean-food-favicon.png">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" >
+      <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+      
+      {% endstylesheets %}
 
-{% block content %}
-<body>
+{% set page = 'home' %}
 
-{# JS ici #}
-</body>
+{# liens #}
+
+      
+      <title>{{ PAGE_TITLE|default('Welcome') }} - ESIEA EATS</title>
+      <meta name="robots" content="noindex">
+   </head>
+   <body>
+
+      <header>
+         {# MENU etc. #}
+         <!-- Navigation -->
+         <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="container">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                  Menu <i class="fa fa-bars"></i>
+                  </button>
+                  <br></br>
+                  <h2>ESI<span class="blue">EA EATS</span></font></h2>
+               </div>
+               <div font-size ="20px", class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                  <br></br>
+                  <ul class="nav navbar-nav">
+                     <li class="hidden">
+                        <a href="#page-top"></a>
+                     </li>
+                     <li>
+                        <a href="#intro">Home</a>
+                     </li>
+                     <li> <a  href="{{ path('esiea_platform_add') }}">
+                        Publier une recette
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#about">À propos</a>
+                     </li>
+                     <li>
+                        <a href="{{ page == 'home' ? '' : '/' }}#recette">RECETTEPOPO</a>
+                     </li>
+                     <li>
+                        <a href="{{ path('esiea_platform_faq') }}">FAQ</a>
+                     </li>
+                     <li>
+                        <a href="#contact">Contact</a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </header>
+      
+      <main>
+         {% block PAGE_BODY '' %}
+      </main>
+             
+      <footer>
+         {# FOOTER etc. #}
+         <p style="text-align:center"><font size ="2"> Cannelle TEISSIER & Daniel POINSIGNON © {{ 'now'|date('Y') }} for <span class="blue">ESIEA</span> <br>Manger, bouger.</br></font></p>
+      </footer>
+     
+   {# JS ici #}
+   {% javascripts 
+      '@ESIEAPlatformBundle/Resources/public/js/demo.js'
+   %}
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>  
+      <script src="{{ asset_url }}"></script>
+   {% endjavascripts %}
+   
+   </body>
 </html>
-{% endblock %}
-
-
-
-
+{% endspaceless %}
