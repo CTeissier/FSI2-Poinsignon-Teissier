@@ -1,15 +1,16 @@
-Projet Web à l'attention de Monsieur GARNIER-CASTELLANE,
+Projet Web à l’attention de Monsieur GARNIER-CASTELLANE,
 
-    Un projet Symfony crée le 19 september 2016.
-    Vous trouverez le site déployé sur le lien suivant :
-    Veuillez également trouver dans la racine du projet le dossier capture.zip qui contient les captures d'écran certifiant le fonctionnement de notre site web en local.
+    Un projet Symfony crée le 19 septembre 2016.
+
+Vous trouverez le site déployé sur le lien suivant :
+Veuillez également trouver dans la racine du projet le dossier capture.zip qui contient les captures d’écran certifiant le fonctionnement de notre site web en local.
 
 ## Fonctionnalités
-Le site propose aux utilisateurs de proposer leur recette et les cuisiner pour des particuliers en échange d'une commission. Le site ESIEA EATS se chargeant de faire l'intermédiaire et de s'occuper de la logistique via des coursiers rémunérés.  
+Le site propose aux utilisateurs de proposer leur recette et les cuisiner pour des particuliers en échange d’une commission. Le site ESIEA EATS se chargeant de faire l’intermédiaire et de s’occuper de la logistique via des coursiers rémunérés.  
 
-Dans ce but nous avons proposés une page pour ajouter, modifier et supprimer une recette. Et en complément de celles-ci nous avons également ajoutés des pages pour rentrer des coordonnées de livraison et de paiement.
+Dans ce but nous avons proposé une page pour ajouter, modifier et supprimer une recette. Et en complément de celles-ci, nous avons également ajouté des pages pour rentrer des coordonnées de livraison et de paiement.
 
-D'ailleurs votre code de promotion est ESIEAPARIS.
+D’ailleurs votre code de promotion est ESIEAPARIS.
 
 ## Installation
 
