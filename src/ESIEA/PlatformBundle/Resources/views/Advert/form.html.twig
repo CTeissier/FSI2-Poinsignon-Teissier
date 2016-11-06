@@ -32,7 +32,7 @@
         {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
         </br>
         <!--Condition utilisation-->
-        <center>
+        
             {% if form.published is defined %}
             {{ form_row(form.published) }}
             {% endif %}
@@ -42,10 +42,10 @@
             {{ form_rest(form) }}
             {{ form_end(form) }}
             {# Bouton de sauvegarde #}
-        </center>
+        
     </div>
 
 
-    
+
 </html>
 {% endblock %}

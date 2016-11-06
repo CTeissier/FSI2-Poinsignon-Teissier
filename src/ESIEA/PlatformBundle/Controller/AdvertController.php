@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AdvertController extends Controller
 {
-  public function construit_url_paypalAction()
+  public function paypal_paymentAction()
   {
     $api_paypal = 'https://api-3t.sandbox.paypal.com/nvp?'; // Site de l'API PayPal. On ajoute déjà le ? afin de concaténer directement les paramètres.
     $version = 56.0; // Version de l'API
@@ -29,7 +29,7 @@ class AdvertController extends Controller
      $page = 1;
     }
     
-    $nbPerPage = 3;
+    $nbPerPage = 5;
     $listAdverts = $this->getDoctrine()
       ->getManager()
       ->getRepository('ESIEAPlatformBundle:Advert')
@@ -56,7 +56,7 @@ class AdvertController extends Controller
     $advert = $em->getRepository('ESIEAPlatformBundle:Advert')->find($id);
 
     if (null === $advert) {
-      throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
+      throw new NotFoundHttpException("La recette d'id ".$id." n'existe pas.");
     }
   
     return $this->render('ESIEAPlatformBundle:Advert:view.html.twig', array(
@@ -108,12 +108,12 @@ class AdvertController extends Controller
     $em = $this->getDoctrine()->getManager();
     $advert = $em->getRepository('ESIEAPlatformBundle:Advert')->find($id);
     if (null === $advert) {
-      throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
+      throw new NotFoundHttpException("La recette d'id ".$id." n'existe pas.");
     }
     $form = $this->get('form.factory')->create(AdvertEditType::class, $advert);
     if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
       $em->flush();
-      $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
+      $request->getSession()->getFlashBag()->add('notice', 'Recette bien modifiée.');
       return $this->redirectToRoute('esiea_platform_view', array('id' => $advert->getId()));
     }
     return $this->render('ESIEAPlatformBundle:Advert:edit.html.twig', array(
@@ -126,14 +126,14 @@ class AdvertController extends Controller
     $em = $this->getDoctrine()->getManager();
     $advert = $em->getRepository('ESIEAPlatformBundle:Advert')->find($id);
     if (null === $advert) {
-      throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
+      throw new NotFoundHttpException("La recette d'id ".$id." n'existe pas.");
     }
     
     $form = $this->get('form.factory')->create();
     if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
       $em->remove($advert);
       $em->flush();
-      $request->getSession()->getFlashBag()->add('info', "L'annonce a bien été supprimée.");
+      $request->getSession()->getFlashBag()->add('info', "La recette a bien été supprimée.");
       return $this->redirectToRoute('esiea_platform_home');
     }
     
