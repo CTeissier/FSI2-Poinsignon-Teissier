@@ -1,5 +1,6 @@
 {# src/ESIEA/PlatformBundle/Resources/views/layout.html.twig #}
-{% set page = '' %}
+{% set page = page|default('') %}
+
 {% spaceless %}
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
