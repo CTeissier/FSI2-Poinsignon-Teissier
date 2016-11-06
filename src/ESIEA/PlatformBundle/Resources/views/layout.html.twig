@@ -1,6 +1,4 @@
 {# src/ESIEA/PlatformBundle/Resources/views/layout.html.twig #}
-{% set page = '' %}
-{% set hashPrefix = page == 'home' ? '' : '/'     %}
 
 {% spaceless %}
 <!DOCTYPE html>
@@ -40,29 +38,31 @@
                   <h2>ESI<span class="blue">EA EATS</span></h2>
                </div>
                <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                  <br></br>
+                  <br>
+                  	{% set page = '' %}
+					{% set hashPrefix = page == 'home' ? '' : '/' %}	
                   <ul class="nav navbar-nav">
 
                      <li class="hidden">
                         <a href="#page-top"></a>
                      </li>
                      <li>
-                        <a href="{{ hashPrefix }}"}>Home</a>
+                        <a href="{{ hashPrefix }}">Home</a>
                      </li>
                      <li>  
-                     	<a href="{{ hashPrefix }}"}>Publier une recette</a>
+                     	<a href="{{ hashPrefix }}">Publier une recette</a>
                      </li>
                      <li>
-                     	<a href="{{ hashPrefix }}"}>À propos</a>
+                     	<a href="{{ hashPrefix }}">À propos</a>
                      </li>
                      <li>
-                        <a href="{{ hashPrefix }}"}>Recette</a>
+                        <a href="{{ hashPrefix }}">Recette</a>
                      </li>
                      <li>
-                     	<a href="{{ hashPrefix }}"}>FAQ</a>
+                     	<a href="{{ hashPrefix }}">FAQ</a>
                      </li>
                      <li>
-                     	<a href="{{ hashPrefix }}"}>Contact</a>
+                     	<a href="{{ hashPrefix }}">Contact</a>
                      </li>
 
                   </ul>
