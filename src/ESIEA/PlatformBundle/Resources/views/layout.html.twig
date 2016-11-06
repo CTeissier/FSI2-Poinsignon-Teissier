@@ -1,4 +1,6 @@
 {# src/ESIEA/PlatformBundle/Resources/views/layout.html.twig #}
+{% set page = '' %}
+{% set hashPrefix = page == 'home' ? '' : '/'     %}
 
 {% spaceless %}
 <!DOCTYPE html>
@@ -19,11 +21,6 @@
       <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
       
       {% endstylesheets %}
-
-{% set page = '' %}
-
-{# liens #}
-
       
       <title>{{ PAGE_TITLE|default('Welcome') }} - ESIEA EATS</title>
       <meta name="robots" content="noindex">
@@ -40,33 +37,34 @@
                   Menu <i class="fa fa-bars"></i>
                   </button>
                   <br></br>
-                  <h2>ESI<span class="blue">EA EATS</span></font></h2>
+                  <h2>ESI<span class="blue">EA EATS</span></h2>
                </div>
-               <div font-size ="20px", class="collapse navbar-collapse navbar-right navbar-main-collapse">
+               <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                   <br></br>
                   <ul class="nav navbar-nav">
+
                      <li class="hidden">
                         <a href="#page-top"></a>
                      </li>
                      <li>
-                        <a href="#intro">Home</a>
+                        <a href="{{ hashPrefix }}"}>Home</a>
                      </li>
-                     <li> <a  href="{{ path('esiea_platform_add') }}">
-                        Publier une recette
-                        </a>
-                     </li>
-                     <li>
-                        <a href="#about">À propos</a>
+                     <li>  
+                     	<a href="{{ hashPrefix }}"}>Publier une recette</a>
                      </li>
                      <li>
-                        <a href="{{ page == 'home' ? '' : '/' }}#recette">Recette</a>
+                     	<a href="{{ hashPrefix }}"}>À propos</a>
                      </li>
                      <li>
-                        <a href="{{ path('esiea_platform_faq') }}">FAQ</a>
+                        <a href="{{ hashPrefix }}"}>Recette</a>
                      </li>
                      <li>
-                        <a href="#contact">Contact</a>
+                     	<a href="{{ hashPrefix }}"}>FAQ</a>
                      </li>
+                     <li>
+                     	<a href="{{ hashPrefix }}"}>Contact</a>
+                     </li>
+
                   </ul>
                </div>
             </div>
