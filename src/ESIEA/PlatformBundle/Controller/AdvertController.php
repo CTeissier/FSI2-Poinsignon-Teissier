@@ -27,7 +27,6 @@ class AdvertController extends Controller
   {
     if ($page < 1) {
      $page = 1;
-     return $this->render('ESIEAPlatformBundle:Advert:add.html.twig');
     }
     
     $nbPerPage = 5;
@@ -97,7 +96,7 @@ class AdvertController extends Controller
       $em = $this->getDoctrine()->getManager();
       $em->persist($advert);
       $em->flush();
-      $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+      $request->getSession()->getFlashBag()->add('notice', 'Recette bien enregistrée.');
       return $this->redirectToRoute('esiea_platform_view', array('id' => $advert->getId()));
     }
     return $this->render('ESIEAPlatformBundle:Advert:add.html.twig', array(

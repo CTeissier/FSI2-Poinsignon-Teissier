@@ -15,7 +15,6 @@ class CoreController extends Controller
   {
     if ($page < 1) {
      $page = 1;
-    return $this->render('ESIEAPlatformBundle:Advert:add.html.twig');
     }
     
     $nbPerPage = 5;
