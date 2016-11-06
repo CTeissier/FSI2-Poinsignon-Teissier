@@ -35,8 +35,8 @@ framework:
 # Twig Configuration
 twig:
     debug:            "%kernel.debug%"
-    strict_variables: "%kernel.debug%"
-    type: boolean default: "%kernel.debug%"
+         strict_variables: "%kernel.debug%"
+    auto_reload: true
 
 # Doctrine Configuration
 doctrine:
