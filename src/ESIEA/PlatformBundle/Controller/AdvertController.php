@@ -10,6 +10,19 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AdvertController extends Controller
 {
+  public function construit_url_paypalAction()
+  {
+    $api_paypal = 'https://api-3t.sandbox.paypal.com/nvp?'; // Site de l'API PayPal. On ajoute déjà le ? afin de concaténer directement les paramètres.
+    $version = 56.0; // Version de l'API
+    
+    $user = 'esieaeats.com'; // Utilisateur API
+    $pass = 'EEADHRPYSINXGDVM'; // Mot de passe API
+    $signature = 'FKjyxmNtVWvHUmDEGgYszvtJlBrAYNbpjxTPeTTp-51ZsmLx6sS3'; // Signature de l'API
+
+    $api_paypal = $api_paypal.'VERSION='.$version.'&USER='.$user.'&PWD='.$pass.'&SIGNATURE='.$signature; // Ajoute tous les paramètres
+    return  $api_paypal; // Renvoie la chaîne contenant tous nos paramètres.
+  }
+
   public function indexAction($page)
   {
     if ($page < 1) {
@@ -35,6 +48,7 @@ class AdvertController extends Controller
       'page'        => $page,
     ));
   }
+
   public function viewAction($id)
   {
     $em = $this->getDoctrine()->getManager();
@@ -48,6 +62,31 @@ class AdvertController extends Controller
     return $this->render('ESIEAPlatformBundle:Advert:view.html.twig', array(
       'advert'           => $advert,
          ));
+  }
+  
+  public function loginAction($page)
+  {
+    $pass_hache = sha1($_POST['pass']);
+
+    // Vérification des identifiants
+    //TO-DO : BDD
+    $req->execute(array(
+        'pseudo' => $pseudo,
+        'pass' => $pass_hache));
+
+    $resultat = $req->fetch();
+
+    if (!$resultat)
+    {
+        echo 'Mauvais identifiant ou mot de passe !';
+    }
+    else
+    {
+        session_start();
+        $_SESSION['id'] = $resultat['id'];
+        $_SESSION['pseudo'] = $pseudo;
+        echo 'Vous êtes connecté !';
+    }
   }
   public function addAction(Request $request)
   {

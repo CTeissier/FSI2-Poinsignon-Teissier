@@ -4,11 +4,9 @@
     <div style="text-align: left">
         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
         {{ form_errors(form) }}
-        {# Génération du label + error + widget pour un champ. #}
         {% if form.date is defined %}
         {{ form_row(form.date) }}
         {% endif %}
-        {# Génération manuelle et éclatée : #}
         <!--Auteur-->    
         <br> 
         {{ form_row(form.author) }}
@@ -46,5 +44,8 @@
             {# Bouton de sauvegarde #}
         </center>
     </div>
+
+
+    
 </html>
 {% endblock %}

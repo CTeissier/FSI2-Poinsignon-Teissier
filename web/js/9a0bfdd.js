@@ -21,7 +21,7 @@ $('.navbar-nav a').click(function(e){
     e.preventDefault();
     $('html, body').stop().animate({
         scrollTop: $(url).offset().top
-    }, 1500);
+    }, 500);
 });
 
 
