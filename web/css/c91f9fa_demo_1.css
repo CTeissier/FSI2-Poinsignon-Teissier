@@ -47,6 +47,18 @@ a:focus {
   text-decoration: none;
   color: #598bdb;
 }
+
+.blue {
+  color: #598bdb;
+}
+.format {
+  margin: 0 0 35px;
+  font-size: 20px;
+  line-height: 1.6;
+}
+.faq-content{
+  text-align: right;
+}
 .light {
   font-weight: 400;
 }
