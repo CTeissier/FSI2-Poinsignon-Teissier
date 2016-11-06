@@ -22,6 +22,7 @@ class AdvertType extends AbstractType
   {
     
     $pattern = 'D%';
+
     $builder
       ->add('date',      DateTimeType::class)
       ->add('title',     TextType::class)
@@ -38,6 +39,12 @@ class AdvertType extends AbstractType
 
         if (null === $advert) {
           return;
+        }
+
+        if (!$advert->getPublished() || null === $advert->getId()) {
+          $event->getForm()->add('published', CheckboxType::class, array('required' => false));
+        } else {
+          $event->getForm()->remove('published');
         }
       }
     );
