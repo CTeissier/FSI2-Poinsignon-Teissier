@@ -29,6 +29,7 @@
                     <p>Nous travaillons avec plusieurs centaines de d'internautes pour vous proposer les meilleurs plats.  Vos cuisiniers préférés cuisinent vos  
                     <a href="#recette">recettes</a> préférés. 
                     <p>Une fois sélectionnée, faites vous livrer vos plats préférés ! </p>
+                    <p>Toutes les recettes sont à <span class="blue"><b>7 €</b></span></p>
 
                     <h3>Vous êtes cuisinier ?</h4>
                     <p>Proposez vos recettes inédites dans la section recette et commencez à gagner de l'argent si on les commandes.
@@ -47,8 +48,7 @@
                            <a href="{{ path('esiea_platform_view', {'id': advert.id}) }}" style="text-align:center">
                               {{ advert.title }}
                            </a>
-                           par {{ advert.author }},
-                           le {{ advert.date|date('d/m/Y') }}
+                           par {{ advert.author }}
                         </p>
                        {% else %}
                            <p>Pas (encore !) d'annonces</p>

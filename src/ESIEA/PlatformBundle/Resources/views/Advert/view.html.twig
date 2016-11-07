@@ -20,8 +20,8 @@
    <p style="text-align: left">Par Chef {{ advert.author }} 
    <br>{{ advert.date|date('d/m/Y') }}</br></p>
 
-   <div class="well" style="background: black">
-     <p> {{ advert.content | nl2br }} </p>
+   <div class="well" style="background: black" >
+     <p style="text-align: center"> {{ advert.content | nl2br }} </p>
    </div>
    <p style="text-align: center">
       <a href="{{ path('esiea_platform_home') }}" class="btn btn-default">
