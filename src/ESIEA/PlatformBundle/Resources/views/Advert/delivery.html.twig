@@ -2,7 +2,9 @@
 {% extends "ESIEAPlatformBundle::layout.html.twig" %}
 
 {% block PAGE_BODY %}
+
 <section id="delivery" class="container content-section text-center" >
+<h3>Vos coordonnées de livraison</h3>
     <div class="container">
     <div class="row">
         <div class="credit-card-div">
@@ -14,7 +16,6 @@
                                 <fieldset>
                                     <!-- Address form -->
                                     <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <h2>Coordonnées de livraison</h2>
                                         <!-- full-name input-->
                                         <div class="control-group">
                                             <label class="control-label">Nom complet</label>
@@ -55,6 +56,16 @@
                                                 <input id="postal-code" name="postal-code" type="text" placeholder="ZIP"
                                                     class="input-xlarge">
                                                 <p class="help-block"></p>
+                                            </div>
+                                        </div>
+                                        <!-- tel input-->
+                                        <div class="control-group">
+                                            <label class="control-label">Téléphone</label>
+                                            <div class="controls">
+                                                <input id="tel-code" name="tel-code" type="text" placeholder="Tel"
+                                                    class="input-xlarge">
+                                                <p class="help-block"></p>
+                                                <br>
                                             </div>
                                         </div>
                                         <!-- country select -->

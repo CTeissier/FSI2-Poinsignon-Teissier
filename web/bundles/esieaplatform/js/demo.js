@@ -19,6 +19,8 @@ $('.navbar-nav a').click(function(e){
     }
    
     e.preventDefault();
+//    window.location.hash = url;
+    history.pushState({}, '', url);
     $('html, body').stop().animate({
         scrollTop: $(url).offset().top
     }, 500);

@@ -4,7 +4,7 @@ body {
   height: 100%;
   font-family: "Open Sans", Verdana, Arial, sans-serif;
   color: white;
-  background-color: black;
+  background-color: #161616;
 }
 html {
   width: 100%;
@@ -194,7 +194,10 @@ a:focus {
 
 .well {
 text-align: center;
+}
 
+.form_format {
+  color: black;
 }
 .btn-circle:hover i.animated {
   -webkit-animation-name: pulse;
