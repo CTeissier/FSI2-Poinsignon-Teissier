@@ -1,46 +1,48 @@
 {# src/ESIEA/PlatformBundle/Resources/views/Advert/form.html.twig #}
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
 
-
-    <div style="text-align: left">
-        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-        {{ form_errors(form) }}
-        {% if form.date is defined %}
-        {{ form_row(form.date) }}
-        {% endif %}
-        <!--Auteur-->    
-        <br> 
-        {{ form_row(form.author) }}
-        </br>
-        <!--Nom de recette-->
-        <div>
-            <br>
-            {{ form_label(form.title, "Nom de votre recette", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-            {{ form_errors(form.title) }}
-            </br>
-        </div>
-        <!--Description de la recette-->
-        <br>
-        {# Génération de l'input. #}
-        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
-        </br>
-        <!-- Contenu de l'annonce-->
-        <br>
-        {{ form_label(form.content, "Décrivez votre recette", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        </br>   
-        {{ form_errors(form.title) }}
-        <br>
-        {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
-        </br>
-        <!--Condition utilisation-->
-        
-            {% if form.published is defined %}
-            {{ form_row(form.published) }}
+<div class="well">
+    <div classe="form_format">
+        <div style="text-align: left">
+            {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+            {{ form_errors(form) }}
+            {% if form.date is defined %}
+            {{ form_row(form.date) }}
             {% endif %}
-            <font color="black">{{ form_row(form.image) }}
-            </font>
-            {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
-            {{ form_rest(form) }}
-            {{ form_end(form) }}
-            {# Bouton de sauvegarde #}
-        
-    </div>
+            <!--Auteur-->    
+            <br> 
+            {{ form_row(form.author) }}
+            </br>
+            <!--Nom de recette-->
+            <div>
+                <br>
+                {{ form_label(form.title, "Nom de votre recette", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                {{ form_errors(form.title) }}
+                </br>
+            </div>
+            <!--Description de la recette-->
+            <br>
+            {# Génération de l'input. #}
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+            </br>
+            <!-- Contenu de l'annonce-->
+            <br>
+            {{ form_label(form.content, "Décrivez votre recette", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            </br>   
+            {{ form_errors(form.title) }}
+            <br>
+            {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+            </br>
+            <!--Condition utilisation-->
+            
+                {% if form.published is defined %}
+                {{ form_row(form.published) }}
+                {% endif %}
+                <font color="black">{{ form_row(form.image) }}
+                </font>
+                {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+                {{ form_rest(form) }}
+                {{ form_end(form) }}
+                {# Bouton de sauvegarde #}
+          </div>
+</div>

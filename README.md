@@ -2,7 +2,7 @@ Projet Web à l’attention de Monsieur GARNIER-CASTELLANE,
 
     Un projet Symfony crée le 19 septembre 2016.
 
-Vous trouverez le site déployé sur le lien suivant :
+Vous trouverez le site déployé sur le lien suivant : www.esiea.superchouette.io
 Veuillez également trouver dans la racine du projet le dossier capture.zip qui contient les captures d’écran certifiant le fonctionnement de notre site web en local.
 
 ## Fonctionnalités

@@ -103,6 +103,7 @@ class AdvertController extends Controller
       'form' => $form->createView(),
     ));
   }
+
   public function editAction($id, Request $request)
   {
     $em = $this->getDoctrine()->getManager();
@@ -121,6 +122,7 @@ class AdvertController extends Controller
       'form'   => $form->createView(),
     ));
   }
+
   public function deleteAction(Request $request, $id)
   {
     $em = $this->getDoctrine()->getManager();
@@ -142,6 +144,7 @@ class AdvertController extends Controller
       'form'   => $form->createView(),
     ));
   }
+
   public function menuAction($limit)
   {
     $em = $this->getDoctrine()->getManager();
@@ -155,4 +158,19 @@ class AdvertController extends Controller
       'listAdverts' => $listAdverts
     ));
   }
+
+  public function newdeliveryAction(Request $request)
+    {
+        $payment = new payment();
+        $form = $this->createForm(new paymentType(), $delivery);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($delivery);
+            $em->flush();
+
+            return $this->redirectToRoute('payment');
+        }
+}
 }
