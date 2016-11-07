@@ -54,3 +54,8 @@ esiea_platform_payment:
     path:     /payment/
     defaults:
         _controller: ESIEAPlatformBundle:Site:payment
+
+esiea_platform_paymentupdate:
+    path:     /paymentupdate/
+    defaults:
+        _controller: ESIEAPlatformBundle:Advert:paymentupdate
