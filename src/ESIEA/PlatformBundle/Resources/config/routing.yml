@@ -50,6 +50,13 @@ esiea_platform_delivery:
     defaults:
         _controller: ESIEAPlatformBundle:Site:delivery
 
+esiea_platform_viewdeliveryupdate:
+    path:     /viewdelivery/{id}
+    defaults:
+        _controller: ESIEAPlatformBundle:Site:viewdelivery
+    requirements:
+        id: \d+
+
 esiea_platform_payment:
     path:     /payment/
     defaults:

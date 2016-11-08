@@ -1,0 +1,43 @@
+{# src/ESIEA/PlatformBundle/Resources/view/Advert/view.html.twig #}
+
+{% extends "ESIEAPlatformBundle::layout.html.twig" %}
+
+{% block PAGE_BODY %}
+<section id="add" class="container content-section text-center" bgcolor="#FF0000" style="text-align: center">
+
+   
+   <div style="float: left; margin-right: 1em;">
+   <!-- Image ici -->
+   
+   </div>
+   <div>
+   <br> <h2>{{ delivery.fullname }}</h2></br>
+   </div>
+   <p style="text-align: left">Par Chef {{ delivery.adresstwo }} 
+
+   <div class="well" style="background: black" >
+     <p style="text-align: center"> {{ delivery.adressone | nl2br }} </p>
+   </div>
+   <p style="text-align: center">
+      <a href="{{ path('esiea_platform_home') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      <br>Retour à la page d'accueil</br>
+      </a>
+
+      <a href="{{ path('esiea_platform_delivery') }}" class="btn btn-primary">
+      <i class="glyphicon glyphicon-cutlery"></i>
+      <br>Faites livrer cette recette chez-vous</br>
+      </a>
+
+      <a href="{{ path('esiea_platform_edit', {'id': delivery.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      <br>Modifier la recette</br>
+      </a>
+      <a href="{{ path('esiea_platform_delete', {'id': delivery.id}) }}" class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+      <br>Supprimer la recette</br>
+      </a>
+
+   </p>
+</section>
+{% endblock %}

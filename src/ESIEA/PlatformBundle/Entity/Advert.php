@@ -2,7 +2,6 @@
 namespace ESIEA\PlatformBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-// N'oubliez pas ce use :
 
 /**
  * @ORM\Table(name="esiea_advert")
