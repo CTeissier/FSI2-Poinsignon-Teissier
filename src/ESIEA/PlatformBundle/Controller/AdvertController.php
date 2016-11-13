@@ -14,12 +14,12 @@ class AdvertController extends Controller
 
   function paypal_paymentAction()
     {
-    $api_paypal = 'https://api-3t.sandbox.paypal.com/nvp?'; // Site de l'API PayPal. On ajoute déjà le ? afin de concaténer directement les paramètres.
-    $version = 56.0; // Version de l'API
-    $user = 'esieaeats.com'; // Utilisateur API
-    $pass = 'EEADHRPYSINXGDVM'; // Mot de passe API
-    $signature = 'FKjyxmNtVWvHUmDEGgYszvtJlBrAYNbpjxTPeTTp-51ZsmLx6sS3'; // Signature de l'API
-    $api_paypal = $api_paypal . 'VERSION=' . $version . '&USER=' . $user . '&PWD=' . $pass . '&SIGNATURE=' . $signature; // Ajoute tous les paramètres
+    $api_paypal = 'https://api-3t.sandbox.paypal.com/nvp?'; 
+    $version = 56.0; 
+    $user = 'esieaeats.com'; 
+    $pass = 'EEADHRPYSINXGDVM';
+    $signature = 'FKjyxmNtVWvHUmDEGgYszvtJlBrAYNbpjxTPeTTp-51ZsmLx6sS3'; 
+    $api_paypal = $api_paypal . 'VERSION=' . $version . '&USER=' . $user . '&PWD=' . $pass . '&SIGNATURE=' . $signature; 
     return $api_paypal; // Renvoie la chaîne contenant tous nos paramètres.
     }
 
@@ -34,8 +34,6 @@ class AdvertController extends Controller
     $nbPerPage = 5;
     $listAdverts = $this->getDoctrine()->getManager()->getRepository('ESIEAPlatformBundle:Advert')->getAdverts($page, $nbPerPage);
     $nbPages = ceil(count($listAdverts) / $nbPerPage);
-
-    // Si la page n'existe pas, on retourne une 404
 
     if ($page > $nbPages)
       {
@@ -176,7 +174,7 @@ class AdvertController extends Controller
     ));
     }
 
-  
+ /* 
   function newdeliveryAction(Request $request)
     {
     $delivery = new delivery();
@@ -199,5 +197,5 @@ class AdvertController extends Controller
     return $this->redirectToRoute('esiea_platform_home');
     }
     return $this->render('ESIEAPlatformBundle:Advert:index.html.twig');  
-    }
+    }*/
   }

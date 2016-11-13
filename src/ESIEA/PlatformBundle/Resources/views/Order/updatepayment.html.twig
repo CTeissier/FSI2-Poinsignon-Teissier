@@ -1,0 +1,14 @@
+{% extends "ESIEAPlatformBundle::layout.html.twig" %}
+
+{% block PAGE_BODY %}
+  <section id="editpayment" class="container content-section text-center" >
+      <h3>Modifier vos informations de paiement</h3>
+      {{ include("ESIEAPlatformBundle:Order:paymentform.html.twig") }}
+      
+  </section>
+  
+  <center>{{ form_widget(paymentform.save, { 'label': 'Voir le récapitulatif de commande' }, {'attr': {'class': 'btn btn-primary'}}) }}</center>
+
+
+
+{% endblock %}

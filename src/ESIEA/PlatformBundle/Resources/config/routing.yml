@@ -1,5 +1,5 @@
 # src/ESIEA/PlatformBundle/Resources/config/routing.yml
-
+#RecetteAction
 esiea_platform_home:
     path:      /{page}
     defaults:
@@ -34,35 +34,64 @@ esiea_platform_delete:
     requirements:
         id: \d+
 
-esiea_platform_header:
-    path:     /header
-    defaults:
-        _controller: ESIEAPlatformBundle:Site:header
+
 
 esiea_platform_faq:
     path:     /faq
     defaults:
-        _controller: ESIEAPlatformBundle:Site:faq
+        _controller: ESIEAPlatformBundle:Order:faq
 
-
+#DeliveryAction
 esiea_platform_delivery:
     path:     /delivery/
     defaults:
-        _controller: ESIEAPlatformBundle:Site:delivery
+        _controller: ESIEAPlatformBundle:Order:delivery
 
-esiea_platform_viewdeliveryupdate:
+esiea_platform_viewdelivery:
     path:     /viewdelivery/{id}
     defaults:
-        _controller: ESIEAPlatformBundle:Site:viewdelivery
+        _controller: ESIEAPlatformBundle:Order:viewdelivery
     requirements:
         id: \d+
 
+esiea_platform_updatedelivery:
+    path:      /updatedelivery/{id}
+    defaults:
+        _controller: ESIEAPlatformBundle:Order:updatedelivery
+    requirements:
+        id: \d+
+
+#PaymentAction
 esiea_platform_payment:
     path:     /payment/
     defaults:
-        _controller: ESIEAPlatformBundle:Site:payment
+        _controller: ESIEAPlatformBundle:Order:payment
 
-esiea_platform_paymentupdate:
-    path:     /paymentupdate/
+esiea_platform_viewpayment:
+    path:      /viewpayment/{id}
     defaults:
-        _controller: ESIEAPlatformBundle:Advert:paymentupdate
+        _controller: ESIEAPlatformBundle:Order:viewpayment
+    requirements:
+        id: \d+
+
+esiea_platform_updatepayment:
+    path:     /updatepayment/{id}
+    defaults:
+        _controller: ESIEAPlatformBundle:Order:updatepayment
+    requirements:
+        id: \d+
+#Récapitulatif de la commande#
+esiea_platform_recap_order:
+    path:     /recap_order/{id}
+#    path:     /recap_order/
+    defaults:
+        _controller: ESIEAPlatformBundle:Order:recap_order
+#   requirements:
+        id: \d+
+
+esiea_platform_order_success:
+    path:      /order_success/{id}
+    defaults:
+        _controller: ESIEAPlatformBundle:Order:ordersuccess
+    requirements:
+        id: \d+

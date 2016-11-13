@@ -1,0 +1,13 @@
+{% extends "ESIEAPlatformBundle::layout.html.twig" %}
+
+{% block PAGE_BODY %}
+  <section id="editdelivery" class="container content-section text-center" >
+      <h3>Modifier vos coordonnées de livraison</h3>
+      {{ include("ESIEAPlatformBundle:Order:deliveryform.html.twig") }}
+      
+  </section>
+ 
+
+  <center>{{ form_widget(deliveryform.save, { 'label': 'SAUVEGARDER' }, {'attr': {'class': 'btn btn-primary'}}) }}</center>
+
+{% endblock %}

@@ -237,4 +237,52 @@ class Delivery
     {
         return $this->published;
     }
+
+    /**
+     * Set image
+     *
+     * @param \ESIEA\PlatformBundle\Entity\Image $image
+     *
+     * @return Delivery
+     */
+    public function setImage(\ESIEA\PlatformBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \ESIEA\PlatformBundle\Entity\Image
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set delivery
+     *
+     * @param \ESIEA\PlatformBundle\Entity\Delivery $delivery
+     *
+     * @return Delivery
+     */
+    public function setDelivery(\ESIEA\PlatformBundle\Entity\Delivery $delivery = null)
+    {
+        $this->delivery = $delivery;
+
+        return $this;
+    }
+
+    /**
+     * Get delivery
+     *
+     * @return \ESIEA\PlatformBundle\Entity\Delivery
+     */
+    public function getDelivery()
+    {
+        return $this->delivery;
+    }
 }

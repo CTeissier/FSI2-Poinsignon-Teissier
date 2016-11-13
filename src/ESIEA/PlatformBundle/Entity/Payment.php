@@ -17,51 +17,30 @@ class Payment
    * @ORM\GeneratedValue(strategy="AUTO")
    */
   private $id;
-
   /**
    * @var string
    *
    * @ORM\Column(name="cardnumber", type="string", length=255)
    */
   private $cardnumber;
-
-
-  /**
-   * @var string
-   *
-   * @ORM\Column(name="zipcode", type="string", length=255)
-   */
-  private $zipcode;
-
-
   /**
    * @var string
    *
    * @ORM\Column(name="cardowner", type="string", length=255)
    */
   private $cardowner;
-
-
   /**
    * @var string
    *
-   * @ORM\Column(name="deliveryname", type="string", length=255)
+   * @ORM\Column(name="expirationdate", type="string", length=255)
    */
-  private $deliveryname;
+  private $expirationdate;
   /**
    * @var string
    *
-   * @ORM\Column(name="address", type="string", length=2550)
+   * @ORM\Column(name="ccv", type="string", length=255)
    */
-  private $address;
-   /**
-   * @var string
-   *
-   * @ORM\Column(name="city", type="string", length=2550)
-   */
-  private $city;
-    
-
+  private $ccv;
 
 
     /**
@@ -99,30 +78,6 @@ class Payment
     }
 
     /**
-     * Set zipcode
-     *
-     * @param string $zipcode
-     *
-     * @return Payment
-     */
-    public function setZipcode($zipcode)
-    {
-        $this->zipcode = $zipcode;
-
-        return $this;
-    }
-
-    /**
-     * Get zipcode
-     *
-     * @return string
-     */
-    public function getZipcode()
-    {
-        return $this->zipcode;
-    }
-
-    /**
      * Set cardowner
      *
      * @param string $cardowner
@@ -147,75 +102,50 @@ class Payment
     }
 
     /**
-     * Set deliveryname
+     * Set expirationdate
      *
-     * @param string $deliveryname
+     * @param string $expirationdate
      *
      * @return Payment
      */
-    public function setDeliveryname($deliveryname)
+    public function setExpirationdate($expirationdate)
     {
-        $this->deliveryname = $deliveryname;
+        $this->expirationdate = $expirationdate;
 
         return $this;
     }
 
     /**
-     * Get deliveryname
+     * Get expirationdate
      *
      * @return string
      */
-    public function getDeliveryname()
+    public function getExpirationdate()
     {
-        return $this->deliveryname;
+        return $this->expirationdate;
     }
 
     /**
-     * Set address
+     * Set ccv
      *
-     * @param string $address
+     * @param string $ccv
      *
      * @return Payment
      */
-    public function setAddress($address)
+    public function setCcv($ccv)
     {
-        $this->address = $address;
+        $this->ccv = $ccv;
 
         return $this;
     }
 
     /**
-     * Get address
+     * Get ccv
      *
      * @return string
      */
-    public function getAddress()
+    public function getCcv()
     {
-        return $this->address;
+        return $this->ccv;
     }
-
-    /**
-     * Set city
-     *
-     * @param string $city
-     *
-     * @return Payment
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
 }

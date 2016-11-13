@@ -1,0 +1,11 @@
+{# src/ESIEA/PlatformBundle/Resources/views/Order/adddelivery.html.twig #}
+{% extends "ESIEAPlatformBundle::layout.html.twig" %}
+
+{% block PAGE_BODY %}
+  <!-- Formulaire -->
+    <section id="adddelivery" class="container content-section text-center" >
+      <h3>Vos coordonnées de livraison</h3>
+          {{ include("ESIEAPlatformBundle:Order:deliveryform.html.twig") }}
+          <center>{{ form_widget(deliveryform.save, { 'label': 'Passer au paiement' }, {'attr': {'class': 'btn btn-primary'}}) }}</center>
+    </section>
+{% endblock %}

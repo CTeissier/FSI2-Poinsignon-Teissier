@@ -1,0 +1,30 @@
+{# src/ESIEA/PlatformBundle/Resources/views/Advert/form.html.twig #}
+{% form_theme paymentform 'bootstrap_3_horizontal_layout.html.twig' %}
+
+<div class="well">
+
+    <div classe="form_format">
+        <font color="#737373">
+
+        <div style="text-align: center">
+
+<div class="progress">
+  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"> 60 %
+  </div>
+</div>
+            {{ form_start(paymentform, {'attr': {'class': 'form-horizontal'}}) }}
+            {{ form_row(paymentform.cardowner, { 'label': 'Nom sur la carte' }) }}
+            {{ form_row(paymentform.cardnumber, { 'label': 'Numéro de carte' }) }}
+            
+             {{ form_row(paymentform.expirationdate, { 'label': 'Date d expiration', 'attr': {'placeholder': 'MM/YY'} }) }}
+
+
+            {{ form_row(paymentform.ccv, { 'label': 'CCV', 'attr': {'placeholder': 'Les trois chiffres derrières votre carte'} }) }}
+            {{ form_errors(paymentform) }}
+
+            {{ form_end(paymentform) }}
+            {# Bouton de sauvegarde #}
+          </div>
+          </font>
+          </div>
+</div>
