@@ -1,14 +1,8 @@
 {# src/ESIEA/PlatformBundle/Resources/view/order/viewpayment.html.twig #}
-  
+
 <h5>Vos informations de paiement</h5>
 
-   <div class="well" >
-     <p>{{ payment.cardnumber}}<br>{{ payment.cardowner}}<br>{{ payment.expirationdate}}<br>{{ payment.ccv | nl2br }}</p>
-
-         <a href="{{ path('esiea_platform_updatepayment', {'id': payment.id}) }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Modifier vos informations de paiement</a>
-
-   </div>
-
-
-
-
+<div class="well" >
+   <p>{{ payment.cardowner}}<br>{{ payment.cardnumber}}<br>{{ payment.expirationdate}}<br>{{ payment.ccv }}</p>
+   <a href="{{ path('esiea_platform_updatepayment', {'id': payment.id}) }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Modifier vos informations de paiement</a>
+</div>

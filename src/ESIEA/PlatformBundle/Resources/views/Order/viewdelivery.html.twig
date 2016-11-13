@@ -1,10 +1,8 @@
 {# src/ESIEA/PlatformBundle/Resources/view/Order/viewdelivery.html.twig #}
+
 <h5>Vos coordonnées de livraison</h5>
-   <div class="well" >
 
-     <p>{{ delivery.fullname }} <br>{{ delivery.adressone }}<br>{{ delivery.adresstwo }}<br>{{ delivery.city }} <br> {{ delivery.zip }} <br> {{ delivery.telephone }}</p>
-     
-         <a href="{{ path('esiea_platform_updatedelivery', {'id': delivery.id}) }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Modifier vos coordonnées de livraison</a>
-   </div>
-
-
+<div class="well" >
+   <p>{{ delivery.fullname }} <br>{{ delivery.adressone }}<br>{{ delivery.adresstwo }}<br>{{ delivery.city }} <br> {{ delivery.zip }} <br> {{ delivery.telephone }}</p>
+   <a href="{{ path('esiea_platform_updatedelivery', {'id': delivery.id}) }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Modifier vos coordonnées de livraison</a>
+</div>

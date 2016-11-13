@@ -3,7 +3,7 @@
 
 {% block PAGE_BODY %}
   <!-- Formulaire -->
-    <section id="add" class="container content-section text-center" >
+    <section id="addpayment" class="container content-section text-center" >
       <h3>Vos informations de paiement</h3>
           {{ include("ESIEAPlatformBundle:Order:paymentform.html.twig") }}
           <center>{{ form_widget(paymentform.save, { 'label': 'Voir le récapitulatif de commande' }, {'attr': {'class': 'btn btn-primary'}}) }}</center>

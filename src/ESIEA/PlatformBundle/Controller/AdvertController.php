@@ -174,28 +174,4 @@ class AdvertController extends Controller
     ));
     }
 
- /* 
-  function newdeliveryAction(Request $request)
-    {
-    $delivery = new delivery();
-    $form = $this->createForm(new paymentType() , $delivery);
-    $form->handleRequest($request);
-    if ($form->isValid())
-      {
-      $em = $this->getDoctrine()->getManager();
-      $em->persist($delivery);
-      $em->flush();
-      return $this->redirectToRoute('delivery');
-      }
-    }
-
-  function paymentupdateAction(Request $request)
-    {
-    if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
-     $request->getSession()->getFlashBag()->add('info', "La recette a bien été supprimée.");
-    
-    return $this->redirectToRoute('esiea_platform_home');
-    }
-    return $this->render('ESIEAPlatformBundle:Advert:index.html.twig');  
-    }*/
   }

@@ -16,21 +16,15 @@
    }
 </style>
 <section id="viewdelivery" class="container content-section text-center">
-
    <font color="#737373">
       <h3>Récapitulatif de la commande</h3>
       <div>
-
       <div id="wrap" class="recapinformation">
       <div id="left_col" class="">
-                 {{ include("ESIEAPlatformBundle:Order:viewdelivery.html.twig") }} 
-
-
-
+         {{ include("ESIEAPlatformBundle:Order:viewdelivery.html.twig") }} 
       </div>
       <div id="right_col" class="">
          {{ include("ESIEAPlatformBundle:Order:viewpayment.html.twig") }}
-
       </div>
 </section>
 <br>
@@ -39,13 +33,9 @@
 <i class="glyphicon glyphicon-chevron-left"></i>
 <br>Annuler la commande
 </a>
-
 <a href="{{ path('esiea_platform_home') }}" class="btn btn-success">
 7.00 € à payer
 <br>Confirmer la commande      </a>
-
-
-
 </p>
 </font>
 {% endblock %}

@@ -15,13 +15,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class OrderController extends Controller
 {
-      public function faqAction()
+    function faqAction()
     {
         return $this->render('ESIEAPlatformBundle:Advert:faq.html.twig');
     }
 
-
-    public function deliveryAction(Request $request)
+    function deliveryAction(Request $request)
     {
             $delivery = new Delivery();
             $deliveryform = $this->get('form.factory')->create(DeliveryType::class , $delivery);
@@ -41,10 +40,8 @@ class OrderController extends Controller
               'deliveryform' => $deliveryform->createView() ,
             ));
     }
-
-
-
-      function viewdeliveryAction($id)
+    
+    function viewdeliveryAction($id)
       {
     $em = $this->getDoctrine()->getManager();
     $delivery = $em->getRepository('ESIEAPlatformBundle:Delivery')->find($id);
@@ -56,9 +53,9 @@ class OrderController extends Controller
     return $this->render('ESIEAPlatformBundle:Order:viewdelivery.html.twig', array(
       'delivery' => $delivery,
     ));
-}
+    }
 
- function updatedeliveryAction($id, Request $request)
+    function updatedeliveryAction($id, Request $request)
     {
     $em = $this->getDoctrine()->getManager();
     $delivery = $em->getRepository('ESIEAPlatformBundle:Delivery')->find($id);
@@ -83,7 +80,7 @@ class OrderController extends Controller
     ));
     }
             
-      function paymentAction(Request $request)
+    function paymentAction(Request $request)
     {
     $Payment = new Payment();
     $paymentform = $this->get('form.factory')->create(PaymentType::class , $Payment);
@@ -104,29 +101,7 @@ class OrderController extends Controller
     ));
     }
 
-    /*{
-    $Payment = new Payment();
-    $paymentform = $this->get('form.factory')->create(PaymentType::class , $Payment);
-
-    if ($request->isMethod('POST') && $paymentform->handleRequest($request)->isValid())
-      {
-      $em = $this->getDoctrine()->getManager();
-      $em->persist($Payment);
-      $em->flush();
-      $request->getSession()->getFlashBag()->add('notice', 'Vos information de paiement ont bien été enregistrées.');
-      return $this->redirectToRoute('esiea_platform_recap_order', array(
-        'id' => $Payment->getId(), 'id' => $Delivery->getId()
-      ));
-      }
-
-    //Formulaire à l'affichage  
-    return $this->render('ESIEAPlatformBundle:Order:addpayment.html.twig', array(
-      'paymentform' => $paymentform->createView() ,
-    ));
-    }*/
-
-
-  function viewpaymentAction($id)
+    function viewpaymentAction($id)
     {
     $em = $this->getDoctrine()->getManager();
     $payment = $em->getRepository('ESIEAPlatformBundle:Payment')->find($id);
@@ -139,11 +114,6 @@ class OrderController extends Controller
       'payment' => $payment,
     ));
     }
-
-
-
-
-
 
      function updatepaymentAction($id, Request $request)
     {
@@ -171,14 +141,11 @@ class OrderController extends Controller
     ));
     }
 
-
-
       function recap_orderAction($id)
     {
     $em = $this->getDoctrine()->getManager();
     $payment = $em->getRepository('ESIEAPlatformBundle:Payment')->find($id);
     $delivery = $em->getRepository('ESIEAPlatformBundle:Delivery')->find($id);
-    //$advert = $em->getRepository('ESIEAPlatformBundle:Advert')->find($id);
     if (null === $payment)
       {
       throw new NotFoundHttpException("Vos informations de paiement d'id " . $id . " n'existent pas.");
@@ -197,7 +164,7 @@ class OrderController extends Controller
     }
 
   //To end order
-  function ordersuccessAction(Request $request, $id)
+    function ordersuccessAction(Request $request, $id)
     {
     $em = $this->getDoctrine()->getManager();
     $payment = $em->getRepository('ESIEAPlatformBundle:payment')->find($id);
@@ -220,11 +187,7 @@ class OrderController extends Controller
       return $this->redirectToRoute('esiea_platform_home');
       }
 
-    /*return $this->render('ESIEAPlatformBundle:payment:delete.html.twig', array(
-      'payment' => $payment,
-      'delivery' => $delivery,
-      'form' => $form->createView() ,
-    ));*/
+   
     return $this->render('ESIEAPlatformBundle:Advert:index.html.twig');
     }
 }

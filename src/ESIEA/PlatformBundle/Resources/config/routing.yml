@@ -9,7 +9,7 @@ esiea_platform_home:
         page: \d*
     
 esiea_platform_view:
-    path:      /advert/{id}
+    path:      /recette/{id}
     defaults:
         _controller: ESIEAPlatformBundle:Advert:view
     requirements:
@@ -83,10 +83,8 @@ esiea_platform_updatepayment:
 #Récapitulatif de la commande#
 esiea_platform_recap_order:
     path:     /recap_order/{id}
-#    path:     /recap_order/
     defaults:
         _controller: ESIEAPlatformBundle:Order:recap_order
-#   requirements:
         id: \d+
 
 esiea_platform_order_success:
