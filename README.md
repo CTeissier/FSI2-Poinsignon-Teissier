@@ -5,7 +5,7 @@ Projet Web à l’attention de Monsieur GARNIER-CASTELLANE,
 Vous trouverez le site déployé sur le lien suivant : www.esiea.superchouette.io
 Veuillez également trouver dans la racine du projet le dossier capture.zip qui contient les captures d’écran certifiant le fonctionnement de notre site web en local.
 
-![ESIEA EATS](http://img4.hostingpics.net/pics/423271toto.jpg)
+![ESIEA EATS](http://img4.hostingpics.net/pics/312913logo.png)
 
 ## Fonctionnalités
 Le site propose aux utilisateurs de proposer leur recette et les cuisiner pour des particuliers en échange d’une commission. Le site ESIEA EATS se chargeant de faire l’intermédiaire et de s’occuper de la logistique via des coursiers rémunérés.  
